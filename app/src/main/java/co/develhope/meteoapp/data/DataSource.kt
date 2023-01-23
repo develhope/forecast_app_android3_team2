@@ -7,7 +7,7 @@ import co.develhope.meteoapp.model.SpecificDayModel
 object DataSource {
 
 
-    private val specificDayList= mutableListOf<SpecificDayModel>(
+    private val specificDayList= mutableListOf(
         SpecificDayModel.SpecificDayTitle(
             "Palermo",
             "Sicilia",
