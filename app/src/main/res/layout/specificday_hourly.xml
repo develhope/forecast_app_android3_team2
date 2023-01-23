@@ -21,14 +21,10 @@
         android:layout_marginTop="18dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:gravity="bottom"
-
-        android:fontFamily="@font/inter"
         android:text="@string/time"
-        android:textColor="@color/black"
-        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/sp_hour" />
 
 
     <ImageView
@@ -52,11 +48,8 @@
         android:layout_marginStart="54dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/inter"
         android:text="@string/temp"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        style="@style/some_id"
+        style="@style/id_sp_hourly"
         app:layout_constraintStart_toEndOf="@id/specificday_type"
         app:layout_constraintTop_toTopOf="parent"  />
 
@@ -73,14 +66,11 @@
         android:drawablePadding="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/inter"
         android:text="@string/umidity"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        style="@style/some_id"
+        style="@style/id_sp_hourly"
         app:layout_constraintStart_toEndOf="@id/specificday_temp"
         app:layout_constraintTop_toTopOf="parent"
-        app:drawableStartCompat="@drawable/sun" />
+        app:drawableStartCompat="@drawable/drop" />
 
     <View
         android:layout_width="match_parent"

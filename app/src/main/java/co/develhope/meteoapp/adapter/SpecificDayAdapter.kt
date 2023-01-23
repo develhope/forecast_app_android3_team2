@@ -29,8 +29,8 @@ class SpecificDayAdapter ( private val context: Int, private val list: List<Spec
         RecyclerView.ViewHolder(title.root) {
 
         fun bind(infoTitle: SpecificDayModel.SpecificDayTitle) {
-            title.titleSp.text = title.root.context.getString(R.string.palermo_sic, infoTitle.citta, infoTitle.regione)
-            title.infoDataSp.text = title.root.context.getString(R.string.oggi_domeni, infoTitle.giorno, infoTitle.data)
+            title.titleSp.text = title.root.context.getString(R.string.city_region, infoTitle.citta, infoTitle.regione)
+            title.infoDateSp.text = title.root.context.getString(R.string.today_details, infoTitle.giorno, infoTitle.data)
         }
     }
 

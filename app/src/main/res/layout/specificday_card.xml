@@ -24,7 +24,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
+            android:padding="18dp"
 
             >
 
@@ -32,12 +32,10 @@
                 android:id="@+id/sp_percepita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/inter"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
                 android:text="@string/sp_percepita"
-                android:textColor="@color/black"
-                android:textSize="15sp"
+                style="@style/body_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,9 +46,7 @@
                 android:layout_marginStart="198dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/sp_UV"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                android:fontFamily="@font/inter"
+                style="@style/body_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -93,9 +89,7 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="84dp"
                 android:text="@string/sp_umidita"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                android:fontFamily="@font/inter"
+                style="@style/body_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -105,10 +99,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="198dp"
                 android:layout_marginTop="84dp"
-                android:fontFamily="@font/inter"
                 android:text="@string/sp_vento"
-                android:textColor="@color/black"
-                android:textSize="15sp"
+                style="@style/body_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -151,9 +143,7 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="153dp"
                 android:text="@string/copertura"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                android:fontFamily="@font/inter"
+                style="@style/body_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -166,9 +156,7 @@
                 android:layout_marginStart="200dp"
                 android:layout_marginTop="153dp"
                 android:text="@string/pioggia"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                android:fontFamily="@font/inter"
+                style="@style/body_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

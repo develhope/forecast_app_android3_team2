@@ -1,14 +1,11 @@
 <resources>
     <string name="app_name">meteoapp</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="time">%s</string>
     <string name="type">type</string>
     <string name="temp">%s</string>
     <string name="umidity">%s</string>
-    <string name="palermo_sic">%s , %s</string>
-    <string name="oggi_domeni">%s , \n%s</string>
-    <string name="some_id">31\u00C2\u00B0</string>
-    <string name="some">0%</string>
+    <string name="city_region">%s , %s</string>
+    <string name="today_details">%s , \n%s</string>
     <string name="sp_percepita">Percepita</string>
 
     <string name="sp_UV">Indice UV</string>
