@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">meteoapp</string>
+    <string name="title_homepage">Palermo, Sicilia</string>
+    <string name="min">min</string>
+    <string name="max">max</string>
+    <string name="oggi">oggi</string>
+    <string name="tempmin">22°</string>
+    <string name="tempmax">31°</string>
+    <string name="data">10/09</string>
+    <string name="numpercip">0%</string>
+    <string name="kmh">12kmh</string>
+    <string name="precip_">precip.</string>
+    <string name="vento">vento</string>
+    <string name="prox5day">prossimi 5 giorni</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

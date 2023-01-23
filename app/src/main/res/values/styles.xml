@@ -1,3 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <style name="title_homepage">
+        <item name="android:textSize">32sp</item>
+        <item name="fontFamily">Inter</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="oggi">
+        <item name="fontFamily">Inter</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">29sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="some_id">
+        <item name="fontFamily">Inter</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="tempMaxnum">
+        <item name="fontFamily">Inter</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+
+    </style>
+    <style name="min">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="max">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="kmh">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="precip_">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+
+    </style>
+    <style name="vento">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
 </resources>

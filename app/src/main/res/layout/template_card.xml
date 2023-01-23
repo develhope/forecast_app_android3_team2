@@ -1,6 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/card"
+        android:layout_width="342dp"
+        android:layout_height="155dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:elevation="4dp"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="24dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/frame_8"
+            android:layout_width="306dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="18dp">
+
+            <TextView
+                android:id="@+id/oggi"
+                android:layout_width="55dp"
+                android:layout_height="29dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                android:gravity="top"
+                android:text="@string/oggi" />
+
+            <TextView
+                android:id="@+id/data"
+                android:layout_width="41dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="30dp"
+                android:gravity="top"
+                android:text="@string/data" />
+
+            <TextView
+                android:id="@+id/tempmin"
+                android:layout_width="35dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="145dp"
+                android:layout_marginTop="0dp"
+                android:gravity="top"
+                android:text="@string/tempmin" />
+
+            <TextView
+                android:id="@+id/tempmax"
+                android:layout_width="32dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="254dp"
+                android:layout_marginTop="0dp"
+                android:gravity="top"
+                android:text="@string/tempmax" />
+
+            <TextView
+                android:id="@+id/max"
+                android:layout_width="28dp"
+                android:layout_height="17dp"
+                android:layout_marginLeft="254dp"
+                android:layout_marginTop="28dp"
+                android:gravity="top"
+                android:text="@string/max" />
+
+            <TextView
+                android:id="@+id/min"
+                android:layout_width="26dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="145dp"
+                android:layout_marginTop="28dp"
+                android:gravity="top"
+                android:text="@string/min" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+            android:id="@+id/frame_9"
+            android:layout_width="306dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="88dp">
+
+            <TextView
+                android:id="@+id/kmh"
+                android:layout_width="54dp"
+                android:layout_height="24dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="261dp"
+                android:layout_marginTop="1dp"
+                android:gravity="top"
+                android:text="@string/kmh" />
+
+            <TextView
+                android:id="@+id/vento"
+                android:layout_width="40dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="261dp"
+                android:layout_marginTop="27dp"
+                android:gravity="top"
+                android:text="@string/vento" />
+
+            <TextView
+                android:id="@+id/numperecip"
+                android:layout_width="26dp"
+                android:layout_height="24dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="152dp"
+                android:layout_marginTop="0dp"
+                android:gravity="top"
+                android:text="@string/numpercip" />
+
+            <TextView
+                android:id="@+id/precip_"
+                android:layout_width="49dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="152dp"
+                android:layout_marginTop="27dp"
+                android:gravity="top"
+                android:text="@string/precip_" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="46dp"
+                android:layout_height="47.5dp"
+                tools:srcCompat="@tools:sample/avatars" />
+
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import co.develhope.meteoapp.databinding.ActivityMainBinding
+import co.develhope.meteoapp.homepage.HomePage
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding :ActivityMainBinding
