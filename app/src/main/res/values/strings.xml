@@ -1,5 +1,25 @@
 <resources>
     <string name="app_name">meteoapp</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="time">%s</string>
+    <string name="type">type</string>
+    <string name="temp">%s</string>
+    <string name="umidity">%s</string>
+    <string name="palermo_sic">%s , %s</string>
+    <string name="oggi_domeni">%s , \n%s</string>
+    <string name="some_id">31\u00C2\u00B0</string>
+    <string name="some">0%</string>
+    <string name="sp_percepita">Percepita</string>
+
+    <string name="sp_UV">Indice UV</string>
+    <string name="gradi">%s</string>
+    <string name="UVnumeri">%s</string>
+    <string name="sp_umidita">Umidità</string>
+    <string name="sp_vento">Vento</string>
+    <string name="sp_perc_umidita">%s</string>
+    <string name="velocita_vento">%s</string>
+    <string name="copertura">Copertura</string>
+    <string name="pioggia">Pioggia</string>
+    <string name="perc_copertura">%s</string>
+    <string name="pioggia_cm">%s</string>
 </resources>

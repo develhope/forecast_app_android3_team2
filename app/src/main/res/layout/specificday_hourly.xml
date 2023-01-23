@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/day_hourly_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    >
+
+
+    <TextView
+        android:id="@+id/specificDay_time"
+        android:layout_width="37dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="bottom"
+
+        android:fontFamily="@font/inter"
+        android:text="@string/time"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/specificday_type"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/type"
+        android:src="@drawable/sun"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/specificDay_time"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+
+    <TextView
+        android:id="@+id/specificday_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/inter"
+        android:text="@string/temp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        style="@style/some_id"
+        app:layout_constraintStart_toEndOf="@id/specificday_type"
+        app:layout_constraintTop_toTopOf="parent"  />
+
+
+
+    <TextView
+        android:id="@+id/specificday_umidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="70dp"
+        android:gravity="top"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/inter"
+        android:text="@string/umidity"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        style="@style/some_id"
+        app:layout_constraintStart_toEndOf="@id/specificday_temp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:drawableStartCompat="@drawable/sun" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="20dp"
+        android:background="#ABA4FF"
+        app:layout_constraintTop_toBottomOf="@id/specificday_temp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
