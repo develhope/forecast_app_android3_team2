@@ -51,7 +51,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/sp_gradi"
+                android:id="@+id/sp_dato_percepita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
@@ -62,7 +62,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/sp_UVdato"
+                android:id="@+id/sp_dato_uv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="198dp"
@@ -105,7 +105,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/sp_perc_umidita"
+                android:id="@+id/sp_dato_umidita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
@@ -116,7 +116,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/sp_velocita_vento"
+                android:id="@+id/sp_dato_vento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="198dp"
@@ -161,7 +161,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/sp_perc_copertura"
+                android:id="@+id/sp_dato_copertura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
@@ -172,7 +172,7 @@
                 style="@style/style_dato" />
 
             <TextView
-                android:id="@+id/sp_pioggia_cm"
+                android:id="@+id/sp_dato_pioggia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="200dp"

@@ -29,8 +29,8 @@ class SpecificDayAdapter ( private val context: Int, private val list: List<Spec
         RecyclerView.ViewHolder(title.root) {
 
         fun bind(infoTitle: SpecificDayModel.SpecificDayTitle) {
-            title.titleSp.text = title.root.context.getString(R.string.city_region, infoTitle.city, infoTitle.region)
-            title.infoDateSp.text = title.root.context.getString(R.string.today_details, infoTitle.day, infoTitle.date)
+            title.titleSpecialDay.text = title.root.context.getString(R.string.city_region, infoTitle.city, infoTitle.region)
+            title.infoDateSpecialDay.text = title.root.context.getString(R.string.today_details, infoTitle.day, infoTitle.date)
         }
     }
 
@@ -39,12 +39,12 @@ class SpecificDayAdapter ( private val context: Int, private val list: List<Spec
         RecyclerView.ViewHolder(card.root) {
 
         fun bind(infoCard: SpecificDayModel.SpecificDayCard) {
-            card.spGradi.text = card.root.context.getString(R.string.DatoPercepita, infoCard.percepita)
-            card.spUVdato.text = card.root.context.getString(R.string.DatoUv, infoCard.uv)
-            card.spPercUmidita.text = card.root.context.getString(R.string.DatoUmidita, infoCard.umidita)
-            card.spPercCopertura.text = card.root.context.getString(R.string.DatoCopertura, infoCard.copertura)
-            card.spPioggiaCm.text = card.root.context.getString(R.string.DatoPioggia, infoCard.pioggia)
-            card.spVelocitaVento.text = card.root.context.getString(R.string.DatoVento, infoCard.vento)
+            card.spDatoPercepita.text = card.root.context.getString(R.string.DatoPercepita, infoCard.percepita)
+            card.spDatoUv.text = card.root.context.getString(R.string.DatoUv, infoCard.uv)
+            card.spDatoUmidita.text = card.root.context.getString(R.string.DatoUmidita, infoCard.umidita)
+            card.spDatoCopertura.text = card.root.context.getString(R.string.DatoCopertura, infoCard.copertura)
+            card.spDatoPioggia.text = card.root.context.getString(R.string.DatoPioggia, infoCard.pioggia)
+            card.spDatoVento.text = card.root.context.getString(R.string.DatoVento, infoCard.vento)
 
         }
     }
