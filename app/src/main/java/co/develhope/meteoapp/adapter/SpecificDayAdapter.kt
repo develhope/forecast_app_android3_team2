@@ -17,9 +17,9 @@ class SpecificDayAdapter ( private val context: Int, private val list: List<Spec
 
     override fun getItemViewType(position: Int): Int {
         return when (list[position]) {
-            is SpecificDayModel.SpecificDayTitle -> SpecificDayAdapter.TITLE
-            is SpecificDayModel.SpecificDayCard -> SpecificDayAdapter.CARD
-            is SpecificDayModel.SpecificDayHourly -> SpecificDayAdapter.HOURLY
+            is SpecificDayModel.SpecificDayTitle -> TITLE
+            is SpecificDayModel.SpecificDayCard -> CARD
+            is SpecificDayModel.SpecificDayHourly -> HOURLY
 
         }
     }
