@@ -4,51 +4,86 @@
     <style name="title_homepage">
         <item name="android:textSize">32sp</item>
         <item name="fontFamily">Inter</item>
+        <item name="lineHeight">39sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
-    <style name="oggi">
+    <style name="day">
         <item name="fontFamily">Inter</item>
         <item name="android:textSize">24sp</item>
         <item name="lineHeight">29sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
-    <style name="some_id">
+    <style name="data">
         <item name="fontFamily">Inter</item>
         <item name="android:textSize">15sp</item>
+        <item name="lineHeight">18sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
-    <style name="tempMaxnum">
+    <style name="tempminnum">
         <item name="fontFamily">Inter</item>
         <item name="android:textSize">20sp</item>
         <item name="lineHeight">24sp</item>
         <item name="android:textColor">#FFFFFF</item>
-
     </style>
+
+    <style name="tempmaxnum">
+        <item name="fontFamily">Inter</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
     <style name="min">
         <item name="android:textSize">15sp</item>
+        <item name="lineHeight">18sp</item>
+        <item name="fontFamily">Inter</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="max">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="lineHeight">18sp</item>
+        <item name="fontFamily">Inter</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="kmh">
         <item name="android:textSize">20sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="fontFamily">Inter</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="umidity">
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="fontFamily">Inter</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="precip_">
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">#FFFFFF</item>
+        <item name="lineHeight">18sp</item>
+        <item name="fontFamily">Inter</item>
 
     </style>
     <style name="vento">
         <item name="android:textSize">15sp</item>
+        <item name="lineHeight">18sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="fontFamily">Inter</item>
+    </style>
+
+    <style name="prossimi_5_">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">Inter</item>
+        <item name="lineHeight">19sp</item>
+        <item name="android:letterSpacing">0.07</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
+
 </resources>

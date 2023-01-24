@@ -17,6 +17,7 @@ class HomePage : Fragment() {
     private lateinit var binding: FragmentHomepageBinding
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,9 +27,8 @@ class HomePage : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        binding= FragmentHomepageBinding.inflate(inflater,container,false)
-        val view = binding.root
-        return view
+        binding = FragmentHomepageBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,4 +45,8 @@ class HomePage : Fragment() {
         binding.RVhome.layoutManager = LinearLayoutManager(view.context)
         }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding
+    }
 }
