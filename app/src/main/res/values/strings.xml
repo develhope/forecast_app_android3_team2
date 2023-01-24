@@ -9,14 +9,14 @@
     <string name="sp_percepita">Percepita</string>
 
     <string name="sp_UV">Indice UV</string>
-    <string name="gradi">%s</string>
-    <string name="UVnumeri">%s</string>
+    <string name="DatoPercepita">%s</string>
+    <string name="DatoUv">%s</string>
     <string name="sp_umidita">Umidità</string>
     <string name="sp_vento">Vento</string>
-    <string name="sp_perc_umidita">%s</string>
-    <string name="velocita_vento">%s</string>
+    <string name="DatoUmidita">%s</string>
+    <string name="DatoVento">%s</string>
     <string name="copertura">Copertura</string>
     <string name="pioggia">Pioggia</string>
-    <string name="perc_copertura">%s</string>
-    <string name="pioggia_cm">%s</string>
+    <string name="DatoCopertura">%s</string>
+    <string name="DatoPioggia">%s</string>
 </resources>

@@ -40,7 +40,7 @@ class SpecificDayAdapter ( private val context: Int, private val list: List<Spec
 
         fun bind(infoCard: SpecificDayModel.SpecificDayCard) {
             card.spGradi.text = card.root.context.getString(R.string.gradi, infoCard.percepita)
-            card.spUVdato.text = card.root.context.getString(R.string.UVnumeri, infoCard.uv)
+            card.spUVdato.text = card.root.context.getString(R.string.DatoUv, infoCard.uv)
             card.spPercUmidita.text = card.root.context.getString(R.string.sp_perc_umidita, infoCard.umidita)
             card.spPercCopertura.text = card.root.context.getString(R.string.perc_copertura, infoCard.copertura)
             card.spPioggiaCm.text = card.root.context.getString(R.string.pioggia_cm, infoCard.pioggia)

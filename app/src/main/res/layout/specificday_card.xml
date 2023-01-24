@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="37dp"
-                android:text="@string/gradi"
+                android:text="@string/DatoPercepita"
                 style="@style/style_dato"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="198dp"
                 android:layout_marginTop="37dp"
-                android:text="@string/UVnumeri"
+                android:text="@string/DatoUv"
                 style="@style/style_dato"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="106dp"
-                android:text="@string/sp_perc_umidita"
+                android:text="@string/DatoUmidita"
                 style="@style/style_dato"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -121,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="198dp"
                 android:layout_marginTop="106dp"
-                android:text="@string/velocita_vento"
+                android:text="@string/DatoVento"
                 style="@style/style_dato"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -166,7 +166,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="175dp"
-                android:text="@string/perc_copertura"
+                android:text="@string/DatoCopertura"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 style="@style/style_dato" />
@@ -177,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="200dp"
                 android:layout_marginTop="175dp"
-                android:text="@string/pioggia_cm"
+                android:text="@string/DatoPioggia"
                 style="@style/style_dato"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
