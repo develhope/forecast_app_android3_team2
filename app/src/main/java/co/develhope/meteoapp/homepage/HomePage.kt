@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
-import co.develhope.meteoapp.homepage.adapter.HomePageAdapter
-import co.develhope.meteoapp.homepage.adapter.HomePageAdapter.Companion.TYPE_CARD
-import co.develhope.meteoapp.homepage.adapter.HomePageAdapter.Companion.TYPE_CURRENTCITY
-import co.develhope.meteoapp.homepage.adapter.HomePageAdapter.Companion.TYPE_PROX5DAY
-import co.develhope.meteoapp.homepage.model.DataItem.loadData
+import co.develhope.meteoapp.homepage.Adapter.HomePageAdapter
+import co.develhope.meteoapp.homepage.Adapter.HomePageAdapter.Companion.TYPE_CARD
+import co.develhope.meteoapp.homepage.Adapter.HomePageAdapter.Companion.TYPE_CURRENTCITY
+import co.develhope.meteoapp.homepage.Adapter.HomePageAdapter.Companion.TYPE_PROX5DAY
+import co.develhope.meteoapp.homepage.Data.DataItem.loadData
 
 class HomePage : Fragment() {
     private lateinit var binding: FragmentHomepageBinding

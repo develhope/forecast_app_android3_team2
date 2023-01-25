@@ -1,9 +1,9 @@
-package co.develhope.meteoapp.homepage.model
+package co.develhope.meteoapp.homepage.Model
 
 data class HourlyForecast(
     val day: String,
     val data: String,
-    val type: WheatherType,
+    val type: WeatherType,
     val tempMin: Int,
     val tempMax: Int,
     val umidity: Int,

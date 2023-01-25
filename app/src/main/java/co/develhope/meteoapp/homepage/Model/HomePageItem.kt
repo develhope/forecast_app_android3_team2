@@ -1,10 +1,10 @@
-package co.develhope.meteoapp.homepage.model
+package co.develhope.meteoapp.homepage.Model
 
 sealed class HomePageItem {
     data class CardItem(
         val day: String,
         val data: String,
-        val type: co.develhope.meteoapp.homepage.model.WheatherType,
+        val type: WeatherType,
         val tempMin: String,
         val tempMax: String,
         val umidity: String,

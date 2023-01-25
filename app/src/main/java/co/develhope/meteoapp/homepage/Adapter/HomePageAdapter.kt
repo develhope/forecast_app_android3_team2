@@ -1,4 +1,4 @@
-package co.develhope.meteoapp.homepage.adapter
+package co.develhope.meteoapp.homepage.Adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,9 +7,8 @@ import co.develhope.meteoapp.R
 import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
-import co.develhope.meteoapp.homepage.model.DataItem
-import co.develhope.meteoapp.homepage.model.HomePageItem
-import co.develhope.meteoapp.homepage.model.WheatherType
+import co.develhope.meteoapp.homepage.Data.DataItem
+import co.develhope.meteoapp.homepage.Model.HomePageItem
 
 class HomePageAdapter(
     private val context: Int,
@@ -68,7 +67,7 @@ class HomePageAdapter(
             binding.tempmax.text =binding.root.context.getString(R.string.tempmax,cardItem.tempMax)
             binding.kmh.text =binding.root.context.getString(R.string.kmh,cardItem.kmh)
             binding.numperecip.text =binding.root.context.getString(R.string.numpercip,cardItem.umidity)
-            binding.imageWheather.setImageResource(DataItem.setIconWheather(cardItem.type))
+            binding.imageWheather.setImageResource(DataItem.setIconWeather(cardItem.type))
         }
     }
 

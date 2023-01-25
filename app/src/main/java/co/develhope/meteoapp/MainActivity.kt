@@ -3,6 +3,7 @@ package co.develhope.meteoapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import co.develhope.meteoapp.SearchPage.Search
 import co.develhope.meteoapp.databinding.ActivityMainBinding
 import co.develhope.meteoapp.homepage.HomePage
 
