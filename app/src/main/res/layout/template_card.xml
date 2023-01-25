@@ -3,102 +3,99 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="190dp"
+    android:layout_height="@dimen/height_190_dp"
     >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
-        android:layout_width="342dp"
-        android:layout_height="155dp"
+        android:layout_width="@dimen/width_342dp"
+        android:layout_height="@dimen/height_155_dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="18dp"
-        android:elevation="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="10dp"
+        android:layout_marginStart="@dimen/margin_24_dp"
+        android:layout_marginTop="@dimen/margin_18_dp"
         app:cardBackgroundColor="@color/alpha"
-        >
+        app:cardCornerRadius="@dimen/corner_radius_10_dp"
+        app:cardElevation="@dimen/elevation_10_dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:id="@+id/frame_8"
-            android:layout_width="306dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="18dp"
-            app:cardBackgroundColor="@color/alpha">
+            android:layout_width="@dimen/width_306dp"
+            android:layout_height="@dimen/height_48_dp"
+            android:layout_marginLeft="@dimen/margin_18_dp"
+            android:layout_marginTop="@dimen/margin_18_dp"
+            >
 
             <TextView
                 android:id="@+id/day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginLeft="@dimen/margin_1_dp"
+                android:layout_marginTop="@dimen/margin_1_dp"
                 android:gravity="top"
                 android:text="@string/oggi"
-                android:textAppearance="@style/day"
-                />
+                android:textAppearance="@style/day" />
 
             <TextView
                 android:id="@+id/data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginLeft="@dimen/margin_1_dp"
+                android:layout_marginTop="@dimen/margin_30_dp"
                 android:gravity="top"
                 android:text="@string/data"
-                android:textAppearance="@style/data"/>
+                android:textAppearance="@style/data" />
 
             <TextView
                 android:id="@+id/tempmin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="145dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginLeft="@dimen/margin_145_dp"
+                android:layout_marginTop="@dimen/margin_1_dp"
                 android:gravity="top"
                 android:text="@string/tempmin"
-                android:textAppearance="@style/tempminnum"/>
+                android:textAppearance="@style/tempminnum" />
 
             <TextView
                 android:id="@+id/tempmax"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="254dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginLeft="@dimen/margin_245_dp"
+                android:layout_marginTop="@dimen/margin_1_dp"
                 android:gravity="top"
                 android:text="@string/tempmax"
-                android:textAppearance="@style/tempmaxnum"/>
+                android:textAppearance="@style/tempmaxnum" />
 
             <TextView
                 android:id="@+id/max"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="254dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginLeft="@dimen/margin_245_dp"
+                android:layout_marginTop="@dimen/margin_28_dp"
                 android:gravity="top"
                 android:text="@string/max"
-                android:textAppearance="@style/max"/>
+                android:textAppearance="@style/max" />
 
             <TextView
                 android:id="@+id/min"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="145dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginLeft="@dimen/margin_145_dp"
+                android:layout_marginTop="@dimen/margin_28_dp"
                 android:gravity="top"
                 android:text="@string/min"
-                android:textAppearance="@style/min"/>
+                android:textAppearance="@style/min" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/frame_9"
-            android:layout_width="306dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="88dp"
-            app:cardBackgroundColor="@color/alpha">
+            android:layout_width="@dimen/width_306dp"
+            android:layout_height="@dimen/height_48_dp"
+            android:layout_marginLeft="@dimen/margin_18_dp"
+            android:layout_marginTop="@dimen/margin_88_dp"
+            >
 
             <TextView
                 android:id="@+id/kmh"
@@ -106,11 +103,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="261dp"
-                android:layout_marginTop="1dp"
+                android:layout_marginLeft="@dimen/margin_240_dp"
+                android:layout_marginTop="@dimen/margin_1_dp"
                 android:gravity="top"
                 android:text="@string/kmh"
-                android:textAppearance="@style/kmh"/>
+                android:textAppearance="@style/kmh" />
 
             <TextView
                 android:id="@+id/vento"
@@ -118,11 +115,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="261dp"
-                android:layout_marginTop="27dp"
+                android:layout_marginLeft="@dimen/margin_245_dp"
+                android:layout_marginTop="@dimen/margin_26_dp"
                 android:gravity="top"
                 android:text="@string/vento"
-                android:textAppearance="@style/vento"/>
+                android:textAppearance="@style/vento" />
 
             <TextView
                 android:id="@+id/numperecip"
@@ -130,11 +127,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="152dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginLeft="@dimen/margin_145_dp"
+                android:layout_marginTop="@dimen/margin_1_dp"
                 android:gravity="top"
                 android:text="@string/numpercip"
-                android:textAppearance="@style/umidity"/>
+                android:textAppearance="@style/umidity" />
 
             <TextView
                 android:id="@+id/precip_"
@@ -142,16 +139,17 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="152dp"
-                android:layout_marginTop="27dp"
+                android:layout_marginLeft="@dimen/margin_145_dp"
+                android:layout_marginTop="@dimen/margin_28_dp"
                 android:gravity="top"
                 android:text="@string/precip_"
-                android:textAppearance="@style/precip_"/>
+                android:textAppearance="@style/precip_" />
 
             <ImageView
                 android:id="@+id/image_wheather"
-                android:layout_width="46dp"
-                android:layout_height="47.5dp"
+                android:layout_width="@dimen/height_48_dp"
+                android:layout_height="@dimen/height_48_dp"
+                android:layout_marginStart="@dimen/margin_10_dp"
                 tools:srcCompat="@tools:sample/avatars" />
 
         </RelativeLayout>

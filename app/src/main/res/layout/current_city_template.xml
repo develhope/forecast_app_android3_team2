@@ -8,10 +8,9 @@
         android:id="@+id/current_city_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginStart="@dimen/margin_24_dp"
+        android:layout_marginTop="@dimen/margin_24_dp"
         android:text="@string/title_homepage"
-        android:textSize="23sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textAppearance="@style/title_homepage"/>
