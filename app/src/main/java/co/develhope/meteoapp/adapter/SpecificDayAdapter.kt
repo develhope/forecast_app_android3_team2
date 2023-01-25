@@ -34,7 +34,6 @@ class SpecificDayAdapter ( private val context: Int, private val list: List<Spec
         }
     }
 
-
     class CardViewHolder(private val card: SpecificdayCardBinding) :
         RecyclerView.ViewHolder(card.root) {
 

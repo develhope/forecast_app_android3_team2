@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_24_dp">24dp</dimen>
+    <dimen name="margin_61_dp">61dp</dimen>
+    <dimen name="margin_81_dp">81dp</dimen>
+    <dimen name="margin_18_dp">18dp</dimen>
+    <dimen name="margin_175_dp">175dp</dimen>
+    <dimen name="margin_198_dp">198dp</dimen>
+    <dimen name="margin_37_dp">37dp</dimen>
+    <dimen name="margin_20_dp">20dp</dimen>
+    <dimen name="margin_70_dp">70dp</dimen>
+    <dimen name="margin_18.5_dp">18.5dp</dimen>
+    <dimen name="margin_84_dp">84dp</dimen>
+    <dimen name="margin_106_dp">106dp</dimen>
+    <dimen name="margin_50_dp">50dp</dimen>
+    <dimen name="margin_153_dp">153dp</dimen>
+    <dimen name="margin_200_dp">200dp</dimen>
+    <dimen name="margin_10_dp">10dp</dimen>
+    <dimen name="elevation_10_dp">10dp</dimen>
+    <dimen name="corner_radius_8_dp">8dp</dimen>
+    <dimen name="height_300_dp">300dp</dimen>
+    <dimen name="padding_25_dp">25dp</dimen>
+    <dimen name="padding_15_dp">15dp</dimen>
+    <dimen name="height_1_dp">1dp</dimen>
+    <dimen name="margin_41.2_dp">41.2dp</dimen>
+    <dimen name="margin_52.69_dp">52.69dp</dimen>
+    <dimen name="drawablePadding_10_dp">10dp</dimen>
+    <dimen name="margin_14_dp">14dp</dimen>
+
+
+</resources>
