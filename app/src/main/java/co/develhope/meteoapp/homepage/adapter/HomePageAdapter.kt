@@ -7,7 +7,9 @@ import co.develhope.meteoapp.R
 import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
+import co.develhope.meteoapp.homepage.model.DataItem
 import co.develhope.meteoapp.homepage.model.HomePageItem
+import co.develhope.meteoapp.homepage.model.WheatherType
 
 class HomePageAdapter(
     private val context: Int,
@@ -53,7 +55,7 @@ class HomePageAdapter(
             is HomePageItem.CardItem -> TYPE_CARD
             is HomePageItem.CurrentCity -> TYPE_CURRENTCITY
             is HomePageItem.SubTitle -> TYPE_PROX5DAY
-
+            is HomePageItem.WheatherType -> TODO()
         }
     }
 
@@ -66,7 +68,7 @@ class HomePageAdapter(
             binding.tempmax.text =binding.root.context.getString(R.string.tempmax,cardItem.tempMax)
             binding.kmh.text =binding.root.context.getString(R.string.kmh,cardItem.kmh)
             binding.numperecip.text =binding.root.context.getString(R.string.numpercip,cardItem.umidity)
-            binding.imageWheather.setImageResource(R.drawable.sun)
+            binding.imageWheather.setImageResource(DataItem.setIconWheather(cardItem.type))
         }
     }
 
@@ -85,8 +87,8 @@ class HomePageAdapter(
     }
 
     companion object{
-        val TYPE_CARD=0
-        val TYPE_CURRENTCITY=1
-        val TYPE_PROX5DAY=2
+        val TYPE_CARD = 0
+        val TYPE_CURRENTCITY = 1
+        val TYPE_PROX5DAY = 2
     }
 }

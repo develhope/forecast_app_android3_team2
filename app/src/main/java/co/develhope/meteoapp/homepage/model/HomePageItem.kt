@@ -4,11 +4,11 @@ sealed class HomePageItem {
     data class CardItem(
         val day: String,
         val data: String,
-        val type: WheatherType,
-        val tempMin: Int,
-        val tempMax: Int,
-        val umidity: Int,
-        val kmh: Int
+        val type: co.develhope.meteoapp.homepage.model.WheatherType,
+        val tempMin: String,
+        val tempMax: String,
+        val umidity: String,
+        val kmh: String
         ):HomePageItem()
 
     data class CurrentCity(
@@ -17,5 +17,7 @@ sealed class HomePageItem {
         ):HomePageItem()
 
     data class SubTitle(val string: String):HomePageItem()
+
+    data class WheatherType (val type: Int):HomePageItem()
 }
 

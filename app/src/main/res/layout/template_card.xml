@@ -27,7 +27,8 @@
             android:layout_width="306dp"
             android:layout_height="48dp"
             android:layout_marginLeft="18dp"
-            android:layout_marginTop="18dp">
+            android:layout_marginTop="18dp"
+            app:cardBackgroundColor="@color/alpha">
 
             <TextView
                 android:id="@+id/day"
@@ -37,7 +38,8 @@
                 android:layout_marginTop="0dp"
                 android:gravity="top"
                 android:text="@string/oggi"
-                android:textAppearance="@style/day"/>
+                android:textAppearance="@style/day"
+                />
 
             <TextView
                 android:id="@+id/data"
@@ -95,7 +97,8 @@
             android:layout_width="306dp"
             android:layout_height="48dp"
             android:layout_marginLeft="18dp"
-            android:layout_marginTop="88dp">
+            android:layout_marginTop="88dp"
+            app:cardBackgroundColor="@color/alpha">
 
             <TextView
                 android:id="@+id/kmh"

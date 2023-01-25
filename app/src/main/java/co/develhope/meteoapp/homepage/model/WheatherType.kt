@@ -1,3 +1,6 @@
 package co.develhope.meteoapp.homepage.model
 
-data class WheatherType(val Type: Int)
+enum class WheatherType {
+    SUN, SUN_CLOUD, RAIN
+}
+
