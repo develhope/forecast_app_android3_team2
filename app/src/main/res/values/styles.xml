@@ -86,4 +86,33 @@
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
+    <style name="city_search">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="fontFamily">Inter</item>
+        <item name="lineHeight">22sp</item>
+    </style>
+
+    <style name="temp_search">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="fontFamily">Inter</item>
+        <item name="lineHeight">22sp</item>
+    </style>
+
+    <style name="weathertype_search">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="fontFamily">Inter</item>
+        <item name="lineHeight">12sp</item>
+    </style>
+
+    <style name="ricerche_recenti">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#230EA5</item>
+        <item name="fontFamily">Inter</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+
 </resources>

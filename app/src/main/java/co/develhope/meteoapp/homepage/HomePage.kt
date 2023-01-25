@@ -16,8 +16,6 @@ import co.develhope.meteoapp.homepage.Data.DataItem.loadData
 class HomePage : Fragment() {
     private lateinit var binding: FragmentHomepageBinding
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

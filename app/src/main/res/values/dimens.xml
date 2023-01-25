@@ -11,13 +11,18 @@
     <dimen name="margin_30_dp">30dp</dimen>
     <dimen name="margin_1_dp">1dp</dimen>
     <dimen name="margin_10_dp">10dp</dimen>
+    <dimen name="margin_16_dp">16dp</dimen>
+    <dimen name="margin_22_dp">22dp</dimen>
 
     <dimen name="height_48_dp">48dp</dimen>
     <dimen name="height_190_dp">190dp</dimen>
     <dimen name="height_155_dp">155dp</dimen>
+    <dimen name="height_66_dp">66dp</dimen>
 
     <dimen name="width_306dp">306dp</dimen>
     <dimen name="width_342dp">342dp</dimen>
+    <dimen name="widht_354_dp">354dp</dimen>
+
     <dimen name="corner_radius_10_dp">10dp</dimen>
     <dimen name="elevation_10_dp">10dp</dimen>
 
