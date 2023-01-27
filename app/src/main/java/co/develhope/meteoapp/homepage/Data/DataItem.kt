@@ -3,6 +3,14 @@ package co.develhope.meteoapp.homepage.Data
 import co.develhope.meteoapp.R
 import co.develhope.meteoapp.homepage.Model.HomePageItem
 import co.develhope.meteoapp.homepage.Model.WeatherType
+import java.util.Date
+
+data class DailyForecast(
+    val date: Date,
+    val weather: WeatherType,
+    val wind: Int,
+    val rain: Int
+)
 
 object DataItem {
 
@@ -30,4 +38,16 @@ object DataItem {
     fun loadData():List<HomePageItem> {
         return listClass
     }
+
+    private val dailyForecastList =  listOf<DailyForecast>(
+        DailyForecast(
+            date =Date(),
+            weather = WeatherType.SUN,
+            wind = 10,
+            rain = 2
+        )
+    )
+
+
+    fun getDailyForecast() : List<DailyForecast> = dailyForecastList
 }
