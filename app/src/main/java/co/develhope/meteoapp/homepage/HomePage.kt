@@ -8,11 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.homepage.Adapter.HomePageAdapter
-import co.develhope.meteoapp.homepage.Adapter.HomePageAdapter.Companion.TYPE_CARD
-import co.develhope.meteoapp.homepage.Data.DailyForecast
-import co.develhope.meteoapp.homepage.Data.DataItem.getDailyForecast
-import co.develhope.meteoapp.homepage.Data.DataItem.loadData
+import co.develhope.meteoapp.homepage.Data.HomePageObject.getHourlyList
 import co.develhope.meteoapp.homepage.Model.HomePageItem
+import co.develhope.meteoapp.homepage.Model.HourlyForecast
 
 class HomePage : Fragment() {
     private lateinit var binding: FragmentHomepageBinding
@@ -26,29 +24,26 @@ class HomePage : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        //list for the adapter
-        val listToshow = createListToshow(getDailyForecast())
 
-        val adapterCard = HomePageAdapter(TYPE_CARD, loadData())
-        binding.RVhome.adapter = adapterCard
+        val listhome =createListToshow(getHourlyList())
+        val adapterCard = HomePageAdapter (listhome)
+        binding.RVhome.adapter =adapterCard
         binding.RVhome.layoutManager = LinearLayoutManager(view.context)
 
     }
 
-    private fun createListToshow(dailyForecast: List<DailyForecast>): List<HomePageItem> {
-        val listToReturn = mutableListOf<HomePageItem>()
-
-        listToReturn.add(HomePageItem.Title)
-        listToReturn.add(HomePageItem.DailyWeather(dailyForecast.first()))
-        listToReturn.add(HomePageItem.Sub)
-        val otherDays: MutableList<HomePageItem.DailyWeather> = dailyForecast.map { HomePageItem.DailyWeather(it) }.toMutableList()
-        listToReturn.addAll(otherDays)
-
-        return listToReturn
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding
-    }
 }
+
+    private fun createListToshow (hourlyForecast: List<HourlyForecast>):List<HomePageItem>{
+        val listToreturn = mutableListOf<HomePageItem>()
+        listToreturn.add(HomePageItem.Title)
+        listToreturn.add(HomePageItem.CardItem(hourlyForecast.first()))
+        listToreturn.add(HomePageItem.Sub)
+        val othersDays :MutableList<HomePageItem.CardItem> = hourlyForecast.map {
+            HomePageItem.CardItem(it) }.toMutableList()
+        listToreturn.addAll(othersDays)
+        return listToreturn
+    }
+
+
+

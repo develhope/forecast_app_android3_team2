@@ -7,11 +7,9 @@ import co.develhope.meteoapp.R
 import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
-import co.develhope.meteoapp.homepage.Data.DataItem
 import co.develhope.meteoapp.homepage.Model.HomePageItem
 
 class HomePageAdapter(
-    private val context: Int,
     private val dataset: List<HomePageItem>
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
@@ -38,9 +36,9 @@ class HomePageAdapter(
         when(holder){
             is CardViewHolder -> holder.bind(dataset[position] as HomePageItem.CardItem)
 
-            is CurrentCityViewHolder -> holder.bind(dataset[position] as HomePageItem.CurrentCity)
+            is CurrentCityViewHolder -> holder.bind(dataset[position] as HomePageItem.Title)
 
-            is SubTitleViewHolder -> holder.bind(dataset[position] as HomePageItem.SubTitle)
+            is SubTitleViewHolder -> holder.bind(dataset[position] as HomePageItem.Sub)
         }
     }
 
@@ -52,36 +50,35 @@ class HomePageAdapter(
     override fun getItemViewType(position: Int): Int {
         return when(dataset[position]){
             is HomePageItem.CardItem -> TYPE_CARD
-            is HomePageItem.CurrentCity -> TYPE_CURRENTCITY
-            is HomePageItem.SubTitle -> TYPE_PROX5DAY
-            is HomePageItem.WheatherType -> TODO()
+            is HomePageItem.Title -> TYPE_CURRENTCITY
+            is HomePageItem.Sub -> TYPE_PROX5DAY
         }
     }
 
     class CardViewHolder(val binding: TemplateCardBinding):
         RecyclerView.ViewHolder(binding.root){
         fun bind(cardItem: HomePageItem.CardItem){
-            binding.day.text =binding.root.context.getString(R.string.oggi,cardItem.day)
-            binding.data.text =binding.root.context.getString(R.string.data,cardItem.data)
-            binding.tempmin.text =binding.root.context.getString(R.string.tempmin,cardItem.tempMax)
-            binding.tempmax.text =binding.root.context.getString(R.string.tempmax,cardItem.tempMax)
-            binding.kmh.text =binding.root.context.getString(R.string.kmh,cardItem.kmh)
-            binding.numperecip.text =binding.root.context.getString(R.string.numpercip,cardItem.umidity)
-            binding.imageWheather.setImageResource(DataItem.setIconWeather(cardItem.type))
+            binding.day.text =binding.root.context.getString(R.string.oggi,cardItem.info)
+            binding.data.text =binding.root.context.getString(R.string.data,cardItem.info)
+            binding.tempmin.text =binding.root.context.getString(R.string.tempmin,cardItem.info)
+            binding.tempmax.text =binding.root.context.getString(R.string.tempmax,cardItem.info)
+            binding.kmh.text =binding.root.context.getString(R.string.kmh,cardItem.info)
+            binding.numperecip.text =binding.root.context.getString(R.string.numpercip,cardItem.info)
+            binding.imageWheather.setImageResource(R.drawable.rain)
         }
     }
 
     class CurrentCityViewHolder(val binding: CurrentCityTemplateBinding):
         RecyclerView.ViewHolder(binding.root){
-        fun bind(currentcity:HomePageItem.CurrentCity){
+        fun bind(currentcity:HomePageItem.Title){
             binding.currentCityTextview.text=binding.root.context.getString(R.string.title_homepage, currentcity.city,currentcity.region)
         }
     }
 
     class SubTitleViewHolder(val binding: SubtitleTemplateBinding):
         RecyclerView.ViewHolder(binding.root){
-        fun bind(prox5day: HomePageItem.SubTitle){
-            binding.textView.text=binding.root.context.getString(R.string.prox5day,prox5day.string)
+        fun bind(prox5day: HomePageItem.Sub){
+            binding.textView.text=binding.root.context.getString(R.string.prox5day,prox5day.info)
         }
     }
 
