@@ -8,6 +8,7 @@ import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
 import co.develhope.meteoapp.homepage.Model.HomePageItem
+import co.develhope.meteoapp.homepage.Model.WeatherType
 
 class HomePageAdapter(
     private val dataset: List<HomePageItem>
@@ -58,13 +59,14 @@ class HomePageAdapter(
     class CardViewHolder(val binding: TemplateCardBinding):
         RecyclerView.ViewHolder(binding.root){
         fun bind(cardItem: HomePageItem.CardItem){
-            binding.day.text =binding.root.context.getString(R.string.oggi,cardItem.info)
-            binding.data.text =binding.root.context.getString(R.string.data,cardItem.info)
-            binding.tempmin.text =binding.root.context.getString(R.string.tempmin,cardItem.info)
-            binding.tempmax.text =binding.root.context.getString(R.string.tempmax,cardItem.info)
-            binding.kmh.text =binding.root.context.getString(R.string.kmh,cardItem.info)
-            binding.numperecip.text =binding.root.context.getString(R.string.numpercip,cardItem.info)
-            binding.imageWheather.setImageResource(R.drawable.rain)
+            binding.day.text =cardItem.info.day
+            binding.data.text =cardItem.info.data
+            binding.tempmin.text =cardItem.info.tempMin.toString()
+            binding.tempmax.text =cardItem.info.tempMax.toString()
+            binding.kmh.text = cardItem.info.kmh.toString()
+            binding.numperecip.text =cardItem.info.umidity.toString()
+            binding.imageWheather.setImageResource(cardItem.info.type.setIconWeatherType(WeatherType.rain))
+
         }
     }
 
@@ -78,7 +80,7 @@ class HomePageAdapter(
     class SubTitleViewHolder(val binding: SubtitleTemplateBinding):
         RecyclerView.ViewHolder(binding.root){
         fun bind(prox5day: HomePageItem.Sub){
-            binding.textView.text=binding.root.context.getString(R.string.prox5day,prox5day.info)
+            binding.textView.text=prox5day.info
         }
     }
 

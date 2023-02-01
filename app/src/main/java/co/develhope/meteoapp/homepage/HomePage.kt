@@ -18,15 +18,15 @@ class HomePage : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         binding = FragmentHomepageBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        val listhome =createListToshow(getHourlyList())
-        val adapterCard = HomePageAdapter (listhome)
+        val listHome =createListToShow(getHourlyList())
+        val adapterCard = HomePageAdapter (listHome)
         binding.RVhome.adapter =adapterCard
         binding.RVhome.layoutManager = LinearLayoutManager(view.context)
 
@@ -34,15 +34,15 @@ class HomePage : Fragment() {
 
 }
 
-    private fun createListToshow (hourlyForecast: List<HourlyForecast>):List<HomePageItem>{
-        val listToreturn = mutableListOf<HomePageItem>()
-        listToreturn.add(HomePageItem.Title)
-        listToreturn.add(HomePageItem.CardItem(hourlyForecast.first()))
-        listToreturn.add(HomePageItem.Sub)
+    private fun createListToShow (hourlyForecast: List<HourlyForecast>):List<HomePageItem>{
+        val listToReturn = mutableListOf<HomePageItem>()
+        listToReturn.add(HomePageItem.Title)
+        listToReturn.add(HomePageItem.CardItem(hourlyForecast.first()))
+        listToReturn.add(HomePageItem.Sub)
         val othersDays :MutableList<HomePageItem.CardItem> = hourlyForecast.map {
             HomePageItem.CardItem(it) }.toMutableList()
-        listToreturn.addAll(othersDays)
-        return listToreturn
+        listToReturn.addAll(othersDays)
+        return listToReturn
     }
 
 
