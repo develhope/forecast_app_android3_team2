@@ -5,8 +5,8 @@ import co.develhope.meteoapp.R
 enum class WeatherType {
     sun, sun_cloud, rain;
 
-    fun setIconWeatherType(weatherType: WeatherType): Int {
-        return when(weatherType){
+    fun setIconWeatherType(): Int {
+        return when(this){
             sun -> R.drawable.sun
             rain -> R.drawable.rain
             sun_cloud -> R.drawable.sun_cloud

@@ -62,37 +62,43 @@ class HomePageAdapter(
         }
     }
 
-    class CardViewHolder(val binding: TemplateCardBinding) :
+    class CardViewHolder(private val binding: TemplateCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(cardItem: HomePageItem.CardItem) {
-            binding.day.text = cardItem.info.day
-            binding.data.text = cardItem.info.data
-            binding.tempmin.text = cardItem.info.tempMin.toString()
-            binding.tempmax.text = cardItem.info.tempMax.toString()
-            binding.kmh.text = cardItem.info.kmh.toString()
-            binding.numperecip.text = cardItem.info.umidity.toString()
-            binding.imageWheather.setImageResource(cardItem.info.type.setIconWeatherType(WeatherType.rain))
+
+
+
+
+
+            binding.day.text = "Lunedì"
+            binding.data.text = "01/10"
+            binding.tempmin.text = cardItem.dailyForecast.weatherSummary.tempMin.toString()
+            binding.tempmax.text = cardItem.dailyForecast.weatherSummary.tempMax.toString()
+            binding.kmh.text = cardItem.dailyForecast.weatherSummary.wind.toString()
+            binding.numperecip.text = cardItem.dailyForecast.weatherSummary.rain.toString()
+            binding.imageWheather.setImageResource(cardItem.dailyForecast.weatherSummary.weatherType.setIconWeatherType())
 
         }
     }
 
-    class CurrentCityViewHolder(val binding: CurrentCityTemplateBinding) :
+    class CurrentCityViewHolder(private val binding: CurrentCityTemplateBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(currentcity: HomePageItem.Title) {
-            binding.currentCityTextview.text = binding.root.context.getString(R.string.title_homepage, currentcity.city, currentcity.region)
+            binding.currentCityTextview.text =
+                binding.root.context.getString(R.string.title_homepage, currentcity.place.city, currentcity.place.region)
         }
     }
 
-    class SubTitleViewHolder(val binding: SubtitleTemplateBinding) :
+    class SubTitleViewHolder(private val binding: SubtitleTemplateBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(prox5day: HomePageItem.Sub) {
-            binding.textView.text = prox5day.info
+        fun bind(prox5day: HomePageItem.Subtitle) {
+            binding.textView.text = binding.root.context.getString(R.string.next_days)
         }
     }
 
     companion object {
-        val TYPE_CARD = 0
-        val TYPE_CURRENTCITY = 1
-        val TYPE_PROX5DAY = 2
+        const val TYPE_CARD = 0
+        const val TYPE_CURRENTCITY = 1
+        const val TYPE_PROX5DAY = 2
     }
 }

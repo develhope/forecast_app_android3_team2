@@ -24,6 +24,7 @@ data class WeatherSummary(
     val wind: Int,
     val tempMin: Int,
     val tempMax: Int,
+    val rain : Int
 )
 
 object HomePageObject {
@@ -36,7 +37,8 @@ object HomePageObject {
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
-                tempMax = 16
+                tempMax = 16,
+                rain = 4
             ),
             place = Place(
                 city = "Palermo",
@@ -52,7 +54,8 @@ object HomePageObject {
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
-                tempMax = 16
+                tempMax = 16,
+                rain = 4
             ),
             place = Place(
                 city = "Palermo",
@@ -68,7 +71,8 @@ object HomePageObject {
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
-                tempMax = 16
+                tempMax = 16,
+                rain = 4
             ),
             place = Place(
                 city = "Palermo",
@@ -84,7 +88,8 @@ object HomePageObject {
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
-                tempMax = 16
+                tempMax = 16,
+                rain = 4
             ),
             place = Place(
                 city = "Palermo",
@@ -100,7 +105,9 @@ object HomePageObject {
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
-                tempMax = 16
+                tempMax = 16,
+                rain = 4
+
             ),
             place = Place(
                 city = "Palermo",
@@ -116,7 +123,8 @@ object HomePageObject {
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
-                tempMax = 16
+                tempMax = 16,
+                rain = 4
             ),
             place = Place(
                 city = "Palermo",
@@ -132,7 +140,8 @@ object HomePageObject {
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
-                tempMax = 16
+                tempMax = 16,
+                rain = 4
             ),
             place = Place(
                 city = "Palermo",
