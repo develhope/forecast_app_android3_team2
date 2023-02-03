@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.homepage.Adapter.HomePageAdapter
-import co.develhope.meteoapp.homepage.Data.DayForecast
 import co.develhope.meteoapp.homepage.Data.HomePageObject.getDayForecast
+import co.develhope.meteoapp.homepage.Model.DayForecast
 import co.develhope.meteoapp.homepage.Model.HomePageItem
 
 class HomePage : Fragment() {
@@ -46,6 +46,9 @@ private fun createListToShow(dayForecastList: List<DayForecast>): List<HomePageI
     }.toMutableList()
 
     listToReturn.addAll(othersDays)
+    listToReturn.removeLast()
+    listToReturn.removeLast()
+
     return listToReturn
 }
 

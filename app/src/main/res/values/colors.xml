@@ -10,4 +10,6 @@
     <color name="alpha">#66ffffff</color>
     <color name="gray">#FFc4c4c4</color>
     <color name="trasparent">#00FFFFFF</color>
+
+    <color name="color_card">#ff948cef</color>
 </resources>

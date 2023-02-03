@@ -1,7 +1,6 @@
 package co.develhope.meteoapp.homepage.Model
 
-import co.develhope.meteoapp.homepage.Data.DayForecast
-import co.develhope.meteoapp.homepage.Data.Place
+
 
 
 sealed class HomePageItem {

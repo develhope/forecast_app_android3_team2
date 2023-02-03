@@ -1,5 +1,6 @@
 package co.develhope.meteoapp.homepage.Adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -72,11 +73,11 @@ class HomePageAdapter(
 
             binding.day.text = "Lunedì"
             binding.data.text = "01/10"
-            binding.tempmin.text = cardItem.dailyForecast.weatherSummary.tempMin.toString()
-            binding.tempmax.text = cardItem.dailyForecast.weatherSummary.tempMax.toString()
-            binding.kmh.text = cardItem.dailyForecast.weatherSummary.wind.toString()
-            binding.numperecip.text = cardItem.dailyForecast.weatherSummary.rain.toString()
-            binding.imageWheather.setImageResource(cardItem.dailyForecast.weatherSummary.weatherType.setIconWeatherType())
+            binding.tempmin.text = itemView.context.getString(R.string.tempmin,cardItem.dailyForecast.weatherSummary.tempMin.toString())
+            binding.tempmax.text = itemView.context.getString(R.string.tempmax,cardItem.dailyForecast.weatherSummary.tempMax.toString())
+            binding.kmh.text = itemView.context.getString(R.string.kmh,cardItem.dailyForecast.weatherSummary.wind.toString())
+            binding.umidity.text = itemView.context.getString(R.string.rain,cardItem.dailyForecast.weatherSummary.rain.toString())
+            binding.imagetype.setImageResource(cardItem.dailyForecast.weatherSummary.weatherType.setIconWeatherType())
 
         }
     }
@@ -84,14 +85,13 @@ class HomePageAdapter(
     class CurrentCityViewHolder(private val binding: CurrentCityTemplateBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(currentcity: HomePageItem.Title) {
-            binding.currentCityTextview.text =
-                binding.root.context.getString(R.string.title_homepage, currentcity.place.city, currentcity.place.region)
+            binding.currentCityTextview.text = itemView.context.getString(R.string.title_homepage, currentcity.place.city, currentcity.place.region)
         }
     }
 
     class SubTitleViewHolder(private val binding: SubtitleTemplateBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(prox5day: HomePageItem.Subtitle) {
+        fun bind(Sub: HomePageItem.Subtitle) {
             binding.textView.text = binding.root.context.getString(R.string.next_days)
         }
     }

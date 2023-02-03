@@ -12,15 +12,15 @@ enum class WeatherType {
             sun_cloud -> R.drawable.sun_cloud
         }
     }
-}
+
 
 fun Int.getWeatherType():WeatherType {
     return when (this) {
-        0, 1 -> WeatherType.sun
-        2, 3 -> WeatherType.rain
-        4, 5 -> WeatherType.sun_cloud
-        else -> WeatherType.sun
+        0, 1 -> sun
+        2, 3 -> rain
+        4, 5 -> sun_cloud
+        else -> sun
 
     }
 }
-
+}
