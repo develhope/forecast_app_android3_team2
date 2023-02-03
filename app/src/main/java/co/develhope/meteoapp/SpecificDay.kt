@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.adapter.SpecificDayAdapter
-import co.develhope.meteoapp.data.DataSource
-import co.develhope.meteoapp.databinding.FragmentSpecificDayBinding
 
+import co.develhope.meteoapp.data.DaySpecificDay
+import co.develhope.meteoapp.data.SpecificDayObject.getSpecificDay
+import co.develhope.meteoapp.databinding.FragmentSpecificDayBinding
+import co.develhope.meteoapp.model.SpecificDayModel
 
 
 class SpecificDay : Fragment() {
@@ -27,25 +29,30 @@ class SpecificDay : Fragment() {
         return binding.root
 
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        val adapter1 = SpecificDayAdapter(SpecificDayAdapter.TITLE, DataSource.loadData())
-        binding.itemSpecificday.adapter = adapter1
-        binding.itemSpecificday.layoutManager = LinearLayoutManager(view.context)
-
-        val adapter2 = SpecificDayAdapter(SpecificDayAdapter.CARD, DataSource.loadData())
-        binding.itemSpecificday.adapter = adapter2
-        binding.itemSpecificday.layoutManager = LinearLayoutManager(view.context)
-
-        val adapter3 = SpecificDayAdapter(SpecificDayAdapter.HOURLY, DataSource.loadData())
-        binding.itemSpecificday.adapter = adapter3
+        val listSpecificDay= createListToShow(getSpecificDay())
+        val adapter = SpecificDayAdapter(listSpecificDay)
+        binding.itemSpecificday.adapter = adapter
         binding.itemSpecificday.layoutManager = LinearLayoutManager(view.context)
 
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun createListToShow(list: List<DaySpecificDay>): List<SpecificDayModel> {
+        val listToReturn = mutableListOf<SpecificDayModel>()
+
+        listToReturn.add(SpecificDayModel.SpecificDayTitle(list.first().place))
+        listToReturn.add(SpecificDayModel.SpecificDayHourly(list.first()))
+        listToReturn.add(SpecificDayModel.SpecificDayCard(list.first().cardSpecificDay))
+
+        val otherHours: MutableList<SpecificDayModel.SpecificDayHourly> = list.map {
+            SpecificDayModel.SpecificDayHourly(it)
+        }.toMutableList()
+        listToReturn.addAll(otherHours)
+        return listToReturn
     }
 }
+
+
 

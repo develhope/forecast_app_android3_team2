@@ -1,104 +1,345 @@
 package co.develhope.meteoapp.data
 
-import co.develhope.meteoapp.R
-import co.develhope.meteoapp.model.SpecificDayModel
+
+import co.develhope.meteoapp.model.WeatherType
+import java.util.Date
 
 
-object DataSource {
+data class Place(
+        val city: String,
+        val region: String,
+        val date: Date,
+    )
+
+data class DaySpecificDay(
+    val place: Place,
+    val cardSpecificDay: CardSpecificDay,
+    val hourlySpecificDay: HourlySpecificDay
+
+)
+
+data class CardSpecificDay(
+    val percepita: Int,
+    val umidita: Int,
+    val copertura: Int,
+    val uv: Int,
+    val vento: Int,
+    val pioggia: Int
+)
+
+data class HourlySpecificDay(
+    val time: Int,
+    val weatherType: WeatherType,
+    val temp: Int,
+    val umidity: Int
+)
 
 
-    private val specificDayList= mutableListOf(
-        SpecificDayModel.SpecificDayTitle(
-            "Palermo",
-            "Sicilia",
-            "Oggi",
-            "10 Settembre"),
-        SpecificDayModel.SpecificDayHourly(
-            "11:00",
-            R.drawable.sun,
-            "31°",
-            "0%"),
 
-        SpecificDayModel.SpecificDayCard(
-            "45°",
-            "60%",
-            "24%",
-            "5/10",
-            "SSE 17 Km/h",
-            "0cm"),
+object SpecificDayObject {
 
-        SpecificDayModel.SpecificDayHourly(
-            "12:00",
-            R.drawable.sun_cloud,
-            "29°",
-            "0%"),
-        SpecificDayModel.SpecificDayHourly(
-            "13:00",
-            R.drawable.sun,
-            "30°",
-            "0%"),
-        SpecificDayModel.SpecificDayHourly(
-            "14:00",
-            R.drawable.rain,
-            "32°",
-            "69%"),
-        SpecificDayModel.SpecificDayHourly(
-            "15:00",
-            R.drawable.rain,
-            "28°",
-            "70%"),
-        SpecificDayModel.SpecificDayHourly(
-            "16:00",
-            R.drawable.sun_cloud,
-            "25°",
-            "20%"
+
+    private val specificaDayList = listOf<DaySpecificDay>(
+        DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 10,
+                umidita= 1,
+                copertura=4,
+                uv=2,
+                vento=2,
+                pioggia=4
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                 time=1100,
+                 weatherType= WeatherType.SUN,
+                 temp=5,
+                 umidity=2
+            ),
+            place = Place(
+                city = "palermo",
+                region = "sicilia" ,
+                date = Date(),
+            )
+
         ),
-        SpecificDayModel.SpecificDayHourly(
-            "17:00",
-            R.drawable.sun,
-            "22°",
-            "0%"
+        DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 10,
+                umidita= 1,
+                copertura=4,
+                uv=2,
+                vento=2,
+                pioggia=4
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                time=1200,
+                weatherType= WeatherType.SUN,
+                temp=5,
+                umidity=2
+            ),
+            place = Place(
+                city = "palermo",
+                region = "sicilia",
+                date = Date(),
+            )
+
         ),
-        SpecificDayModel.SpecificDayHourly(
-            "18:00",
-            R.drawable.sun,
-            "20°",
-            "0%"
+        DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 10,
+                umidita= 1,
+                copertura=4,
+                uv=2,
+                vento=2,
+                pioggia=4
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                time=1300,
+                weatherType= WeatherType.SUN,
+                temp=5,
+                umidity=2
+            ),
+            place = Place(
+                city = "palermo",
+                region = "sicilia",
+                date = Date(),
+            )
+
         ),
-        SpecificDayModel.SpecificDayHourly(
-            "19:00",
-            R.drawable.sun_cloud,
-            "18°",
-            "0%"
+        DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 10,
+                umidita= 1,
+                copertura=4,
+                uv=2,
+                vento=2,
+                pioggia=4
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                time=1400,
+                weatherType= WeatherType.SUN,
+                temp=5,
+                umidity=2
+            ),
+            place = Place(
+                city = "palermo",
+                region = "sicilia",
+                date = Date(),
+            )
+
         ),
-        SpecificDayModel.SpecificDayHourly(
-            "20:00",
-            R.drawable.sun_cloud,
-            "16°",
-            "0%"
+        DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 10,
+                umidita= 1,
+                copertura=4,
+                uv=2,
+                vento=2,
+                pioggia=4
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                time=1500,
+                weatherType= WeatherType.SUN,
+                temp=5,
+                umidity=2
+            ),
+            place = Place(
+                city = "palermo",
+                region = "sicilia",
+                date = Date(),
+            )
+
         ),
-        SpecificDayModel.SpecificDayHourly(
-            "21:00",
-            R.drawable.sun_cloud,
-            "11°",
-            "0%"
+        DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 10,
+                umidita= 1,
+                copertura=4,
+                uv=2,
+                vento=2,
+                pioggia=4
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                time=1600,
+                weatherType= WeatherType.SUN,
+                temp=5,
+                umidity=2
+            ),
+            place = Place(
+                city = "palermo",
+                region = "sicilia",
+                date = Date(),
+            )
+
         ),
-        SpecificDayModel.SpecificDayHourly(
-            "22:00",
-            R.drawable.sun_cloud,
-            "10°",
-            "0%"
+        DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 10,
+                umidita= 1,
+                copertura=4,
+                uv=2,
+                vento=2,
+                pioggia=4
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                time=1700,
+                weatherType= WeatherType.SUN,
+                temp=5,
+                umidity=2
+            ),
+            place = Place(
+                city = "palermo",
+                region = "sicilia",
+                date = Date(),
+            )
+
+        ), DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 10,
+                umidita= 1,
+                copertura=4,
+                uv=2,
+                vento=2,
+                pioggia=4
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                time=1800,
+                weatherType= WeatherType.SUN,
+                temp=5,
+                umidity=2
+            ),
+            place = Place(
+                city = "palermo",
+                region = "sicilia",
+                date = Date(),
+            )
+
         ),
-        SpecificDayModel.SpecificDayHourly(
-            "23:00",
-            R.drawable.moon,
-            "10°",
-            "0%"
+        DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 10,
+                umidita= 1,
+                copertura=4,
+                uv=2,
+                vento=2,
+                pioggia=4
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                time=1900,
+                weatherType= WeatherType.SUN,
+                temp=5,
+                umidity=2
+            ),
+            place = Place(
+                city = "palermo",
+                region = "sicilia",
+                date = Date(),
+            )
+
         ),
+        DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 10,
+                umidita= 1,
+                copertura=4,
+                uv=2,
+                vento=2,
+                pioggia=4
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                time=2000,
+                weatherType= WeatherType.SUN,
+                temp=5,
+                umidity=2
+            ),
+            place = Place(
+                city = "palermo",
+                region = "sicilia",
+                date = Date(),
+            )
+
+        ),
+        DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 10,
+                umidita= 1,
+                copertura=4,
+                uv=2,
+                vento=2,
+                pioggia=4
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                time=2100,
+                weatherType= WeatherType.SUN,
+                temp=5,
+                umidity=2
+            ),
+            place = Place(
+                city = "palermo",
+                region = "sicilia",
+                date = Date(),
+            )
+
+        ),
+        DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 10,
+                umidita= 1,
+                copertura=4,
+                uv=2,
+                vento=2,
+                pioggia=4
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                time=2200,
+                weatherType= WeatherType.SUN,
+                temp=5,
+                umidity=2
+            ),
+            place = Place(
+                city = "palermo",
+                region = "sicilia",
+                date = Date(),
+            )
+
+        ),
+        DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 10,
+                umidita= 1,
+                copertura=4,
+                uv=2,
+                vento=2,
+                pioggia=4
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                time=2300,
+                weatherType= WeatherType.SUN,
+                temp=5,
+                umidity=2
+            ),
+            place = Place(
+                city = "palermo",
+                region = "sicilia",
+                date = Date(),
+            )
 
         )
 
-    fun loadData():List<SpecificDayModel>{
-        return specificDayList
-    }
+    )
+   fun getSpecificDay(): List<DaySpecificDay> = specificaDayList
 }
+

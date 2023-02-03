@@ -12,7 +12,7 @@ import co.develhope.meteoapp.model.SpecificDayModel
 
 
 
-class SpecificDayAdapter ( private val context: Int, private val list: List<SpecificDayModel>):
+class SpecificDayAdapter( private val list: List<SpecificDayModel>):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
@@ -29,8 +29,8 @@ class SpecificDayAdapter ( private val context: Int, private val list: List<Spec
         RecyclerView.ViewHolder(title.root) {
 
         fun bind(infoTitle: SpecificDayModel.SpecificDayTitle) {
-            title.titleSpecialDay.text = title.root.context.getString(R.string.city_region, infoTitle.city, infoTitle.region)
-            title.infoDateSpecialDay.text = title.root.context.getString(R.string.today_details, infoTitle.day, infoTitle.date)
+            title.titleSpecialDay.text = title.root.context.getString(R.string.city_region,infoTitle.place.city,infoTitle.place.region)
+            title.infoDateSpecialDay.text= infoTitle.place.date.toString()
         }
     }
 
@@ -38,24 +38,25 @@ class SpecificDayAdapter ( private val context: Int, private val list: List<Spec
         RecyclerView.ViewHolder(card.root) {
 
         fun bind(infoCard: SpecificDayModel.SpecificDayCard) {
-            card.spDatoPercepita.text = card.root.context.getString(R.string.DatoPercepita, infoCard.percepita)
-            card.spDatoUv.text = card.root.context.getString(R.string.DatoUv, infoCard.uv)
-            card.spDatoUmidita.text = card.root.context.getString(R.string.DatoUmidita, infoCard.umidita)
-            card.spDatoCopertura.text = card.root.context.getString(R.string.DatoCopertura, infoCard.copertura)
-            card.spDatoPioggia.text = card.root.context.getString(R.string.DatoPioggia, infoCard.pioggia)
-            card.spDatoVento.text = card.root.context.getString(R.string.DatoVento, infoCard.vento)
+            card.spDatoPercepita.text =  infoCard.cardSpecificDay.percepita.toString()
+            card.spDatoUv.text =infoCard.cardSpecificDay.uv.toString()
+            card.spDatoUmidita.text = infoCard.cardSpecificDay.umidita.toString()
+            card.spDatoCopertura.text = infoCard.cardSpecificDay.copertura.toString()
+            card.spDatoPioggia.text = infoCard.cardSpecificDay.pioggia.toString()
+            card.spDatoVento.text = infoCard.cardSpecificDay.vento.toString()
 
         }
     }
+
 
     class HourlyViewHolder(private val hourly: SpecificdayHourlyBinding) :
         RecyclerView.ViewHolder(hourly.root) {
 
         fun bind(infoHourly: SpecificDayModel.SpecificDayHourly) {
-            hourly.specificDayTime.text = hourly.root.context.getString(R.string.time, infoHourly.time)
-            hourly.specificdayType.setImageResource(infoHourly.type)
-            hourly.specificdayTemp.text = hourly.root.context.getString(R.string.temp, infoHourly.temp)
-            hourly.specificdayUmidity.text = hourly.root.context.getString(R.string.umidity, infoHourly.umidity)
+            hourly.specificDayTime.text = infoHourly.daySpecificDay.hourlySpecificDay.time.toString()
+            hourly.specificdayType.setImageResource(infoHourly.daySpecificDay.hourlySpecificDay.weatherType.setIconWeatherType())
+            hourly.specificdayTemp.text = infoHourly.daySpecificDay.hourlySpecificDay.temp.toString()
+            hourly.specificdayUmidity.text =infoHourly.daySpecificDay.hourlySpecificDay.umidity.toString()
 
         }
 

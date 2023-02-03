@@ -1,22 +1,22 @@
 package co.develhope.meteoapp.model
 
+import co.develhope.meteoapp.SpecificDay
+import co.develhope.meteoapp.data.CardSpecificDay
+
+import co.develhope.meteoapp.data.DaySpecificDay
+import co.develhope.meteoapp.data.HourlySpecificDay
+import co.develhope.meteoapp.data.Place
+
+
 
 sealed class SpecificDayModel {
-    data class SpecificDayTitle( val city: String,
-                                 val region: String,
-                                 val day: String,
-                                 val date: String): SpecificDayModel()
 
-    data class SpecificDayCard(val percepita: String,
-                               val umidita: String,
-                               val copertura: String,
-                               val uv: String,
-                               val vento: String,
-                               val pioggia: String ): SpecificDayModel()
+    data class SpecificDayCard(val cardSpecificDay: CardSpecificDay ) : SpecificDayModel()
+
+   data class SpecificDayHourly(val daySpecificDay: DaySpecificDay): SpecificDayModel()
+
+    data class SpecificDayTitle(val place: Place) : SpecificDayModel()
+
+    }
 
 
-    data class SpecificDayHourly(val time: String,
-                                 val type: Int,
-                                 val temp: String,
-                                 val umidity: String): SpecificDayModel()
-}
