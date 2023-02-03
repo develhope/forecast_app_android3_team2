@@ -29,8 +29,8 @@ class SpecificDayAdapter( private val list: List<SpecificDayModel>):
         RecyclerView.ViewHolder(title.root) {
 
         fun bind(infoTitle: SpecificDayModel.SpecificDayTitle) {
-            title.titleSpecialDay.text = title.root.context.getString(R.string.city_region,infoTitle.place.city,infoTitle.place.region)
-            title.infoDateSpecialDay.text= infoTitle.place.date.toString()
+            title.titleSpecificDay.text = itemView.context.getString(R.string.city_region,infoTitle.place.city,infoTitle.place.region)
+            title.infoDateSpecificDay.text= infoTitle.place.date.toString()
         }
     }
 
@@ -38,12 +38,12 @@ class SpecificDayAdapter( private val list: List<SpecificDayModel>):
         RecyclerView.ViewHolder(card.root) {
 
         fun bind(infoCard: SpecificDayModel.SpecificDayCard) {
-            card.spDatoPercepita.text =  infoCard.cardSpecificDay.percepita.toString()
-            card.spDatoUv.text =infoCard.cardSpecificDay.uv.toString()
-            card.spDatoUmidita.text = infoCard.cardSpecificDay.umidita.toString()
-            card.spDatoCopertura.text = infoCard.cardSpecificDay.copertura.toString()
-            card.spDatoPioggia.text = infoCard.cardSpecificDay.pioggia.toString()
-            card.spDatoVento.text = infoCard.cardSpecificDay.vento.toString()
+            card.spDatoPercepita.text = itemView.context.getString(R.string.DatoPercepita, infoCard.cardSpecificDay.percepita.toString())
+            card.spDatoUv.text =itemView.context.getString(R.string.DatoUv,infoCard.cardSpecificDay.uv.toString())
+            card.spDatoUmidita.text = itemView.context.getString(R.string.DatoUmidita,infoCard.cardSpecificDay.umidita.toString())
+            card.spDatoCopertura.text = itemView.context.getString(R.string.DatoCopertura,infoCard.cardSpecificDay.copertura.toString())
+            card.spDatoPioggia.text = itemView.context.getString(R.string.DatoPioggia,infoCard.cardSpecificDay.pioggia.toString())
+            card.spDatoVento.text = itemView.context.getString(R.string.DatoVento,infoCard.cardSpecificDay.vento.toString())
 
         }
     }
@@ -53,10 +53,10 @@ class SpecificDayAdapter( private val list: List<SpecificDayModel>):
         RecyclerView.ViewHolder(hourly.root) {
 
         fun bind(infoHourly: SpecificDayModel.SpecificDayHourly) {
-            hourly.specificDayTime.text = infoHourly.daySpecificDay.hourlySpecificDay.time.toString()
+            hourly.specificDayTime.text = itemView.context.getString(R.string.time,infoHourly.daySpecificDay.hourlySpecificDay.time.toString())
             hourly.specificdayType.setImageResource(infoHourly.daySpecificDay.hourlySpecificDay.weatherType.setIconWeatherType())
-            hourly.specificdayTemp.text = infoHourly.daySpecificDay.hourlySpecificDay.temp.toString()
-            hourly.specificdayUmidity.text =infoHourly.daySpecificDay.hourlySpecificDay.umidity.toString()
+            hourly.specificdayTemp.text = itemView.context.getString(R.string.temp,infoHourly.daySpecificDay.hourlySpecificDay.temp.toString())
+            hourly.specificdayUmidity.text =itemView.context.getString(R.string.umidity,infoHourly.daySpecificDay.hourlySpecificDay.umidity.toString())
 
         }
 

@@ -43,12 +43,12 @@ object SpecificDayObject {
         DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
-                percepita = 10,
-                umidita= 1,
-                copertura=4,
-                uv=2,
-                vento=2,
-                pioggia=4
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
                  time=1100,
@@ -57,8 +57,8 @@ object SpecificDayObject {
                  umidity=2
             ),
             place = Place(
-                city = "palermo",
-                region = "sicilia" ,
+                city = "Palermo",
+                region = "Sicilia" ,
                 date = Date(),
             )
 
@@ -66,12 +66,12 @@ object SpecificDayObject {
         DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
-                percepita = 10,
-                umidita= 1,
-                copertura=4,
-                uv=2,
-                vento=2,
-                pioggia=4
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
                 time=1200,
@@ -80,8 +80,8 @@ object SpecificDayObject {
                 umidity=2
             ),
             place = Place(
-                city = "palermo",
-                region = "sicilia",
+                city = "Palermo",
+                region = "Sicilia",
                 date = Date(),
             )
 
@@ -89,12 +89,12 @@ object SpecificDayObject {
         DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
-                percepita = 10,
-                umidita= 1,
-                copertura=4,
-                uv=2,
-                vento=2,
-                pioggia=4
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
                 time=1300,
@@ -103,8 +103,8 @@ object SpecificDayObject {
                 umidity=2
             ),
             place = Place(
-                city = "palermo",
-                region = "sicilia",
+                city = "Palermo",
+                region = "Sicilia",
                 date = Date(),
             )
 
@@ -112,12 +112,12 @@ object SpecificDayObject {
         DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
-                percepita = 10,
-                umidita= 1,
-                copertura=4,
-                uv=2,
-                vento=2,
-                pioggia=4
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
                 time=1400,
@@ -126,8 +126,8 @@ object SpecificDayObject {
                 umidity=2
             ),
             place = Place(
-                city = "palermo",
-                region = "sicilia",
+                city = "Palermo",
+                region = "Sicilia",
                 date = Date(),
             )
 
@@ -135,12 +135,12 @@ object SpecificDayObject {
         DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
-                percepita = 10,
-                umidita= 1,
-                copertura=4,
-                uv=2,
-                vento=2,
-                pioggia=4
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
                 time=1500,
@@ -149,8 +149,8 @@ object SpecificDayObject {
                 umidity=2
             ),
             place = Place(
-                city = "palermo",
-                region = "sicilia",
+                city = "Palermo",
+                region = "Sicilia",
                 date = Date(),
             )
 
@@ -158,12 +158,12 @@ object SpecificDayObject {
         DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
-                percepita = 10,
-                umidita= 1,
-                copertura=4,
-                uv=2,
-                vento=2,
-                pioggia=4
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
                 time=1600,
@@ -172,8 +172,8 @@ object SpecificDayObject {
                 umidity=2
             ),
             place = Place(
-                city = "palermo",
-                region = "sicilia",
+                city = "Palermo",
+                region = "Sicilia",
                 date = Date(),
             )
 
@@ -181,12 +181,12 @@ object SpecificDayObject {
         DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
-                percepita = 10,
-                umidita= 1,
-                copertura=4,
-                uv=2,
-                vento=2,
-                pioggia=4
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
                 time=1700,
@@ -195,20 +195,20 @@ object SpecificDayObject {
                 umidity=2
             ),
             place = Place(
-                city = "palermo",
-                region = "sicilia",
+                city = "Palermo",
+                region = "Sicilia",
                 date = Date(),
             )
 
         ), DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
-                percepita = 10,
-                umidita= 1,
-                copertura=4,
-                uv=2,
-                vento=2,
-                pioggia=4
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
                 time=1800,
@@ -217,8 +217,8 @@ object SpecificDayObject {
                 umidity=2
             ),
             place = Place(
-                city = "palermo",
-                region = "sicilia",
+                city = "Palermo",
+                region = "Sicilia",
                 date = Date(),
             )
 
@@ -226,12 +226,12 @@ object SpecificDayObject {
         DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
-                percepita = 10,
-                umidita= 1,
-                copertura=4,
-                uv=2,
-                vento=2,
-                pioggia=4
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
                 time=1900,
@@ -240,8 +240,8 @@ object SpecificDayObject {
                 umidity=2
             ),
             place = Place(
-                city = "palermo",
-                region = "sicilia",
+                city = "Palermo",
+                region = "Sicilia",
                 date = Date(),
             )
 
@@ -249,12 +249,12 @@ object SpecificDayObject {
         DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
-                percepita = 10,
-                umidita= 1,
-                copertura=4,
-                uv=2,
-                vento=2,
-                pioggia=4
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
                 time=2000,
@@ -263,8 +263,8 @@ object SpecificDayObject {
                 umidity=2
             ),
             place = Place(
-                city = "palermo",
-                region = "sicilia",
+                city = "Palermo",
+                region = "Sicilia",
                 date = Date(),
             )
 
@@ -272,12 +272,12 @@ object SpecificDayObject {
         DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
-                percepita = 10,
-                umidita= 1,
-                copertura=4,
-                uv=2,
-                vento=2,
-                pioggia=4
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
                 time=2100,
@@ -286,8 +286,8 @@ object SpecificDayObject {
                 umidity=2
             ),
             place = Place(
-                city = "palermo",
-                region = "sicilia",
+                city = "Palermo",
+                region = "Sicilia",
                 date = Date(),
             )
 
@@ -295,12 +295,12 @@ object SpecificDayObject {
         DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
-                percepita = 10,
-                umidita= 1,
-                copertura=4,
-                uv=2,
-                vento=2,
-                pioggia=4
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
                 time=2200,
@@ -309,8 +309,8 @@ object SpecificDayObject {
                 umidity=2
             ),
             place = Place(
-                city = "palermo",
-                region = "sicilia",
+                city = "Palermo",
+                region = "Sicilia",
                 date = Date(),
             )
 
@@ -318,12 +318,12 @@ object SpecificDayObject {
         DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
-                percepita = 10,
-                umidita= 1,
-                copertura=4,
-                uv=2,
-                vento=2,
-                pioggia=4
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
                 time=2300,
@@ -332,8 +332,8 @@ object SpecificDayObject {
                 umidity=2
             ),
             place = Place(
-                city = "palermo",
-                region = "sicilia",
+                city = "Palermo",
+                region = "Sicilia",
                 date = Date(),
             )
 

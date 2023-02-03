@@ -22,7 +22,7 @@
     <dimen name="padding_25_dp">25dp</dimen>
     <dimen name="padding_15_dp">15dp</dimen>
     <dimen name="height_1_dp">1dp</dimen>
-    <dimen name="margin_41.2_dp">41.2dp</dimen>
+    <dimen name="margin_48dp">48dp</dimen>
     <dimen name="margin_52.69_dp">52.69dp</dimen>
     <dimen name="drawablePadding_10_dp">10dp</dimen>
     <dimen name="margin_14_dp">14dp</dimen>

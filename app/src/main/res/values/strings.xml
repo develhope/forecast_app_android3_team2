@@ -1,22 +1,30 @@
 <resources>
     <string name="app_name">meteoapp</string>
+<!---string title-->
+    <string name="city_region">%s , %s</string>
+    <string name="today">Today,</string>
+    <string name="today_details">%s</string>
+
+<!---string hourly-->
     <string name="time">%s</string>
     <string name="type">type</string>
-    <string name="temp">%s</string>
-    <string name="umidity">%s</string>
-    <string name="city_region">%s , %s</string>
-    <string name="today_details">%s , \n%s</string>
-    <string name="sp_percepita">Percepita</string>
+    <string name="temp">%s °</string>
+    <string name="umidity">%s %%</string>
 
+
+<!---string card titles-->
+    <string name="sp_percepita">Percepita</string>
     <string name="sp_UV">Indice UV</string>
-    <string name="DatoPercepita">%s</string>
-    <string name="DatoUv">%s</string>
     <string name="sp_umidita">Umidità</string>
     <string name="sp_vento">Vento</string>
-    <string name="DatoUmidita">%s</string>
-    <string name="DatoVento">%s</string>
     <string name="copertura">Copertura</string>
     <string name="pioggia">Pioggia</string>
-    <string name="DatoCopertura">%s</string>
-    <string name="DatoPioggia">%s</string>
+<!--- string card data-->
+    <string name="DatoPercepita"> %s °</string>
+    <string name="DatoUv">%s</string>
+    <string name="DatoUmidita">%s %%</string>
+    <string name="DatoVento">SSE %s Km/h</string>
+    <string name="DatoCopertura">%s %%</string>
+    <string name="DatoPioggia">%s cm</string>
+
 </resources>
