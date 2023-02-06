@@ -30,7 +30,7 @@ class SpecificDayAdapter( private val list: List<SpecificDayModel>):
 
         fun bind(infoTitle: SpecificDayModel.SpecificDayTitle) {
             title.titleSpecificDay.text = itemView.context.getString(R.string.city_region,infoTitle.place.city,infoTitle.place.region)
-            title.infoDateSpecificDay.text= itemView.context.getString(R.string.today_details,infoTitle.place.date)
+            title.infoDateSpecificDay.text= itemView.context.getString(R.string.today_details,infoTitle.place.date.toString())
         }
     }
 
