@@ -2,7 +2,6 @@ package co.develhope.meteoapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import co.develhope.meteoapp.databinding.ActivityMainBinding
 
