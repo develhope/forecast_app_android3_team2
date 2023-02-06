@@ -54,5 +54,3 @@ class SpecificDay : Fragment() {
     }
 }
 
-
-

@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.HomePage -> replaceFragment(HomePage())
                 R.id.Oggi -> replaceFragment(SpecificDay())
-                R.id.Domani -> replaceFragment(tomorrow())
-                R.id.Search -> replaceFragment(search())
+                R.id.Domani -> replaceFragment(Tomorrow())
+                R.id.Search -> replaceFragment(Search())
                 else->{}
             }
             true
