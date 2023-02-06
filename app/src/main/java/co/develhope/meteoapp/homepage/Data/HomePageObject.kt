@@ -24,7 +24,7 @@ object HomePageObject {
         DayForecast(
             date = Date(),
             weatherSummary = WeatherSummary(
-                weatherType = WeatherType.sun,
+                weatherType = WeatherType.SUNNY,
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
@@ -41,7 +41,7 @@ object HomePageObject {
         DayForecast(
             date = Date(),
             weatherSummary = WeatherSummary(
-                weatherType = WeatherType.sun,
+                weatherType = WeatherType.SUNNY,
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
@@ -58,7 +58,7 @@ object HomePageObject {
         DayForecast(
             date = Date(),
             weatherSummary = WeatherSummary(
-                weatherType = WeatherType.sun,
+                weatherType = WeatherType.SUNNY,
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
@@ -75,7 +75,7 @@ object HomePageObject {
         DayForecast(
             date = Date(),
             weatherSummary = WeatherSummary(
-                weatherType = WeatherType.sun,
+                weatherType = WeatherType.SUNNY,
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
@@ -92,7 +92,7 @@ object HomePageObject {
         DayForecast(
             date = Date(),
             weatherSummary = WeatherSummary(
-                weatherType = WeatherType.sun,
+                weatherType = WeatherType.SUNNY,
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
@@ -110,7 +110,7 @@ object HomePageObject {
         DayForecast(
             date = Date(),
             weatherSummary = WeatherSummary(
-                weatherType = WeatherType.sun,
+                weatherType = WeatherType.SUNNY,
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
@@ -127,7 +127,7 @@ object HomePageObject {
         DayForecast(
             date = Date(),
             weatherSummary = WeatherSummary(
-                weatherType = WeatherType.sun,
+                weatherType = WeatherType.SUNNY,
                 humidity = 20,
                 wind = 3,
                 tempMin = 5,
