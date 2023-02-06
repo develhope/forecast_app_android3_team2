@@ -4,11 +4,11 @@
     <string name="min">min</string>
     <string name="max">max</string>
     <string name="oggi">%s</string>
-    <string name="tempmin">%s °</string>
-    <string name="tempmax">%s °</string>
+    <string name="tempmin">%s°</string>
+    <string name="tempmax">%s°</string>
     <string name="data">%s</string>
-    <string name="rain">%s </string>
-    <string name="kmh">%s kmh</string>
+    <string name="rain">%s %%</string>
+    <string name="kmh">%s km/h</string>
     <string name="precip_">precip.</string>
     <string name="vento">vento</string>
     <string name="prox5day">%s</string>

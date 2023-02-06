@@ -67,10 +67,6 @@ class HomePageAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(cardItem: HomePageItem.CardItem) {
 
-
-
-
-
             binding.day.text = "Lunedì"
             binding.data.text = "01/10"
             binding.tempmin.text = itemView.context.getString(R.string.tempmin,cardItem.dailyForecast.weatherSummary.tempMin.toString())

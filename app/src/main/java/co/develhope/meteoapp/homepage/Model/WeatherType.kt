@@ -3,24 +3,25 @@ package co.develhope.meteoapp.homepage.Model
 import co.develhope.meteoapp.R
 
 enum class WeatherType {
-    sun, sun_cloud, rain;
+    SUNNY, CLOUDY, RAINY;
 
     fun setIconWeatherType(): Int {
         return when(this){
-            sun -> R.drawable.sun
-            rain -> R.drawable.rain
-            sun_cloud -> R.drawable.sun_cloud
+            SUNNY -> R.drawable.sun
+            RAINY -> R.drawable.rain
+            CLOUDY -> R.drawable.sun_cloud
         }
     }
 
 
 fun Int.getWeatherType():WeatherType {
     return when (this) {
-        0, 1 -> sun
-        2, 3 -> rain
-        4, 5 -> sun_cloud
-        else -> sun
+        0, 1 -> SUNNY
+        2, 3 -> RAINY
+        4, 5 -> CLOUDY
+        else -> CLOUDY
 
     }
 }
+
 }

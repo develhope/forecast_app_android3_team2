@@ -25,8 +25,11 @@
 
     <dimen name="corner_radius_10_dp">10dp</dimen>
     <dimen name="elevation_10_dp">10dp</dimen>
-
-
+    <dimen name="margin_53_dp">53dp</dimen>
+    <dimen name="margin_51_dp">51dp</dimen>
+    <dimen name="margin_85_dp">85dp</dimen>
+    <dimen name="margin_140_dp">140dp</dimen>
+    <dimen name="margin_115_dp">115dp</dimen>
 
 
 </resources>
