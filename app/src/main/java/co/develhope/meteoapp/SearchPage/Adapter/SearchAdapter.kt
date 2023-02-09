@@ -10,7 +10,7 @@ import co.develhope.meteoapp.databinding.TemplateRicercheRecentiBinding
 
 
 class SearchAdapter(
-    private val context: Int,
+
     private val dataset:List<SearchItem
             >): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -29,7 +29,7 @@ class SearchAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder){
-            is CitySearchViewHolder -> holder.bind(dataset[position] as SearchItem.SearchCity)
+            is CitySearchViewHolder -> holder.bind(dataset[position] as SearchItem.SearchCard)
 
             is RicercheRecentiViewHolder -> holder.bind(dataset[position] as SearchItem.RicercheRecenti)
         }
@@ -41,7 +41,7 @@ class SearchAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return when(dataset[position]){
-            is SearchItem.SearchCity -> TYPE_SEARCH_CITY
+            is SearchItem.SearchCard -> TYPE_SEARCH_CITY
             is SearchItem.RicercheRecenti -> TYPE_RICERCHE_RECENTI
         }
     }
@@ -49,14 +49,14 @@ class SearchAdapter(
     class RicercheRecentiViewHolder(val binding: TemplateRicercheRecentiBinding):
         RecyclerView.ViewHolder(binding.root){
         fun bind (searchItem: SearchItem.RicercheRecenti){
-            binding.ricercheRecenti.text = binding.root.context.getString(R.string.ricerche_recenti,searchItem.string)
+            binding.ricercheRecenti.text = binding.root.context.getString(R.string.ricerche_recenti)
         }
     }
 
     class CitySearchViewHolder(val binding : CardSearchTemplateBinding):
         RecyclerView.ViewHolder(binding.root){
-        fun bind(city: SearchItem.SearchCity){
-            binding.city.text = binding.root.context.getString(R.string.city_search,city.cityName)
+        fun bind(city: SearchItem.SearchCard){
+            binding.city.text = binding.root.context.getString(R.string.city_search,city.info.cityName)
         }
     }
 

@@ -1,15 +1,21 @@
 package co.develhope.meteoapp.SearchPage.Data
 
+import co.develhope.meteoapp.SearchPage.Model.SearchCity
 import co.develhope.meteoapp.SearchPage.Model.SearchItem
 
 object SearchDataItem {
-    val searchList= mutableListOf<SearchItem>(
-        SearchItem.RicercheRecenti("Ricerche recenti"),
-        SearchItem.SearchCity("palermo"),
-        SearchItem.SearchCity("casteltermini"),
-        SearchItem.SearchCity("ribera")
+    val searchList= listOf<SearchCity>(
+        SearchCity(
+            cityName = "Palermo"
+        ),SearchCity(
+            cityName = "Casteltermini"
+        ),SearchCity(
+            cityName = "Agrigento"
+        ),SearchCity(
+            cityName = "Catania"
+        ),
     )
-    fun loadSearchData():List<SearchItem>{
+    fun loadSearchData(): List<SearchCity> {
         return searchList
     }
 }

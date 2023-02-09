@@ -1,3 +1,5 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package co.develhope.meteoapp.SearchPage
 
 import android.os.Bundle
@@ -7,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.SearchPage.Adapter.SearchAdapter
-import co.develhope.meteoapp.SearchPage.Adapter.SearchAdapter.Companion.TYPE_RICERCHE_RECENTI
-import co.develhope.meteoapp.SearchPage.Adapter.SearchAdapter.Companion.TYPE_SEARCH_CITY
 import co.develhope.meteoapp.SearchPage.Data.SearchDataItem.loadSearchData
+import co.develhope.meteoapp.SearchPage.Model.SearchCity
+import co.develhope.meteoapp.SearchPage.Model.SearchItem
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
 
 
@@ -31,13 +33,23 @@ private lateinit var binding: FragmentSearchBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapterCitySearch = SearchAdapter(TYPE_SEARCH_CITY,loadSearchData())
-        binding.RVSearch.adapter =adapterCitySearch
+        val listSearch = createListSearch(loadSearchData())
+        val adapterSearch =SearchAdapter(listSearch)
+        binding.RVSearch.adapter =adapterSearch
         binding.RVSearch.layoutManager = LinearLayoutManager(view.context)
 
-        val adapterRicercheRecenti= SearchAdapter(TYPE_RICERCHE_RECENTI, loadSearchData())
-        binding.RVSearch.adapter =adapterRicercheRecenti
-        binding.RVSearch.layoutManager =LinearLayoutManager(view.context)
+
     }
 }
+
+private fun createListSearch(searchCity : List<SearchCity>):List<SearchItem>{
+    val listToReturn = mutableListOf<SearchItem>()
+    listToReturn.add(SearchItem.RicercheRecenti)
+    val listSearchCity: MutableList<SearchItem.SearchCard> = searchCity.map {
+        SearchItem.SearchCard(it)
+    }.toMutableList()
+    listToReturn.addAll(listSearchCity)
+    return listToReturn
+    }
+
 

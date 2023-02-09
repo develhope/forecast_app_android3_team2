@@ -11,20 +11,20 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="@dimen/height_150_dp"
         android:background="@color/gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <SearchView
             android:id="@+id/cerca_città"
-            android:layout_width="355dp"
-            android:layout_height="57dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="76dp"
+            android:layout_width="@dimen/width_355_dp"
+            android:layout_height="@dimen/height_57_dp"
+            android:layout_marginStart="@dimen/margin_18_dp"
+            android:layout_marginTop="@dimen/margin_76_dp"
             android:background="@drawable/search_bar_shape"
             android:closeIcon="@drawable/clear_search_bar"
-            android:contentDescription="cerca città"
+            android:contentDescription="@string/search_string"
             android:contextClickable="true"
             android:iconifiedByDefault="false"
             android:queryBackground="@color/trasparent"
