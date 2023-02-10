@@ -1,10 +1,9 @@
-package co.develhope.meteoapp.SearchPage.Adapter
+package co.develhope.meteoapp.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.R
-import co.develhope.meteoapp.SearchPage.Model.SearchItem
 import co.develhope.meteoapp.databinding.CardSearchTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateRicercheRecentiBinding
 

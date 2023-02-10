@@ -1,6 +1,5 @@
-package co.develhope.meteoapp.homepage.Adapter
+package co.develhope.meteoapp.ui.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +8,6 @@ import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
 import co.develhope.meteoapp.homepage.Model.HomePageItem
-import co.develhope.meteoapp.homepage.Model.WeatherType
 
 class HomePageAdapter(
     private val dataset: List<HomePageItem>

@@ -1,4 +1,4 @@
-package co.develhope.meteoapp.homepage.Data
+package co.develhope.meteoapp.homepage.data
 
 import co.develhope.meteoapp.homepage.Model.DayForecast
 import co.develhope.meteoapp.homepage.Model.Place

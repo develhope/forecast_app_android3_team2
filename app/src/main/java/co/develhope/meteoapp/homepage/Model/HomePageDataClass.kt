@@ -1,6 +1,6 @@
 package co.develhope.meteoapp.homepage.Model
 
-import co.develhope.meteoapp.homepage.Data.WeatherSummary
+import co.develhope.meteoapp.homepage.data.WeatherSummary
 import java.util.*
 
 data class DayForecast(
