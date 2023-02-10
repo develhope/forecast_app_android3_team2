@@ -1,9 +1,9 @@
-package co.develhope.meteoapp
+package co.develhope.meteoapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import co.develhope.meteoapp.SearchPage.Search
+import co.develhope.meteoapp.R
 import co.develhope.meteoapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -12,14 +12,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(HomePage())
+        replaceFragment(HomePageFragment())
 
         binding.bottomNavBar.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.HomePage -> replaceFragment(HomePage())
-                R.id.Oggi -> replaceFragment(SpecificDay())
-                R.id.Domani -> replaceFragment(Tomorrow())
-                R.id.Search -> replaceFragment(Search())
+                R.id.HomePage -> replaceFragment(HomePageFragment())
+                R.id.Oggi -> replaceFragment(SpecificDayFragment())
+                R.id.Domani -> replaceFragment(SpecificDayFragment())
+                R.id.Search -> replaceFragment(SearchFragment())
                 else->{}
             }
             true
