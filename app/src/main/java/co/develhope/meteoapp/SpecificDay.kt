@@ -49,7 +49,9 @@ class SpecificDay : Fragment() {
         val otherHours: MutableList<SpecificDayModel.SpecificDayHourly> = list.map {
             SpecificDayModel.SpecificDayHourly(it)
         }.toMutableList()
+
         listToReturn.addAll(otherHours)
+
         return listToReturn
     }
 }
