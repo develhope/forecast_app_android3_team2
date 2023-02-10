@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import co.develhope.meteoapp.R
-import co.develhope.meteoapp.Tomorrow
 import co.develhope.meteoapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.HomePage -> replaceFragment(HomePageFragment())
                 R.id.Oggi -> replaceFragment(SpecificDayFragment())
-                R.id.Domani -> replaceFragment(Tomorrow())
+                R.id.Domani -> replaceFragment(SpecificDayFragment())
                 R.id.Search -> replaceFragment(SearchFragment())
                 else->{}
             }

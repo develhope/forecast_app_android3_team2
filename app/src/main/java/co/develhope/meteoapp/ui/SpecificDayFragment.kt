@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.develhope.meteoapp.DaySpecificDay
-import co.develhope.meteoapp.SpecificDayObject.getSpecificDay
+import co.develhope.meteoapp.data.DataSource.getSpecificDay
+import co.develhope.meteoapp.data.domainmodel.DaySpecificDay
 import co.develhope.meteoapp.ui.adapter.SpecificDayAdapter
 import co.develhope.meteoapp.ui.adapter.SpecificDayModel
 

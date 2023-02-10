@@ -6,6 +6,4 @@ data class DaySpecificDay(
     val place: Place,
     val cardSpecificDay: CardSpecificDay,
     val hourlySpecificDay: HourlySpecificDay,
-    val date: Date
-
 )

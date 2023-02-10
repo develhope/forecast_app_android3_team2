@@ -1,12 +1,165 @@
-package co.develhope.meteoapp
+package co.develhope.meteoapp.data
 
 import co.develhope.meteoapp.data.domainmodel.CardSpecificDay
+import co.develhope.meteoapp.data.domainmodel.DayForecast
 import co.develhope.meteoapp.data.domainmodel.DaySpecificDay
 import co.develhope.meteoapp.data.domainmodel.HourlySpecificDay
 import co.develhope.meteoapp.data.domainmodel.Place
+import co.develhope.meteoapp.data.domainmodel.SearchCity
+import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.data.domainmodel.WeatherType
 import java.util.Date
-object SpecificDayObject {
+
+object DataSource {
+    private val dailyForecastList = listOf<DayForecast>(
+        DayForecast(
+            date = Date(),
+            weatherSummary = WeatherSummary(
+                weatherType = WeatherType.SUNNY,
+                humidity = 20,
+                wind = 3,
+                tempMin = 5,
+                tempMax = 16,
+                rain = 4
+            ),
+            place = Place(
+                city = "Palermo",
+                region = "Sicilia",
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
+            )
+        ),
+        DayForecast(
+            date = Date(),
+            weatherSummary = WeatherSummary(
+                weatherType = WeatherType.SUNNY,
+                humidity = 20,
+                wind = 3,
+                tempMin = 5,
+                tempMax = 16,
+                rain = 4
+            ),
+            place = Place(
+                city = "Palermo",
+                region = "Sicilia",
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
+            )
+        ),
+        DayForecast(
+            date = Date(),
+            weatherSummary = WeatherSummary(
+                weatherType = WeatherType.SUNNY,
+                humidity = 20,
+                wind = 3,
+                tempMin = 5,
+                tempMax = 16,
+                rain = 4
+            ),
+            place = Place(
+                city = "Palermo",
+                region = "Sicilia",
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
+            )
+        ),
+        DayForecast(
+            date = Date(),
+            weatherSummary = WeatherSummary(
+                weatherType = WeatherType.SUNNY,
+                humidity = 20,
+                wind = 3,
+                tempMin = 5,
+                tempMax = 16,
+                rain = 4
+            ),
+            place = Place(
+                city = "Palermo",
+                region = "Sicilia",
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
+            )
+        ),
+        DayForecast(
+            date = Date(),
+            weatherSummary = WeatherSummary(
+                weatherType = WeatherType.SUNNY,
+                humidity = 20,
+                wind = 3,
+                tempMin = 5,
+                tempMax = 16,
+                rain = 4
+
+            ),
+            place = Place(
+                city = "Palermo",
+                region = "Sicilia",
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
+            )
+        ),
+        DayForecast(
+            date = Date(),
+            weatherSummary = WeatherSummary(
+                weatherType = WeatherType.SUNNY,
+                humidity = 20,
+                wind = 3,
+                tempMin = 5,
+                tempMax = 16,
+                rain = 4
+            ),
+            place = Place(
+                city = "Palermo",
+                region = "Sicilia",
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
+            )
+        ),
+        DayForecast(
+            date = Date(),
+            weatherSummary = WeatherSummary(
+                weatherType = WeatherType.SUNNY,
+                humidity = 20,
+                wind = 3,
+                tempMin = 5,
+                tempMax = 16,
+                rain = 4
+            ),
+            place = Place(
+                city = "Palermo",
+                region = "Sicilia",
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
+            )
+        ),
+    )
+    fun getDayForecast(): List<DayForecast> = dailyForecastList
+
+    val searchList= listOf<SearchCity>(
+        SearchCity(
+            cityName = "Palermo"
+        ),
+        SearchCity(
+            cityName = "Casteltermini"
+        ),
+        SearchCity(
+            cityName = "Agrigento"
+        ),
+        SearchCity(
+            cityName = "Catania"
+        ),
+    )
+    fun loadSearchData(): List<SearchCity> {
+        return searchList
+    }
+
 
 
     private val specificaDayList = listOf<DaySpecificDay>(
@@ -21,16 +174,18 @@ object SpecificDayObject {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                 time=1100,
-                 weatherType= WeatherType.SUNNY,
-                 temp=5,
-                 umidity=2
+                time=1100,
+                weatherType= WeatherType.SUNNY,
+                temp=5,
+                umidity=2
             ),
             place = Place(
                 city = "Palermo",
-                region = "Sicilia"
+                region = "Sicilia",
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
             )
-
         ),
         DaySpecificDay(
 
@@ -51,7 +206,9 @@ object SpecificDayObject {
             place = Place(
                 city = "Palermo",
                 region = "Sicilia",
-                date = Date(),
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
             )
 
         ),
@@ -74,7 +231,9 @@ object SpecificDayObject {
             place = Place(
                 city = "Palermo",
                 region = "Sicilia",
-                date = Date(),
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
             )
 
         ),
@@ -97,9 +256,10 @@ object SpecificDayObject {
             place = Place(
                 city = "Palermo",
                 region = "Sicilia",
-                date = Date(),
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
             )
-
         ),
         DaySpecificDay(
 
@@ -120,9 +280,10 @@ object SpecificDayObject {
             place = Place(
                 city = "Palermo",
                 region = "Sicilia",
-                date = Date(),
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
             )
-
         ),
         DaySpecificDay(
 
@@ -143,9 +304,10 @@ object SpecificDayObject {
             place = Place(
                 city = "Palermo",
                 region = "Sicilia",
-                date = Date(),
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
             )
-
         ),
         DaySpecificDay(
 
@@ -166,9 +328,10 @@ object SpecificDayObject {
             place = Place(
                 city = "Palermo",
                 region = "Sicilia",
-                date = Date(),
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
             )
-
         ), DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
@@ -188,9 +351,10 @@ object SpecificDayObject {
             place = Place(
                 city = "Palermo",
                 region = "Sicilia",
-                date = Date(),
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
             )
-
         ),
         DaySpecificDay(
 
@@ -211,9 +375,10 @@ object SpecificDayObject {
             place = Place(
                 city = "Palermo",
                 region = "Sicilia",
-                date = Date(),
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
             )
-
         ),
         DaySpecificDay(
 
@@ -234,9 +399,10 @@ object SpecificDayObject {
             place = Place(
                 city = "Palermo",
                 region = "Sicilia",
-                date = Date(),
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
             )
-
         ),
         DaySpecificDay(
 
@@ -257,9 +423,10 @@ object SpecificDayObject {
             place = Place(
                 city = "Palermo",
                 region = "Sicilia",
-                date = Date(),
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
             )
-
         ),
         DaySpecificDay(
 
@@ -280,9 +447,10 @@ object SpecificDayObject {
             place = Place(
                 city = "Palermo",
                 region = "Sicilia",
-                date = Date(),
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
             )
-
         ),
         DaySpecificDay(
 
@@ -303,11 +471,14 @@ object SpecificDayObject {
             place = Place(
                 city = "Palermo",
                 region = "Sicilia",
-                date = Date(),
+                lat = 0.0,
+                log = 0.0,
+                date = Date()
             )
-
         )
 
     )
-   fun getSpecificDay(): List<DaySpecificDay> = specificaDayList
+    fun getSpecificDay(): List<DaySpecificDay> = specificaDayList
+
+
 }
