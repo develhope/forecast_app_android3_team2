@@ -8,12 +8,13 @@ import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.data.domainmodel.SearchCity
 import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.data.domainmodel.WeatherType
+import org.threeten.bp.OffsetDateTime
 import java.util.Date
 
 object DataSource {
     private val dailyForecastList = listOf<DayForecast>(
         DayForecast(
-            date = Date(),
+            date = OffsetDateTime.now(),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -27,11 +28,11 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DayForecast(
-            date = Date(),
+            date = OffsetDateTime.now(),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -45,11 +46,11 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DayForecast(
-            date = Date(),
+            date = OffsetDateTime.now(),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -63,11 +64,11 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DayForecast(
-            date = Date(),
+            date = OffsetDateTime.now(),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -81,11 +82,11 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DayForecast(
-            date = Date(),
+            date = OffsetDateTime.now(),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -100,11 +101,11 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DayForecast(
-            date = Date(),
+            date = OffsetDateTime.now(),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -118,11 +119,11 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DayForecast(
-            date = Date(),
+            date = OffsetDateTime.now(),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -136,7 +137,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
     )
@@ -184,7 +185,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DaySpecificDay(
@@ -208,7 +209,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
 
         ),
@@ -233,7 +234,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
 
         ),
@@ -258,7 +259,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DaySpecificDay(
@@ -282,7 +283,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DaySpecificDay(
@@ -306,7 +307,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DaySpecificDay(
@@ -330,7 +331,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ), DaySpecificDay(
 
@@ -353,7 +354,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DaySpecificDay(
@@ -377,7 +378,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DaySpecificDay(
@@ -401,7 +402,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DaySpecificDay(
@@ -425,7 +426,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DaySpecificDay(
@@ -449,7 +450,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         ),
         DaySpecificDay(
@@ -473,7 +474,7 @@ object DataSource {
                 region = "Sicilia",
                 lat = 0.0,
                 log = 0.0,
-                date = Date()
+                date = OffsetDateTime.now()
             )
         )
 

@@ -1,9 +1,9 @@
 package co.develhope.meteoapp.data.domainmodel
 
-import java.util.Date
+import org.threeten.bp.OffsetDateTime
 
 data class DayForecast(
     val place: Place,
-    val date: Date,
+    val date: OffsetDateTime,
     val weatherSummary: WeatherSummary
 )
