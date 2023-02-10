@@ -1,6 +1,6 @@
 package co.develhope.meteoapp.ui.utils
 
-import co.develhope.meteoapp.homepage.Model.DayForecast
+import co.develhope.meteoapp.data.domainmodel.DayForecast
 import co.develhope.meteoapp.ui.adapter.HomePageItem
 
 fun createListToShow(dayForecastList: List<DayForecast>): List<HomePageItem> {

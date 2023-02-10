@@ -1,9 +1,8 @@
 package co.develhope.meteoapp.ui.adapter
 
-import co.develhope.meteoapp.CardSpecificDay
-import co.develhope.meteoapp.DaySpecificDay
-import co.develhope.meteoapp.homepage.Model.Place
-
+import co.develhope.meteoapp.data.domainmodel.CardSpecificDay
+import co.develhope.meteoapp.data.domainmodel.DaySpecificDay
+import co.develhope.meteoapp.data.domainmodel.Place
 
 sealed class SpecificDayModel {
 
