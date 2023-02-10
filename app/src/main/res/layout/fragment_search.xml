@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchPage.Search"
     android:background="@color/gray">
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_150_dp"
+        android:background="@color/gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <SearchView
+            android:id="@+id/cerca_città"
+            android:layout_width="@dimen/width_355_dp"
+            android:layout_height="@dimen/height_57_dp"
+            android:layout_marginStart="@dimen/margin_18_dp"
+            android:layout_marginTop="@dimen/margin_76_dp"
+            android:background="@drawable/search_bar_shape"
+            android:closeIcon="@drawable/clear_search_bar"
+            android:contentDescription="@string/search_string"
+            android:contextClickable="true"
+            android:iconifiedByDefault="false"
+            android:queryBackground="@color/trasparent"
+            android:queryHint="Cerca città"
+            android:searchHintIcon="@drawable/search_1"
+            android:searchIcon="@drawable/search_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RV_search"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

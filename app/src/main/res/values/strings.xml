@@ -15,10 +15,9 @@
     <string name="city_search">%s</string>
     <string name="temp_search">%s</string>
     <string name="weathertype_search">%s</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_city">%s</string>
-    <string name="ricerche_recenti">%s</string>
+    <string name="ricerche_recenti">Ricerche recenti</string>
+    <string name="search_string">cerca città</string>
     <string name="next_days">PROSSIMI 5 GIORNI</string>
     <string name="image_of_weather_type">image of weather type</string>
-
 </resources>
