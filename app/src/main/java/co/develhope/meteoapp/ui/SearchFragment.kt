@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.ui.adapter.SearchAdapter
-import co.develhope.meteoapp.SearchPage.Data.SearchDataItem
+import co.develhope.meteoapp.data.SearchDataItem
 import co.develhope.meteoapp.SearchPage.createListSearch
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
 

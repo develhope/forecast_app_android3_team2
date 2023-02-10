@@ -1,22 +1,10 @@
-package co.develhope.meteoapp.homepage.data
+package co.develhope.meteoapp.data
 
-import co.develhope.meteoapp.homepage.Model.DayForecast
-import co.develhope.meteoapp.homepage.Model.Place
-import co.develhope.meteoapp.homepage.Model.WeatherType
+import co.develhope.meteoapp.data.domainmodel.DayForecast
+import co.develhope.meteoapp.data.domainmodel.Place
+import co.develhope.meteoapp.data.domainmodel.WeatherType
+import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import java.util.Date
-
-
-
-
-
-data class WeatherSummary(
-    val weatherType: WeatherType,
-    val humidity: Int,
-    val wind: Int,
-    val tempMin: Int,
-    val tempMax: Int,
-    val rain : Int
-)
 
 object HomePageObject {
 

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.ui.adapter.HomePageAdapter
-import co.develhope.meteoapp.homepage.data.HomePageObject
+import co.develhope.meteoapp.data.HomePageObject
 import co.develhope.meteoapp.homepage.createListToShow
 
 class HomePageFragment : Fragment() {

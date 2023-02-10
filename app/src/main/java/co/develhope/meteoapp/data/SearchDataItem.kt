@@ -1,16 +1,19 @@
-package co.develhope.meteoapp.SearchPage.Data
+package co.develhope.meteoapp.data
 
-import co.develhope.meteoapp.SearchPage.Model.SearchCity
+import co.develhope.meteoapp.data.domainmodel.SearchCity
 
 object SearchDataItem {
     val searchList= listOf<SearchCity>(
         SearchCity(
             cityName = "Palermo"
-        ),SearchCity(
+        ),
+        SearchCity(
             cityName = "Casteltermini"
-        ),SearchCity(
+        ),
+        SearchCity(
             cityName = "Agrigento"
-        ),SearchCity(
+        ),
+        SearchCity(
             cityName = "Catania"
         ),
     )

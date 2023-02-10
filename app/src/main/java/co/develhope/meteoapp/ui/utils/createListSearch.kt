@@ -1,6 +1,6 @@
 package co.develhope.meteoapp.ui.utils
 
-import co.develhope.meteoapp.SearchPage.Model.SearchCity
+import co.develhope.meteoapp.data.domainmodel.SearchCity
 import co.develhope.meteoapp.ui.adapter.SearchItem
 
 fun createListSearch(searchCity : List<SearchCity>):List<SearchItem>{

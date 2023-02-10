@@ -1,4 +1,4 @@
-package co.develhope.meteoapp.homepage.Model
+package co.develhope.meteoapp.data.domainmodel
 
 import co.develhope.meteoapp.R
 
@@ -14,7 +14,7 @@ enum class WeatherType {
     }
 
 
-fun Int.getWeatherType():WeatherType {
+fun Int.getWeatherType(): WeatherType {
     return when (this) {
         0, 1 -> SUNNY
         2, 3 -> RAINY

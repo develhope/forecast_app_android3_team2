@@ -7,7 +7,6 @@ import co.develhope.meteoapp.R
 import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
-import co.develhope.meteoapp.homepage.Model.HomePageItem
 
 class HomePageAdapter(
     private val dataset: List<HomePageItem>

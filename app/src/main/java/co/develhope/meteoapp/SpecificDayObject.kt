@@ -1,41 +1,11 @@
 package co.develhope.meteoapp
 
-
-import co.develhope.meteoapp.homepage.Model.WeatherType
+import co.develhope.meteoapp.data.domainmodel.CardSpecificDay
+import co.develhope.meteoapp.data.domainmodel.DaySpecificDay
+import co.develhope.meteoapp.data.domainmodel.HourlySpecificDay
+import co.develhope.meteoapp.data.domainmodel.Place
+import co.develhope.meteoapp.data.domainmodel.WeatherType
 import java.util.Date
-
-
-data class Place(
-        val city: String,
-        val region: String,
-        val date: Date,
-    )
-
-data class DaySpecificDay(
-    val place: Place,
-    val cardSpecificDay: CardSpecificDay,
-    val hourlySpecificDay: HourlySpecificDay
-
-)
-
-data class CardSpecificDay(
-    val percepita: Int,
-    val umidita: Int,
-    val copertura: Int,
-    val uv: Int,
-    val vento: Int,
-    val pioggia: Int
-)
-
-data class HourlySpecificDay(
-    val time: Int,
-    val weatherType: WeatherType,
-    val temp: Int,
-    val umidity: Int
-)
-
-
-
 object SpecificDayObject {
 
 
@@ -58,8 +28,7 @@ object SpecificDayObject {
             ),
             place = Place(
                 city = "Palermo",
-                region = "Sicilia" ,
-                date = Date(),
+                region = "Sicilia"
             )
 
         ),
