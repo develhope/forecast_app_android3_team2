@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_18_dp">18dp</dimen>
+    <dimen name="margin_24_dp">24dp</dimen>
+    <dimen name="margin_28_dp">28dp</dimen>
+    <dimen name="margin_26_dp">26dp</dimen>
+    <dimen name="margin_245_dp">245dp</dimen>
+    <dimen name="margin_145_dp">145dp</dimen>
+    <dimen name="margin_240_dp">240dp</dimen>
+    <dimen name="margin_88_dp">88dp</dimen>
+    <dimen name="margin_30_dp">30dp</dimen>
+    <dimen name="margin_1_dp">1dp</dimen>
+    <dimen name="margin_10_dp">10dp</dimen>
+    <dimen name="margin_16_dp">16dp</dimen>
+    <dimen name="margin_22_dp">22dp</dimen>
+
+    <dimen name="height_48_dp">48dp</dimen>
+    <dimen name="height_190_dp">190dp</dimen>
+    <dimen name="height_155_dp">155dp</dimen>
+    <dimen name="height_66_dp">66dp</dimen>
+
+    <dimen name="width_306dp">306dp</dimen>
+    <dimen name="width_342dp">342dp</dimen>
+    <dimen name="widht_354_dp">354dp</dimen>
+
+    <dimen name="corner_radius_10_dp">10dp</dimen>
+    <dimen name="elevation_10_dp">10dp</dimen>
+    <dimen name="margin_53_dp">53dp</dimen>
+    <dimen name="margin_51_dp">51dp</dimen>
+    <dimen name="margin_85_dp">85dp</dimen>
+    <dimen name="margin_140_dp">140dp</dimen>
+    <dimen name="margin_115_dp">115dp</dimen>
+
+
+</resources>

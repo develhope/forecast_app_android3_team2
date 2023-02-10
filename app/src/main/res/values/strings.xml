@@ -1,30 +1,24 @@
 <resources>
     <string name="app_name">meteoapp</string>
-<!---string title-->
-    <string name="city_region">%s , %s</string>
-    <string name="today">Today,</string>
-    <string name="today_details">%s</string>
-
-<!---string hourly-->
-    <string name="time">%s</string>
-    <string name="type">type</string>
-    <string name="temp">%s °</string>
-    <string name="umidity">%s %%</string>
-
-
-<!---string card titles-->
-    <string name="sp_percepita">Percepita</string>
-    <string name="sp_UV">Indice UV</string>
-    <string name="sp_umidita">Umidità</string>
-    <string name="sp_vento">Vento</string>
-    <string name="copertura">Copertura</string>
-    <string name="pioggia">Pioggia</string>
-<!--- string card data-->
-    <string name="DatoPercepita"> %s °</string>
-    <string name="DatoUv">%s</string>
-    <string name="DatoUmidita">%s %%</string>
-    <string name="DatoVento">SSE %s Km/h</string>
-    <string name="DatoCopertura">%s %%</string>
-    <string name="DatoPioggia">%s cm</string>
+    <string name="title_homepage">%s, %s</string>
+    <string name="min">min.</string>
+    <string name="max">max.</string>
+    <string name="oggi">%s</string>
+    <string name="tempmin">%s°</string>
+    <string name="tempmax">%s°</string>
+    <string name="data">%s</string>
+    <string name="rain">%s %%</string>
+    <string name="kmh">%s km/h</string>
+    <string name="precip_">precip.</string>
+    <string name="vento">vento</string>
+    <string name="prox5day">%s</string>
+    <string name="city_search">%s</string>
+    <string name="temp_search">%s</string>
+    <string name="weathertype_search">%s</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_city">%s</string>
+    <string name="ricerche_recenti">%s</string>
+    <string name="next_days">PROSSIMI 5 GIORNI</string>
+    <string name="image_of_weather_type">image of weather type</string>
 
 </resources>
