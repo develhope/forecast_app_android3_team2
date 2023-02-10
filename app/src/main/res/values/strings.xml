@@ -1,9 +1,23 @@
 <resources>
     <string name="app_name">meteoapp</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_homepage">%s, %s</string>
+    <string name="min">min.</string>
+    <string name="max">max.</string>
+    <string name="oggi">%s</string>
+    <string name="tempmin">%s°</string>
+    <string name="tempmax">%s°</string>
+    <string name="data">%s</string>
+    <string name="rain">%s %%</string>
+    <string name="kmh">%s km/h</string>
+    <string name="precip_">precip.</string>
+    <string name="vento">vento</string>
+    <string name="prox5day">%s</string>
+    <string name="city_search">%s</string>
+    <string name="temp_search">%s</string>
+    <string name="weathertype_search">%s</string>
     <string name="search_city">%s</string>
     <string name="ricerche_recenti">Ricerche recenti</string>
-    <string name="city_search">%s</string>
     <string name="search_string">cerca città</string>
-
+    <string name="next_days">PROSSIMI 5 GIORNI</string>
+    <string name="image_of_weather_type">image of weather type</string>
 </resources>
