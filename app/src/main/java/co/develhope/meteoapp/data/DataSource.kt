@@ -143,7 +143,7 @@ object DataSource {
     )
     fun getDayForecast(): List<DayForecast> = dailyForecastList
 
-    val searchList= listOf<SearchCity>(
+    private val searchList= listOf<SearchCity>(
         SearchCity(
             cityName = "Palermo"
         ),
