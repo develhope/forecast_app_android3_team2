@@ -32,7 +32,7 @@ object DataSource {
             )
         ),
         DayForecast(
-            date = OffsetDateTime.now(),
+            date = OffsetDateTime.now().plusDays(1),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -50,7 +50,7 @@ object DataSource {
             )
         ),
         DayForecast(
-            date = OffsetDateTime.now(),
+            date = OffsetDateTime.now().plusDays(2),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -68,7 +68,7 @@ object DataSource {
             )
         ),
         DayForecast(
-            date = OffsetDateTime.now(),
+            date = OffsetDateTime.now().plusDays(3),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -86,7 +86,7 @@ object DataSource {
             )
         ),
         DayForecast(
-            date = OffsetDateTime.now(),
+            date = OffsetDateTime.now().plusDays(4),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -105,7 +105,7 @@ object DataSource {
             )
         ),
         DayForecast(
-            date = OffsetDateTime.now(),
+            date = OffsetDateTime.now().plusDays(5),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,

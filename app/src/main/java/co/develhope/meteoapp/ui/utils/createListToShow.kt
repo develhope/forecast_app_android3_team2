@@ -10,12 +10,13 @@ fun createListToShow(dayForecastList: List<DayForecast>): List<HomePageItem> {
     listToReturn.add(HomePageItem.CardItem(dayForecastList.first()))
     listToReturn.add(HomePageItem.Subtitle)
 
+
+
     val othersDays: MutableList<HomePageItem.CardItem> = dayForecastList.map {
         HomePageItem.CardItem(it)
     }.toMutableList()
 
     listToReturn.addAll(othersDays)
-    listToReturn.removeLast()
     listToReturn.removeLast()
 
     return listToReturn

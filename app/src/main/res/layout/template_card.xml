@@ -60,7 +60,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="@dimen/margin_18_dp"
-            android:layout_marginTop="@dimen/margin_53_dp"
+            android:layout_marginTop="@dimen/margin_51_dp"
             android:gravity="top"
             android:text="@string/data"
             android:textAppearance="@style/data" />

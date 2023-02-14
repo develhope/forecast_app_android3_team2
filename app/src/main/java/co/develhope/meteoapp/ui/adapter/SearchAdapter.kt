@@ -10,8 +10,9 @@ import co.develhope.meteoapp.databinding.TemplateRicercheRecentiBinding
 
 class SearchAdapter(
 
-    private val dataset:List<SearchItem
-            >): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private val dataset: List<SearchItem>,
+    searchCity: Unit
+): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType){
             TYPE_SEARCH_CITY -> CitySearchViewHolder(

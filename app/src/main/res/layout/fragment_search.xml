@@ -16,21 +16,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <SearchView
-            android:id="@+id/cerca_città"
+        <EditText
+            android:id="@+id/search_bar"
+            android:drawablePadding="@dimen/margin_10_dp"
             android:layout_width="@dimen/width_355_dp"
             android:layout_height="@dimen/height_57_dp"
             android:layout_marginStart="@dimen/margin_18_dp"
             android:layout_marginTop="@dimen/margin_76_dp"
+            android:layout_marginEnd="18dp"
             android:background="@drawable/search_bar_shape"
-            android:closeIcon="@drawable/clear_search_bar"
-            android:contentDescription="@string/search_string"
             android:contextClickable="true"
-            android:iconifiedByDefault="false"
+            android:drawableStart="@drawable/search_1"
+            android:gravity="center"
+            android:hint="@string/cerca_citta"
+            android:iconifiedByDefault="true"
+            android:inputType="text"
             android:queryBackground="@color/trasparent"
-            android:queryHint="Cerca città"
-            android:searchHintIcon="@drawable/search_1"
-            android:searchIcon="@drawable/search_1"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -44,7 +46,9 @@
         android:layout_marginEnd="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
