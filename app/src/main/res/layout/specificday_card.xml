@@ -95,12 +95,12 @@
 
             <TextView
                 android:id="@+id/sp_vento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/body_text"
+                android:layout_width="38dp"
+                android:layout_height="27dp"
                 android:layout_marginStart="@dimen/margin_198_dp"
                 android:layout_marginTop="@dimen/margin_84_dp"
                 android:text="@string/sp_vento"
-                style="@style/body_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
