@@ -144,7 +144,7 @@ object DataSource {
 
 
 
-    private val specificaDayList = listOf<DaySpecificDay>(
+    private val specificDayList = listOf<DaySpecificDay>(
         DaySpecificDay(
 
             cardSpecificDay = CardSpecificDay(
@@ -156,10 +156,10 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=1100,
+                time=11,
                 weatherType= WeatherType.SUNNY,
-                temp=5,
-                umidity=2
+                temp=31,
+                umidity=0
             ),
             place = Place(
                 city = "Palermo",
@@ -180,35 +180,10 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=1200,
+                time=12,
                 weatherType= WeatherType.SUNNY,
-                temp=5,
-                umidity=2
-            ),
-            place = Place(
-                city = "Palermo",
-                region = "Sicilia",
-                lat = 0.0,
-                log = 0.0,
-                date = OffsetDateTime.now()
-            )
-
-        ),
-        DaySpecificDay(
-
-            cardSpecificDay = CardSpecificDay(
-                percepita = 45,
-                umidita= 60,
-                copertura=24,
-                uv=5,
-                vento=7,
-                pioggia=0
-            ),
-            hourlySpecificDay = HourlySpecificDay(
-                time=1300,
-                weatherType= WeatherType.SUNNY,
-                temp=5,
-                umidity=2
+                temp=29,
+                umidity=0
             ),
             place = Place(
                 city = "Palermo",
@@ -230,10 +205,35 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=1400,
+                time=13,
                 weatherType= WeatherType.SUNNY,
-                temp=5,
-                umidity=2
+                temp=30,
+                umidity=0
+            ),
+            place = Place(
+                city = "Palermo",
+                region = "Sicilia",
+                lat = 0.0,
+                log = 0.0,
+                date = OffsetDateTime.now()
+            )
+
+        ),
+        DaySpecificDay(
+
+            cardSpecificDay = CardSpecificDay(
+                percepita = 45,
+                umidita= 60,
+                copertura=24,
+                uv=5,
+                vento=7,
+                pioggia=0
+            ),
+            hourlySpecificDay = HourlySpecificDay(
+                time=14,
+                weatherType= WeatherType.RAINY,
+                temp=32,
+                umidity=60
             ),
             place = Place(
                 city = "Palermo",
@@ -254,10 +254,10 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=1500,
-                weatherType= WeatherType.SUNNY,
-                temp=5,
-                umidity=2
+                time=15,
+                weatherType= WeatherType.RAINY,
+                temp=28,
+                umidity=70
             ),
             place = Place(
                 city = "Palermo",
@@ -278,10 +278,10 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=1600,
-                weatherType= WeatherType.SUNNY,
-                temp=5,
-                umidity=2
+                time=16,
+                weatherType= WeatherType.CLOUDY,
+                temp=25,
+                umidity=20
             ),
             place = Place(
                 city = "Palermo",
@@ -302,10 +302,10 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=1700,
+                time=17,
                 weatherType= WeatherType.SUNNY,
-                temp=5,
-                umidity=2
+                temp=22,
+                umidity=0
             ),
             place = Place(
                 city = "Palermo",
@@ -325,10 +325,10 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=1800,
+                time=18,
                 weatherType= WeatherType.SUNNY,
-                temp=5,
-                umidity=2
+                temp=22,
+                umidity=0
             ),
             place = Place(
                 city = "Palermo",
@@ -349,10 +349,10 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=1900,
-                weatherType= WeatherType.SUNNY,
-                temp=5,
-                umidity=2
+                time=19,
+                weatherType= WeatherType.CLOUDY,
+                temp=20,
+                umidity=10
             ),
             place = Place(
                 city = "Palermo",
@@ -373,10 +373,10 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=2000,
-                weatherType= WeatherType.SUNNY,
-                temp=5,
-                umidity=2
+                time=20,
+                weatherType= WeatherType.CLOUDY,
+                temp=20,
+                umidity=20
             ),
             place = Place(
                 city = "Palermo",
@@ -397,10 +397,10 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=2100,
-                weatherType= WeatherType.SUNNY,
-                temp=5,
-                umidity=2
+                time=21,
+                weatherType= WeatherType.RAINY,
+                temp=18,
+                umidity=60
             ),
             place = Place(
                 city = "Palermo",
@@ -421,10 +421,10 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=2200,
-                weatherType= WeatherType.SUNNY,
-                temp=5,
-                umidity=2
+                time=22,
+                weatherType= WeatherType.RAINY,
+                temp=15,
+                umidity=70
             ),
             place = Place(
                 city = "Palermo",
@@ -445,10 +445,10 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=2300,
-                weatherType= WeatherType.SUNNY,
-                temp=5,
-                umidity=2
+                time=23,
+                weatherType= WeatherType.RAINY,
+                temp=15,
+                umidity=70
             ),
             place = Place(
                 city = "Palermo",
@@ -460,5 +460,9 @@ object DataSource {
         )
 
     )
+
     fun getSpecificDay(): List<DaySpecificDay> = specificaDayList
 }
+
+    
+
