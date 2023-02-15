@@ -122,24 +122,6 @@ object DataSource {
                 date = OffsetDateTime.now()
             )
         ),
-        DayForecast(
-            date = OffsetDateTime.now(),
-            weatherSummary = WeatherSummary(
-                weatherType = WeatherType.SUNNY,
-                humidity = 20,
-                wind = 3,
-                tempMin = 5,
-                tempMax = 16,
-                rain = 4
-            ),
-            place = Place(
-                city = "Palermo",
-                region = "Sicilia",
-                lat = 0.0,
-                log = 0.0,
-                date = OffsetDateTime.now()
-            )
-        ),
     )
     fun getDayForecast(): MutableList<DayForecast> = dailyForecastList
 
