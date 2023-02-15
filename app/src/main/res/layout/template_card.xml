@@ -15,6 +15,7 @@
         android:layout_width="@dimen/width_342dp"
         android:layout_height="@dimen/height_155_dp"
         android:layout_marginStart="@dimen/margin_24_dp"
+        android:layout_marginEnd="@dimen/margin_24_dp"
         android:layout_marginBottom="@dimen/margin_10_dp">
 
         <TextView
