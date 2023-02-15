@@ -12,16 +12,16 @@ import org.threeten.bp.OffsetDateTime
 import java.util.Date
 
 object DataSource {
-    private val dailyForecastList = listOf<DayForecast>(
+    private val dailyForecastList = mutableListOf<DayForecast>(
         DayForecast(
             date = OffsetDateTime.now(),
             weatherSummary = WeatherSummary(
-                weatherType = WeatherType.SUNNY,
-                humidity = 20,
-                wind = 3,
-                tempMin = 5,
-                tempMax = 16,
-                rain = 4
+                weatherType = WeatherType.RAINY,
+                humidity = 30,
+                wind = 12,
+                tempMin = 7,
+                tempMax = 12,
+                rain = 70
             ),
             place = Place(
                 city = "Palermo",
@@ -35,11 +35,11 @@ object DataSource {
             date = OffsetDateTime.now().plusDays(1),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
-                humidity = 20,
-                wind = 3,
-                tempMin = 5,
-                tempMax = 16,
-                rain = 4
+                humidity = 12,
+                wind = 7,
+                tempMin = 15,
+                tempMax = 21,
+                rain = 9
             ),
             place = Place(
                 city = "Palermo",
@@ -52,12 +52,12 @@ object DataSource {
         DayForecast(
             date = OffsetDateTime.now().plusDays(2),
             weatherSummary = WeatherSummary(
-                weatherType = WeatherType.SUNNY,
-                humidity = 20,
-                wind = 3,
-                tempMin = 5,
+                weatherType = WeatherType.CLOUDY,
+                humidity = 15,
+                wind = 15,
+                tempMin = 9,
                 tempMax = 16,
-                rain = 4
+                rain = 22
             ),
             place = Place(
                 city = "Palermo",
@@ -141,7 +141,7 @@ object DataSource {
             )
         ),
     )
-    fun getDayForecast(): List<DayForecast> = dailyForecastList
+    fun getDayForecast(): MutableList<DayForecast> = dailyForecastList
 
     private val searchList= listOf<SearchCity>(
         SearchCity(

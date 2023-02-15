@@ -12,8 +12,8 @@
         app:cardCornerRadius="@dimen/corner_radius_10_dp"
         app:cardElevation="@dimen/elevation_10_dp"
         android:layout_marginTop="@dimen/margin_10_dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/width_342dp"
+        android:layout_height="@dimen/height_155_dp"
         android:layout_marginStart="@dimen/margin_24_dp"
         android:layout_marginBottom="@dimen/margin_10_dp">
 
@@ -27,7 +27,8 @@
             android:layout_marginTop="@dimen/margin_18_dp"
             android:gravity="top"
             android:text="@string/oggi"
-            android:textAppearance="@style/day" />
+            android:textAppearance="@style/day"
+            tools:ignore="TextContrastCheck" />
 
         <TextView
             android:id="@+id/tempmin"
@@ -39,7 +40,8 @@
             android:layout_marginTop="@dimen/margin_18_dp"
             android:gravity="top"
             android:text="@string/tempmin"
-            android:textAppearance="@style/tempminnum" />
+            android:textAppearance="@style/tempminnum"
+            tools:ignore="TextContrastCheck" />
 
         <TextView
             android:id="@+id/tempmax"
@@ -51,7 +53,8 @@
             android:layout_marginTop="@dimen/margin_18_dp"
             android:gravity="top"
             android:text="@string/tempmax"
-            android:textAppearance="@style/tempmaxnum" />
+            android:textAppearance="@style/tempmaxnum"
+            tools:ignore="TextContrastCheck" />
 
         <TextView
             android:id="@+id/data"
@@ -63,95 +66,101 @@
             android:layout_marginTop="@dimen/margin_51_dp"
             android:gravity="top"
             android:text="@string/data"
-            android:textAppearance="@style/data" />
+            android:textAppearance="@style/data"
+            tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:layout_marginStart="@dimen/margin_145_dp"
             android:id="@+id/min"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/margin_145_dp"
             android:layout_marginTop="@dimen/margin_51_dp"
             android:gravity="top"
             android:text="@string/min"
-            android:textAppearance="@style/min" />
+            android:textAppearance="@style/min"
+            tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:layout_marginTop="@dimen/margin_51_dp"
-            android:layout_marginStart="@dimen/margin_245_dp"
             android:id="@+id/max"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/margin_245_dp"
+            android:layout_marginTop="@dimen/margin_51_dp"
+            android:gravity="top"
             android:text="@string/max"
             android:textAppearance="@style/max"
-            android:gravity="top"
-            />
+            tools:ignore="TextContrastCheck" />
 
         <ImageView
-            android:layout_marginTop="@dimen/margin_85_dp"
-            android:layout_marginStart="@dimen/margin_18_dp"
             android:id="@+id/imagetype"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            tools:srcCompat="@tools:sample/avatars"
-            android:layout_marginBottom="@dimen/margin_18_dp"/>
+            android:layout_marginStart="@dimen/margin_18_dp"
+            android:layout_marginTop="@dimen/margin_85_dp"
+            android:layout_marginBottom="@dimen/margin_18_dp"
+            android:contentDescription="TODO"
+            tools:ignore="ImageContrastCheck"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:layout_marginStart="@dimen/margin_145_dp"
-            android:layout_marginTop="@dimen/margin_88_dp"
             android:id="@+id/umidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/margin_145_dp"
+            android:layout_marginTop="@dimen/margin_88_dp"
             android:gravity="top"
             android:text="@string/rain"
             android:textAppearance="@style/umidity"
-            />
+            tools:ignore="TextContrastCheck" />
 
         <TextView
 
-            android:layout_marginStart="@dimen/margin_145_dp"
             android:id="@+id/precip_"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/margin_145_dp"
             android:layout_marginTop="@dimen/margin_115_dp"
+            android:layout_marginEnd="@dimen/margin_18_dp"
             android:gravity="top"
             android:text="@string/precip_"
             android:textAppearance="@style/precip_"
-            android:layout_marginEnd="@dimen/margin_18_dp"
-            />
+            tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:layout_marginTop="@dimen/margin_88_dp"
             android:id="@+id/kmh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="@dimen/margin_245_dp"
+            android:layout_marginTop="@dimen/margin_88_dp"
+            android:layout_marginEnd="@dimen/margin_18_dp"
             android:gravity="top"
             android:text="@string/kmh"
             android:textAppearance="@style/kmh"
-            android:layout_marginEnd="@dimen/margin_18_dp"/>
+            tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:layout_marginStart="@dimen/margin_245_dp"
             android:id="@+id/vento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:gravity="top"
+            android:layout_marginStart="@dimen/margin_245_dp"
             android:layout_marginTop="@dimen/margin_115_dp"
+            android:layout_marginEnd="@dimen/margin_18_dp"
+            android:gravity="top"
             android:text="@string/vento"
             android:textAppearance="@style/vento"
-            android:layout_marginEnd="@dimen/margin_18_dp"/>
+            tools:ignore="TextContrastCheck" />
 
 
     </androidx.cardview.widget.CardView>
