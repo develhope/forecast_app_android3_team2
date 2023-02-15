@@ -1,6 +1,5 @@
 package co.develhope.meteoapp.data
 
-import co.develhope.meteoapp.R
 import co.develhope.meteoapp.data.domainmodel.CardSpecificDay
 import co.develhope.meteoapp.data.domainmodel.DayForecast
 import co.develhope.meteoapp.data.domainmodel.DaySpecificDay
@@ -9,10 +8,7 @@ import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.data.domainmodel.SearchCity
 import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.data.domainmodel.WeatherType
-import org.threeten.bp.DayOfWeek
 import org.threeten.bp.OffsetDateTime
-import java.util.Calendar.MONDAY
-import java.util.Date
 
 object DataSource {
     private val dailyForecastList = mutableListOf<DayForecast>(

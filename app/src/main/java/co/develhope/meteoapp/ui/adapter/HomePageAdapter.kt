@@ -44,7 +44,7 @@ class HomePageAdapter(
 
             is CurrentCityViewHolder -> holder.bind(dataset[position] as HomePageItem.Title)
 
-            is SubTitleViewHolder -> holder.bind(dataset[position] as HomePageItem.Subtitle)
+            is SubTitleViewHolder -> holder.bind()
         }
     }
 
@@ -86,7 +86,7 @@ class HomePageAdapter(
 
     class SubTitleViewHolder(private val binding: SubtitleTemplateBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(Sub: HomePageItem.Subtitle) {
+        fun bind() {
             binding.textView.text = binding.root.context.getString(R.string.next_days)
         }
     }
