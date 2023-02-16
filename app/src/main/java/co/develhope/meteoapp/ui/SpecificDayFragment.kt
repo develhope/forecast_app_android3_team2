@@ -50,6 +50,8 @@ class SpecificDayFragment : Fragment() {
             SpecificDayModel.SpecificDayHourly(it)
         }.toMutableList()
         listToReturn.addAll(otherHours)
+
+        listToReturn.removeAt(3)
         return listToReturn
     }
 }
