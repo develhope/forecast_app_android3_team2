@@ -224,7 +224,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=13,
+                time=OffsetDateTime.now().hour.plus(3),
                 weatherType= WeatherType.SUNNY,
                 temp=30,
                 umidity=0
@@ -249,7 +249,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=OffsetDateTime.now().hour.plus(3),
+                time=OffsetDateTime.now().hour.plus(4),
                 weatherType= WeatherType.RAINY,
                 temp=32,
                 umidity=60
@@ -273,7 +273,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=OffsetDateTime.now().hour.plus(4),
+                time=OffsetDateTime.now().hour.plus(5),
                 weatherType= WeatherType.RAINY,
                 temp=28,
                 umidity=70
@@ -297,7 +297,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=OffsetDateTime.now().hour.plus(5),
+                time=OffsetDateTime.now().hour.plus(6),
                 weatherType= WeatherType.CLOUDY,
                 temp=25,
                 umidity=20
@@ -321,7 +321,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=OffsetDateTime.now().hour.plus(6),
+                time=OffsetDateTime.now().hour.plus(7),
                 weatherType= WeatherType.SUNNY,
                 temp=22,
                 umidity=0
@@ -344,7 +344,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=18,
+                time=OffsetDateTime.now().hour.plus(8),
                 weatherType= WeatherType.SUNNY,
                 temp=22,
                 umidity=0
@@ -368,7 +368,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=OffsetDateTime.now().hour.plus(7),
+                time=OffsetDateTime.now().hour.plus(9),
                 weatherType= WeatherType.CLOUDY,
                 temp=20,
                 umidity=10
@@ -392,7 +392,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=OffsetDateTime.now().hour.plus(8),
+                time=OffsetDateTime.now().hour.plus(10),
                 weatherType= WeatherType.CLOUDY,
                 temp=20,
                 umidity=20
@@ -416,58 +416,10 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=OffsetDateTime.now().hour.plus(9),
+                time=OffsetDateTime.now().hour.plus(11),
                 weatherType= WeatherType.RAINY,
                 temp=18,
                 umidity=60
-            ),
-            place = Place(
-                city = "Palermo",
-                region = "Sicilia",
-                lat = 0.0,
-                log = 0.0,
-                date = OffsetDateTime.now()
-            )
-        ),
-        DaySpecificDay(
-
-            cardSpecificDay = CardSpecificDay(
-                percepita = 45,
-                umidita= 60,
-                copertura=24,
-                uv=5,
-                vento=7,
-                pioggia=0
-            ),
-            hourlySpecificDay = HourlySpecificDay(
-                time=OffsetDateTime.now().hour.plus(10),
-                weatherType= WeatherType.RAINY,
-                temp=15,
-                umidity=70
-            ),
-            place = Place(
-                city = "Palermo",
-                region = "Sicilia",
-                lat = 0.0,
-                log = 0.0,
-                date = OffsetDateTime.now()
-            )
-        ),
-        DaySpecificDay(
-
-            cardSpecificDay = CardSpecificDay(
-                percepita = 45,
-                umidita= 60,
-                copertura=24,
-                uv=5,
-                vento=7,
-                pioggia=0
-            ),
-            hourlySpecificDay = HourlySpecificDay(
-                time=OffsetDateTime.now().hour.plus(11),
-                weatherType= WeatherType.RAINY,
-                temp=15,
-                umidity=70
             ),
             place = Place(
                 city = "Palermo",
@@ -524,7 +476,8 @@ object DataSource {
                 log = 0.0,
                 date = OffsetDateTime.now()
             )
-        )
+        ),
+
 
     )
     fun getSpecificDay(): List<DaySpecificDay> = specificDayList
