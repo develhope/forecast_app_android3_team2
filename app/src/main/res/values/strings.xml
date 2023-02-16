@@ -6,7 +6,7 @@
     <string name="oggi">%s</string>
     <string name="tempmin">%s°</string>
     <string name="tempmax">%s°</string>
-    <string name="data">%s</string>
+    <string name="data">%s/%s</string>
     <string name="rain">%s %%</string>
     <string name="kmh">%s km/h</string>
     <string name="precip_">precip.</string>
@@ -46,6 +46,10 @@
     <string name="DatoVento">SSE %s Km/h</string>
     <string name="DatoCopertura">%s %%</string>
     <string name="DatoPioggia">%s cm</string>
+
+    <string name="cerca_citta">Cerca città</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

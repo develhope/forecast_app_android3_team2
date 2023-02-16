@@ -9,12 +9,65 @@ import co.develhope.meteoapp.data.domainmodel.SearchCity
 import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.data.domainmodel.WeatherType
 import org.threeten.bp.OffsetDateTime
-import java.util.Date
 
 object DataSource {
-    private val dailyForecastList = listOf<DayForecast>(
+    private val dailyForecastList = mutableListOf<DayForecast>(
         DayForecast(
             date = OffsetDateTime.now(),
+            weatherSummary = WeatherSummary(
+                weatherType = WeatherType.RAINY,
+                humidity = 30,
+                wind = 12,
+                tempMin = 7,
+                tempMax = 12,
+                rain = 70
+            ),
+            place = Place(
+                city = "Palermo",
+                region = "Sicilia",
+                lat = 0.0,
+                log = 0.0,
+                date = OffsetDateTime.now()
+            )
+        ),
+        DayForecast(
+            date = OffsetDateTime.now().plusDays(1),
+            weatherSummary = WeatherSummary(
+                weatherType = WeatherType.SUNNY,
+                humidity = 12,
+                wind = 7,
+                tempMin = 15,
+                tempMax = 21,
+                rain = 9
+            ),
+            place = Place(
+                city = "Palermo",
+                region = "Sicilia",
+                lat = 0.0,
+                log = 0.0,
+                date = OffsetDateTime.now()
+            )
+        ),
+        DayForecast(
+            date = OffsetDateTime.now().plusDays(2),
+            weatherSummary = WeatherSummary(
+                weatherType = WeatherType.CLOUDY,
+                humidity = 15,
+                wind = 15,
+                tempMin = 9,
+                tempMax = 16,
+                rain = 22
+            ),
+            place = Place(
+                city = "Palermo",
+                region = "Sicilia",
+                lat = 0.0,
+                log = 0.0,
+                date = OffsetDateTime.now()
+            )
+        ),
+        DayForecast(
+            date = OffsetDateTime.now().plusDays(3),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -32,61 +85,7 @@ object DataSource {
             )
         ),
         DayForecast(
-            date = OffsetDateTime.now(),
-            weatherSummary = WeatherSummary(
-                weatherType = WeatherType.SUNNY,
-                humidity = 20,
-                wind = 3,
-                tempMin = 5,
-                tempMax = 16,
-                rain = 4
-            ),
-            place = Place(
-                city = "Palermo",
-                region = "Sicilia",
-                lat = 0.0,
-                log = 0.0,
-                date = OffsetDateTime.now()
-            )
-        ),
-        DayForecast(
-            date = OffsetDateTime.now(),
-            weatherSummary = WeatherSummary(
-                weatherType = WeatherType.SUNNY,
-                humidity = 20,
-                wind = 3,
-                tempMin = 5,
-                tempMax = 16,
-                rain = 4
-            ),
-            place = Place(
-                city = "Palermo",
-                region = "Sicilia",
-                lat = 0.0,
-                log = 0.0,
-                date = OffsetDateTime.now()
-            )
-        ),
-        DayForecast(
-            date = OffsetDateTime.now(),
-            weatherSummary = WeatherSummary(
-                weatherType = WeatherType.SUNNY,
-                humidity = 20,
-                wind = 3,
-                tempMin = 5,
-                tempMax = 16,
-                rain = 4
-            ),
-            place = Place(
-                city = "Palermo",
-                region = "Sicilia",
-                lat = 0.0,
-                log = 0.0,
-                date = OffsetDateTime.now()
-            )
-        ),
-        DayForecast(
-            date = OffsetDateTime.now(),
+            date = OffsetDateTime.now().plusDays(4),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -105,25 +104,7 @@ object DataSource {
             )
         ),
         DayForecast(
-            date = OffsetDateTime.now(),
-            weatherSummary = WeatherSummary(
-                weatherType = WeatherType.SUNNY,
-                humidity = 20,
-                wind = 3,
-                tempMin = 5,
-                tempMax = 16,
-                rain = 4
-            ),
-            place = Place(
-                city = "Palermo",
-                region = "Sicilia",
-                lat = 0.0,
-                log = 0.0,
-                date = OffsetDateTime.now()
-            )
-        ),
-        DayForecast(
-            date = OffsetDateTime.now(),
+            date = OffsetDateTime.now().plusDays(5),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -141,9 +122,9 @@ object DataSource {
             )
         ),
     )
-    fun getDayForecast(): List<DayForecast> = dailyForecastList
+    fun getDayForecast(): MutableList<DayForecast> = dailyForecastList
 
-    val searchList= listOf<SearchCity>(
+    private val searchList= listOf<SearchCity>(
         SearchCity(
             cityName = "Palermo"
         ),
@@ -479,7 +460,9 @@ object DataSource {
         )
 
     )
-    fun getSpecificDay(): List<DaySpecificDay> = specificDayList
 
-
+    fun getSpecificDay(): List<DaySpecificDay> = specificaDayList
 }
+
+    
+
