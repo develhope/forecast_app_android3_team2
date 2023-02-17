@@ -23,7 +23,7 @@
     <!---string title-->
     <string name="city_region">%s , %s</string>
     <string name="today">Today,</string>
-    <string name="today_details">%s</string>
+    <string name="today_details">%s %s %s</string>
 
     <!---string hourly-->
     <string name="time">%s:00</string>
@@ -33,12 +33,12 @@
 
 
     <!---string card titles-->
-    <string name="sp_percepita">Percepita</string>
-    <string name="sp_UV">Indice UV</string>
-    <string name="sp_umidita">Umidità</string>
-    <string name="sp_vento">Vento</string>
-    <string name="copertura">Copertura</string>
-    <string name="pioggia">Pioggia</string>
+    <string name="sp_percepita">Perceived</string>
+    <string name="sp_UV">UV index</string>
+    <string name="sp_umidita">Humidity</string>
+    <string name="sp_vento">Wind </string>
+    <string name="copertura">Coverage</string>
+    <string name="pioggia">Rain</string>
     <!--- string card data-->
     <string name="DatoPercepita"> %s °</string>
     <string name="DatoUv">%s</string>

@@ -156,7 +156,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=11,
+                time=OffsetDateTime.now().hour.plus(1),
                 weatherType= WeatherType.SUNNY,
                 temp=31,
                 umidity=0
@@ -180,7 +180,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=12,
+                time=OffsetDateTime.now().hour.plus(2),
                 weatherType= WeatherType.SUNNY,
                 temp=29,
                 umidity=0
@@ -205,7 +205,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=13,
+                time=OffsetDateTime.now().hour.plus(3),
                 weatherType= WeatherType.SUNNY,
                 temp=30,
                 umidity=0
@@ -230,7 +230,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=14,
+                time=OffsetDateTime.now().hour.plus(4),
                 weatherType= WeatherType.RAINY,
                 temp=32,
                 umidity=60
@@ -254,7 +254,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=15,
+                time=OffsetDateTime.now().hour.plus(5),
                 weatherType= WeatherType.RAINY,
                 temp=28,
                 umidity=70
@@ -278,7 +278,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=16,
+                time=OffsetDateTime.now().hour.plus(6),
                 weatherType= WeatherType.CLOUDY,
                 temp=25,
                 umidity=20
@@ -302,7 +302,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=17,
+                time=OffsetDateTime.now().hour.plus(7),
                 weatherType= WeatherType.SUNNY,
                 temp=22,
                 umidity=0
@@ -325,7 +325,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=18,
+                time=OffsetDateTime.now().hour.plus(8),
                 weatherType= WeatherType.SUNNY,
                 temp=22,
                 umidity=0
@@ -349,7 +349,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=19,
+                time=OffsetDateTime.now().hour.plus(9),
                 weatherType= WeatherType.CLOUDY,
                 temp=20,
                 umidity=10
@@ -373,7 +373,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=20,
+                time=OffsetDateTime.now().hour.plus(10),
                 weatherType= WeatherType.CLOUDY,
                 temp=20,
                 umidity=20
@@ -397,7 +397,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=21,
+                time=OffsetDateTime.now().hour.plus(11),
                 weatherType= WeatherType.RAINY,
                 temp=18,
                 umidity=60
@@ -421,7 +421,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=22,
+                time=OffsetDateTime.now().hour.plus(12),
                 weatherType= WeatherType.RAINY,
                 temp=15,
                 umidity=70
@@ -445,7 +445,7 @@ object DataSource {
                 pioggia=0
             ),
             hourlySpecificDay = HourlySpecificDay(
-                time=23,
+                time=OffsetDateTime.now().hour.plus(13),
                 weatherType= WeatherType.RAINY,
                 temp=15,
                 umidity=70
@@ -457,7 +457,8 @@ object DataSource {
                 log = 0.0,
                 date = OffsetDateTime.now()
             )
-        )
+        ),
+
 
     )
 
