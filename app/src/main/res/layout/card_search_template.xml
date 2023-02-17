@@ -13,12 +13,13 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="@dimen/margin_18_dp"
         android:layout_marginTop="@dimen/margin_10_dp"
+        android:layout_marginEnd="18dp"
         android:layout_marginBottom="@dimen/margin_10_dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/background_search_card"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/city"
@@ -26,19 +27,15 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:textAppearance="@style/city_search"
             android:layout_marginStart="@dimen/margin_16_dp"
             android:layout_marginTop="@dimen/margin_22_dp"
             android:layout_marginBottom="@dimen/margin_22_dp"
             android:gravity="center_vertical"
             android:text="@string/search_city"
+            android:textAppearance="@style/city_search"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
