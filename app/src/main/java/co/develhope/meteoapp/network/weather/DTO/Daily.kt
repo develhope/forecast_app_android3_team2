@@ -1,4 +1,4 @@
-package co.develhope.meteoapp.network.geocoding.DTO
+package co.develhope.meteoapp.network.weather.DTO
 
 data class Daily(
     val precipitation_sum: List<Double>,

@@ -1,7 +1,6 @@
 package co.develhope.meteoapp.network.geocoding
 
 import co.develhope.meteoapp.network.geocoding.DTO.CityInfo
-import org.intellij.lang.annotations.Language
 import retrofit2.http.GET
 import retrofit2.http.Query
 

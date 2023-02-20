@@ -1,4 +1,4 @@
-package co.develhope.meteoapp.network.geocoding.DTO
+package co.develhope.meteoapp.network.weather.DTO
 
 data class DailyUnits(
     val precipitation_sum: String,

@@ -1,4 +1,4 @@
-package co.develhope.meteoapp.network.geocoding.weather
+package co.develhope.meteoapp.network.weather
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -10,7 +10,7 @@ class WeatherProvider {
 
     val retrofit =Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build()
 
-    fun providerWeatherService():WeatherService{
+    fun providerWeatherService(): WeatherService {
         return retrofit.create(WeatherService::class.java)
     }
 

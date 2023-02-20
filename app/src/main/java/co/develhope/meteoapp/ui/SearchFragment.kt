@@ -11,8 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
-import co.develhope.meteoapp.network.geocoding.GeocodingProvider
-import co.develhope.meteoapp.network.geocoding.GeocodingService
+import co.develhope.meteoapp.network.weather.WeatherProvider
 import co.develhope.meteoapp.ui.adapter.SearchAdapter
 import co.develhope.meteoapp.ui.utils.createListSearch
 import kotlinx.coroutines.GlobalScope
