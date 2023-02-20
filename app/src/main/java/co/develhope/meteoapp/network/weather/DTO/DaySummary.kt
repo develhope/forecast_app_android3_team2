@@ -1,8 +1,7 @@
 package co.develhope.meteoapp.network.weather.DTO
 
-data class WeatherResponse(
-    val daily: Daily,
-    val daily_units: DailyUnits,
+data class DaySummary(
+    val current_weather: CurrentWeather,
     val elevation: Double,
     val generationtime_ms: Double,
     val hourly: Hourly,
