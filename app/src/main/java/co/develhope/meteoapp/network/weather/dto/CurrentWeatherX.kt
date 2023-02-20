@@ -1,6 +1,6 @@
-package co.develhope.meteoapp.network.weather.DTO
+package co.develhope.meteoapp.network.weather.dto
 
-data class CurrentWeather(
+data class CurrentWeatherX(
     val temperature: Double,
     val time: String,
     val weathercode: Int,

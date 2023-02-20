@@ -1,4 +1,4 @@
-package co.develhope.meteoapp.network.geocoding.DTO
+package co.develhope.meteoapp.network.geocoding.dto
 
 data class Result(
     val admin1: String,

@@ -1,4 +1,4 @@
-package co.develhope.meteoapp.network.weather.DTO
+package co.develhope.meteoapp.network.weather.dto
 
 data class HourlyUnits(
     val rain: String,
