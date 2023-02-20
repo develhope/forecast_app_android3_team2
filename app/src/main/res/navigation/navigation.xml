@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homePageFragment">
+
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="co.develhope.meteoapp.ui.HomePageFragment"
+        android:label="HomePageFragment" >
+        <action
+            android:id="@+id/action_homePageFragment_to_specificDayFragment"
+            app:destination="@id/specificDayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/specificDayFragment"
+        android:name="co.develhope.meteoapp.ui.SpecificDayFragment"
+        android:label="SpecificDayFragment" >
+        <action
+            android:id="@+id/action_specificDayFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment" />
+    </fragment>
+</navigation>

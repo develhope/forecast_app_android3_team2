@@ -9,8 +9,13 @@ import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
 
+interface CardClick{
+    fun onClickListener(cardItem: HomePageItem.CardItem ,position: Int)
+}
+
 class HomePageAdapter(
-    private val dataset: List<HomePageItem>
+    private val dataset: List<HomePageItem>,
+    private val listener: CardClick
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
@@ -40,7 +45,7 @@ class HomePageAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is CardViewHolder -> holder.bind(dataset[position] as HomePageItem.CardItem)
+            is CardViewHolder -> holder.bind(dataset[position] as HomePageItem.CardItem, listener, position)
 
             is CurrentCityViewHolder -> holder.bind(dataset[position] as HomePageItem.Title)
 
@@ -64,7 +69,7 @@ class HomePageAdapter(
     class CardViewHolder(private val binding: TemplateCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("StringFormatMatches")
-        fun bind(cardItem: HomePageItem.CardItem) {
+        fun bind(cardItem: HomePageItem.CardItem, listener: CardClick, position: Int) {
 
             binding.day.text = itemView.context.getString(R.string.oggi,cardItem.dailyForecast.date.dayOfWeek.name)
             binding.data.text = itemView.context.getString(R.string.data,cardItem.dailyForecast.date.dayOfMonth.toString(),cardItem.dailyForecast.date.month.value.toString())
@@ -73,6 +78,9 @@ class HomePageAdapter(
             binding.kmh.text = itemView.context.getString(R.string.kmh,cardItem.dailyForecast.weatherSummary.wind.toString())
             binding.umidity.text = itemView.context.getString(R.string.rain,cardItem.dailyForecast.weatherSummary.rain.toString())
             binding.imagetype.setImageResource(cardItem.dailyForecast.weatherSummary.weatherType.setIconWeatherType())
+            binding.templateCard.setOnClickListener {
+                listener.onClickListener(cardItem,position)
+            }
 
         }
     }
