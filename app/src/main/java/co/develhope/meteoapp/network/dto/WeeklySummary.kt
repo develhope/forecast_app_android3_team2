@@ -1,19 +1,19 @@
-package co.develhope.meteoapp.network.weather.dto
+package co.develhope.meteoapp.network.dto
 
 
 import com.google.gson.annotations.SerializedName
 
-data class DaySummary(
+data class WeeklySummary(
     @SerializedName("current_weather")
     val currentWeather: CurrentWeather,
+    @SerializedName("daily")
+    val daily: Daily,
+    @SerializedName("daily_units")
+    val dailyUnits: DailyUnits,
     @SerializedName("elevation")
     val elevation: Double,
     @SerializedName("generationtime_ms")
     val generationtimeMs: Double,
-    @SerializedName("hourly")
-    val hourly: Hourly,
-    @SerializedName("hourly_units")
-    val hourlyUnits: HourlyUnits,
     @SerializedName("latitude")
     val latitude: Double,
     @SerializedName("longitude")

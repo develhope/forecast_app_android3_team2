@@ -1,6 +1,6 @@
-package co.develhope.meteoapp.network.geocoding
+package co.develhope.meteoapp.network.service
 
-import co.develhope.meteoapp.network.geocoding.dto.CityInfo
+import co.develhope.meteoapp.network.dto.CityInfo
 import retrofit2.http.GET
 import retrofit2.http.Query
 

@@ -1,9 +1,9 @@
-package co.develhope.meteoapp.network.weather.dto
+package co.develhope.meteoapp.network.dto
 
 
 import com.google.gson.annotations.SerializedName
 
-data class CurrentWeather(
+data class CurrentWeatherX(
     @SerializedName("temperature")
     val temperature: Double,
     @SerializedName("time")

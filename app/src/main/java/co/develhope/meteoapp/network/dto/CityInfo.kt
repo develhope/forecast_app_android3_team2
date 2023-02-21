@@ -1,6 +1,7 @@
-package co.develhope.meteoapp.network.geocoding.dto
-import com.google.gson.annotations.SerializedName
+package co.develhope.meteoapp.network.dto
 
+
+import com.google.gson.annotations.SerializedName
 
 data class CityInfo(
     @SerializedName("generationtime_ms")
@@ -8,4 +9,3 @@ data class CityInfo(
     @SerializedName("results")
     val results: List<Result>
 )
-
