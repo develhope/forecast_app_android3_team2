@@ -7,17 +7,40 @@ import retrofit2.http.Query
 import java.util.*
 
 interface WeatherService {
-    @GET("forecast?hourly=temperature_2m,rain,showers,snowfall,weathercode,windspeed_10m&current_weather=true&timezone=Europe%2FBerlin")
-    suspend fun getDaySummary (@Query("latitude") latitude : Double = 41.8955,
-                               @Query("longitude") longitude : Double = 12.4823,
-                               @Query("start_date") startDate: Date,
-                               @Query("end_date") endDate: Date
-    ):DaySummary
+    @GET("forecast?")
+    suspend fun getDaySummary(
+        @Query("latitude") latitude: Double = 41.8955,
+        @Query("longitude") longitude: Double = 12.4823,
+        @Query("start_date") startDate: Date,
+        @Query("end_date") endDate: Date,
+        @Query("hourly") hourly: List<String> = listOf(
+            "temperature_2m",
+            "rain",
+            "showers",
+            "snowfall",
+            "weathercode",
+            "windspeed_10m"),
+        @Query("current_weather") currentWeather: Boolean = true,
+        @Query("timezone") timeZone: String = "Europe%2FBerlin"
+    ): DaySummary
 
-    @GET("forecast?daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,rain_sum&current_weather=true&timezone=Europe%2FBerlin")
-    suspend fun getWeeklySummary(@Query("latitude") latitude : Double = 41.8955,
-                                 @Query("longitude") longitude : Double = 12.4823,
-                                 @Query("start_date") startDate : Date,
-                                 @Query("end_date") endDate : Date
-    ) : WeeklySummary
+    @GET("forecast?")
+    suspend fun getWeeklySummary(
+        @Query("latitude") latitude: Double = 41.8955,
+        @Query("longitude") longitude: Double = 12.4823,
+        @Query("start_date") startDate: Date,
+        @Query("end_date") endDate: Date,
+        @Query("daily") daily: List<String> = listOf(
+            "weathercode",
+            "temperature_2m_max",
+            "temperature_2m_min",
+            "sunrise",
+            "sunset",
+            "precipitation_sum",
+            "rain_sum"),
+        @Query("current_weather") currentWeather: Boolean = true,
+        @Query("timezone") timeZone: String = "Europe%2FBerlin"
+
+
+    ): WeeklySummary
 }
