@@ -462,7 +462,7 @@ object DataSource {
 
     )
 
-    fun getSpecificDay(): List<DaySpecificDay> = specificaDayList
+    fun getSpecificDay(): List<DaySpecificDay> = specificDayList
 }
 
     
