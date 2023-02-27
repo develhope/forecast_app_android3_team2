@@ -7,28 +7,29 @@
 
     tools:context=".ui.MainActivity">
 
-    <FrameLayout
-        android:id="@+id/mainLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             app:defaultNavHost="true"
             app:navGraph="@navigation/navigation"
-            tools:layout="@layout/fragment_homepage" />
+            tools:layout="@layout/fragment_homepage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottom_nav_bar"
+            />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_nav_bar"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/bottom_nav_bar" >
+            app:menu="@menu/bottom_nav_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
 
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-    </FrameLayout>
+            />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

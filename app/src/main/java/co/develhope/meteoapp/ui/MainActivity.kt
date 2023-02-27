@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     private fun replaceFragment(fragment: Fragment){
         val fragmentManager= supportFragmentManager
         val fragmentTransaction =fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.mainLayout,fragment)
+       // fragmentTransaction.replace(R.id.mainLayout,fragment)
         fragmentTransaction.commit()
     }
     private fun setNavigationGraph() {
