@@ -70,7 +70,7 @@ class HomePageAdapter(
     class CardViewHolder(private val binding: TemplateCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("StringFormatMatches")
-        fun bind(cardItem: HomePageItem.CardItem, listener: (HomepageAction) -> Unit, position: Int) {
+        fun bind(cardItem: HomePageItem.CardItem, action: (HomepageAction) -> Unit, position: Int) {
 
             binding.day.text = itemView.context.getString(R.string.oggi,cardItem.dailyForecast.date.dayOfWeek.name)
             binding.data.text = itemView.context.getString(R.string.data,cardItem.dailyForecast.date.dayOfMonth.toString(),cardItem.dailyForecast.date.month.value.toString())
@@ -80,7 +80,7 @@ class HomePageAdapter(
             binding.umidity.text = itemView.context.getString(R.string.rain,cardItem.dailyForecast.weatherSummary.rain.toString())
             binding.imagetype.setImageResource(cardItem.dailyForecast.weatherSummary.weatherType.setIconWeatherType())
             binding.templateCard.setOnClickListener {
-                listener(HomepageAction.CardClick)
+                action(HomepageAction.CardClick)
             }
 
         }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
     app:startDestination="@id/homePageFragment">
 
@@ -9,7 +10,22 @@
         android:name="co.develhope.meteoapp.ui.HomePageFragment"
         android:label="HomePageFragment" >
         <action
+            android:id="@+id/action_homePageFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
             android:id="@+id/action_homePageFragment_to_specificDayFragment"
+            app:destination="@id/specificDayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="co.develhope.meteoapp.ui.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_specificDayFragment"
             app:destination="@id/specificDayFragment" />
     </fragment>
     <fragment
@@ -19,5 +35,14 @@
         <action
             android:id="@+id/action_specificDayFragment_to_homePageFragment"
             app:destination="@id/homePageFragment" />
+        <action
+            android:id="@+id/action_specificDayFragment_to_homePageFragment2"
+            app:destination="@id/homePageFragment" />
+        <action
+            android:id="@+id/action_specificDayFragment_to_homePageFragment3"
+            app:destination="@id/homePageFragment" />
+        <action
+            android:id="@+id/action_specificDayFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
 </navigation>
