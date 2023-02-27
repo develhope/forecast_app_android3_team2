@@ -9,8 +9,8 @@ import java.util.*
 interface WeatherService {
     @GET("forecast?")
     suspend fun getDaySummary(
-        @Query("latitude") latitude: Double = 41.8955,
-        @Query("longitude") longitude: Double = 12.4823,
+        @Query("latitude") latitude: Double,
+        @Query("longitude") longitude: Double,
         @Query("start_date") startDate: Date,
         @Query("end_date") endDate: Date,
         @Query("hourly") hourly: List<String> = listOf(
@@ -26,8 +26,8 @@ interface WeatherService {
 
     @GET("forecast?")
     suspend fun getWeeklySummary(
-        @Query("latitude") latitude: Double = 41.8955,
-        @Query("longitude") longitude: Double = 12.4823,
+        @Query("latitude") latitude: Double,
+        @Query("longitude") longitude: Double,
         @Query("start_date") startDate: Date,
         @Query("end_date") endDate: Date,
         @Query("daily") daily: List<String> = listOf(
