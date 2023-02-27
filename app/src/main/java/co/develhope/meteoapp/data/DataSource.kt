@@ -17,7 +17,7 @@ object DataSource {
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.RAINY,
                 humidity = 30,
-                wind = 12,
+                wind = 21,
                 tempMin = 7,
                 tempMax = 12,
                 rain = 70

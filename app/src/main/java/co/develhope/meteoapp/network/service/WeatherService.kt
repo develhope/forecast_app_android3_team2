@@ -41,6 +41,5 @@ interface WeatherService {
         @Query("current_weather") currentWeather: Boolean = true,
         @Query("timezone") timeZone: String = "Europe%2FBerlin"
 
-
     ): WeeklySummary
 }
