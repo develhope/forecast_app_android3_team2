@@ -1,6 +1,7 @@
 package co.develhope.meteoapp.network.dto
 
 
+import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import com.google.gson.annotations.SerializedName
 
 data class DaySummary(

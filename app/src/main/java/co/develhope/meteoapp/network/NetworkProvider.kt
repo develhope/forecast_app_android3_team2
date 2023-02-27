@@ -1,9 +1,11 @@
 package co.develhope.meteoapp.network
 
+import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.network.service.GeocodingService
 import co.develhope.meteoapp.network.service.WeatherService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import kotlinx.coroutines.delay
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.threeten.bp.OffsetDateTime
@@ -69,12 +71,11 @@ class NetworkProvider {
     }
 
 
-
-    fun provideWeatherService() : WeatherService {
+    fun provideWeatherService(): WeatherService {
         return retrofitWeather.create(WeatherService::class.java)
     }
 
-    fun provideGeocodingService() : GeocodingService {
+    fun provideGeocodingService(): GeocodingService {
         return retrofitGeocoding.create(GeocodingService::class.java)
     }
 
@@ -82,5 +83,19 @@ class NetworkProvider {
         .registerTypeAdapter(OffsetDateTime::class.java, OffsetDateTimeTypeAdapter())
         .create()
 
-    // mancano le funzioni che vanno usate per le chiamate di rete
+    suspend fun getWeekSummary(
+        latitude: Double,
+        longitude: Double,
+        start_Date: String,
+        end_Date: String
+    ): List<WeatherSummary> {
+        return provideWeatherService().getWeeklySummary(
+            latitude = latitude,
+            longitude = longitude,
+            startDate = start_Date,
+            endDate = end_Date
+        ).daily.toDomain() ?: emptyList()
+    }
+
+
 }

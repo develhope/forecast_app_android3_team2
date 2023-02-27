@@ -1,6 +1,9 @@
 package co.develhope.meteoapp.network.dto
 
 
+import co.develhope.meteoapp.data.domainmodel.WeatherSummary
+import co.develhope.meteoapp.data.domainmodel.WeatherType
+import co.develhope.meteoapp.data.domainmodel.getWeatherType
 import com.google.gson.annotations.SerializedName
 
 data class Daily(
@@ -19,5 +22,20 @@ data class Daily(
     @SerializedName("time")
     val time: List<String>,
     @SerializedName("weathercode")
-    val weathercode: List<Int>
-)
+    val weathercode: List<Int>,
+    @SerializedName("windspeed_10m_max")
+    val windspeed_10m_max : List<Double>
+){
+    fun toDomain(): List<WeatherSummary> {
+        return this.time.mapIndexed { index, date ->
+            WeatherSummary(
+                weatherType = this.weathercode.getOrNull(index).getWeatherType(),
+                humidity = this.rainSum.getOrNull(index)?.toInt() ?:0 ,
+                wind =  this.windspeed_10m_max.getOrNull(index)?.toInt() ?:0,
+                tempMin = this.temperature2mMin.getOrNull(index)?.toInt() ?:0 ,
+                tempMax = this.temperature2mMax.getOrNull(index)?.toInt() ?:0 ,
+                rain = this.precipitationSum.getOrNull(index)?.toInt() ?:0
+            )
+        }
+    }
+}
