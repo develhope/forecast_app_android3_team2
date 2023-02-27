@@ -81,6 +81,7 @@ class HomePageAdapter(
             binding.imagetype.setImageResource(cardItem.dailyForecast.weatherSummary.weatherType.setIconWeatherType())
             binding.templateCard.setOnClickListener {
                 action(HomepageAction.CardClick)
+
             }
 
         }

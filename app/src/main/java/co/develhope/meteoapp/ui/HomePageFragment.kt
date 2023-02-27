@@ -30,7 +30,7 @@ class HomePageFragment : Fragment() {
         val listHome = createListToShow(DataSource.getDayForecast())
         val adapterCard = HomePageAdapter(listHome){
             when(it){
-                HomepageAction.CardClick ->findNavController().navigate(R.id.action_homePageFragment_to_specificDayFragment)
+                HomepageAction.CardClick ->findNavController().navigate(R.id.specificDayFragment)
             }
         }
         binding.RVhome.adapter = adapterCard
