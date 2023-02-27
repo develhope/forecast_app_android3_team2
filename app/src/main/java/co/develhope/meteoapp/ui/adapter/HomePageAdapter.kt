@@ -9,13 +9,14 @@ import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
 
-interface CardClick{
-    fun onClickListener(cardItem: HomePageItem.CardItem ,position: Int)
-}
 
+sealed class HomepageAction(){
+    object CardClick : HomepageAction()
+}
 class HomePageAdapter(
     private val dataset: List<HomePageItem>,
-    private val listener: CardClick
+    private val action: (HomepageAction) -> Unit
+
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
@@ -45,7 +46,7 @@ class HomePageAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is CardViewHolder -> holder.bind(dataset[position] as HomePageItem.CardItem, listener, position)
+            is CardViewHolder -> holder.bind(dataset[position] as HomePageItem.CardItem, action, position)
 
             is CurrentCityViewHolder -> holder.bind(dataset[position] as HomePageItem.Title)
 
@@ -69,7 +70,7 @@ class HomePageAdapter(
     class CardViewHolder(private val binding: TemplateCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("StringFormatMatches")
-        fun bind(cardItem: HomePageItem.CardItem, listener: CardClick, position: Int) {
+        fun bind(cardItem: HomePageItem.CardItem, listener: (HomepageAction) -> Unit, position: Int) {
 
             binding.day.text = itemView.context.getString(R.string.oggi,cardItem.dailyForecast.date.dayOfWeek.name)
             binding.data.text = itemView.context.getString(R.string.data,cardItem.dailyForecast.date.dayOfMonth.toString(),cardItem.dailyForecast.date.month.value.toString())
@@ -79,7 +80,7 @@ class HomePageAdapter(
             binding.umidity.text = itemView.context.getString(R.string.rain,cardItem.dailyForecast.weatherSummary.rain.toString())
             binding.imagetype.setImageResource(cardItem.dailyForecast.weatherSummary.weatherType.setIconWeatherType())
             binding.templateCard.setOnClickListener {
-                listener.onClickListener(cardItem,position)
+                listener(HomepageAction.CardClick)
             }
 
         }
