@@ -1,6 +1,7 @@
 package co.develhope.meteoapp.network
 
 import co.develhope.meteoapp.data.domainmodel.CardSpecificDay
+import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.network.service.GeocodingService
 import co.develhope.meteoapp.network.service.WeatherService
@@ -9,6 +10,7 @@ import com.google.gson.GsonBuilder
 import kotlinx.coroutines.delay
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.intellij.lang.annotations.Language
 import org.threeten.bp.OffsetDateTime
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -110,6 +112,13 @@ class NetworkProvider {
             startDate = start_Date,
             endDate = end_Date
         ).hourly.toDomain() ?: emptyList()
+    }
+
+    suspend fun getPlace(language: String):List<Place>{
+        return provideGeocodingService().getCityInfo(
+            name = "Palermo",
+            language = language
+        ).toDomain() ?: emptyList()
     }
 
 

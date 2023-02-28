@@ -8,11 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
+import co.develhope.meteoapp.network.NetworkProvider
 import co.develhope.meteoapp.ui.adapter.SearchAdapter
 import co.develhope.meteoapp.ui.utils.createListSearch
+import kotlinx.coroutines.launch
+import org.threeten.bp.OffsetDateTime
+import org.threeten.bp.format.DateTimeFormatter
 
 class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
@@ -54,6 +59,24 @@ class SearchFragment : Fragment() {
             }
 
         })
+    }
+    override fun onStart() {
+        super.onStart()
+
+        lifecycleScope.launch {
+            try {
+                val palermo = NetworkProvider().getPlace(
+                    "italy"
+                )
+                Log.d("provaPlace","$palermo")
+
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Log.d("prova", "errore")
+                Log.d("prova", "${OffsetDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)}")
+
+            }
+        }
     }
 
 }
