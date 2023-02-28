@@ -55,7 +55,7 @@ class SearchAdapter(
     class CitySearchViewHolder(val binding : CardSearchTemplateBinding):
         RecyclerView.ViewHolder(binding.root){
         fun bind(city: SearchItem.SearchCard){
-            binding.city.text = binding.root.context.getString(R.string.city_search,city.info.cityName)
+            binding.city.text = binding.root.context.getString(R.string.city_search,city.info.city)
         }
     }
 

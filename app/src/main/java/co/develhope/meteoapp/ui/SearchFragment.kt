@@ -45,7 +45,7 @@ class SearchFragment : Fragment() {
 
             override fun afterTextChanged(s: Editable?) {
                 val filterSearch = DataSource.loadSearchData().filter {
-                    it.cityName.contains(s.toString(), true)
+                    it.city.contains(s.toString(), true)
                 }
                 Log.d("searchBar", "$filterSearch")
                 binding.RVSearch.adapter = SearchAdapter(
