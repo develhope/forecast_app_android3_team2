@@ -24,7 +24,8 @@ data class Daily(
     @SerializedName("weathercode")
     val weathercode: List<Int>,
     @SerializedName("windspeed_10m_max")
-    val windspeed_10m_max : List<Double>
+    val windspeed_10m_max : List<Double>,
+
 ){
     fun toDomain(): List<WeatherSummary> {
         return this.time.mapIndexed { index, date ->

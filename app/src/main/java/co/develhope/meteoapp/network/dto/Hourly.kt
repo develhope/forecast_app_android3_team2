@@ -1,6 +1,7 @@
 package co.develhope.meteoapp.network.dto
 
 
+import co.develhope.meteoapp.data.domainmodel.CardSpecificDay
 import com.google.gson.annotations.SerializedName
 
 data class Hourly(
@@ -17,5 +18,29 @@ data class Hourly(
     @SerializedName("weathercode")
     val weathercode: List<Int>,
     @SerializedName("windspeed_10m")
-    val windspeed10m: List<Double>
-)
+    val windspeed10m: List<Double>,
+    @SerializedName("cloudcover")
+    val cloudcover: List<Double>,
+    @SerializedName("precipitation_probability")
+    val precipitation_probability: List<Double>,
+    @SerializedName("relativehumidity_2m")
+    val relativehumidity_2m: List<Double>,
+    @SerializedName("apparent_temperature")
+    val apparent_temperature: List<Double>,
+    @SerializedName("winddirection_10m")
+    val windDirection: List<Int>,
+
+) {
+    fun toDomain(): List<CardSpecificDay> {
+        return this.time.mapIndexed { index, time ->
+            CardSpecificDay(
+                uv = this.snowfall.getOrNull(index)?.toInt() ?: 0,
+                copertura = this.cloudcover.getOrNull(index)?.toInt() ?: 0,
+                vento = this.windspeed10m.getOrNull(index)?.toInt() ?: 0,
+                pioggia = this.rain.getOrNull(index)?.toInt() ?: 0,
+                umidita = this.relativehumidity_2m.getOrNull(index)?.toInt() ?: 0,
+                percepita = this.apparent_temperature.getOrNull(index)?.toInt() ?:0
+            )
+        }
+    }
+}

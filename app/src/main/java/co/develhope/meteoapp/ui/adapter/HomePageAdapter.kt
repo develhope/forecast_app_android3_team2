@@ -66,12 +66,31 @@ class HomePageAdapter(
         @SuppressLint("StringFormatMatches")
         fun bind(cardItem: HomePageItem.CardItem) {
 
-            binding.day.text = itemView.context.getString(R.string.oggi,cardItem.dailyForecast.date.dayOfWeek.name)
-            binding.data.text = itemView.context.getString(R.string.data,cardItem.dailyForecast.date.dayOfMonth.toString(),cardItem.dailyForecast.date.month.value.toString())
-            binding.tempmin.text = itemView.context.getString(R.string.tempmin,cardItem.dailyForecast.weatherSummary.tempMin.toString())
-            binding.tempmax.text = itemView.context.getString(R.string.tempmax,cardItem.dailyForecast.weatherSummary.tempMax.toString())
-            binding.kmh.text = itemView.context.getString(R.string.kmh,cardItem.dailyForecast.weatherSummary.wind.toString())
-            binding.umidity.text = itemView.context.getString(R.string.rain,cardItem.dailyForecast.weatherSummary.rain.toString())
+            binding.day.text = itemView.context.getString(
+                R.string.oggi,
+                cardItem.dailyForecast.date.dayOfWeek.name
+            )
+            binding.data.text = itemView.context.getString(
+                R.string.data,
+                cardItem.dailyForecast.date.dayOfMonth.toString(),
+                cardItem.dailyForecast.date.month.value.toString()
+            )
+            binding.tempmin.text = itemView.context.getString(
+                R.string.tempmin,
+                cardItem.dailyForecast.weatherSummary.tempMin.toString()
+            )
+            binding.tempmax.text = itemView.context.getString(
+                R.string.tempmax,
+                cardItem.dailyForecast.weatherSummary.tempMax.toString()
+            )
+            binding.kmh.text = itemView.context.getString(
+                R.string.kmh,
+                cardItem.dailyForecast.weatherSummary.wind.toString()
+            )
+            binding.umidity.text = itemView.context.getString(
+                R.string.rain,
+                cardItem.dailyForecast.weatherSummary.rain.toString()
+            )
             binding.imagetype.setImageResource(cardItem.dailyForecast.weatherSummary.weatherType.setIconWeatherType())
 
         }
@@ -80,7 +99,11 @@ class HomePageAdapter(
     class CurrentCityViewHolder(private val binding: CurrentCityTemplateBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(currentcity: HomePageItem.Title) {
-            binding.currentCityTextview.text = itemView.context.getString(R.string.title_homepage, currentcity.place.city, currentcity.place.region)
+            binding.currentCityTextview.text = itemView.context.getString(
+                R.string.title_homepage,
+                currentcity.place.city,
+                currentcity.place.region
+            )
         }
     }
 

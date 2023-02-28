@@ -1,5 +1,6 @@
 package co.develhope.meteoapp.network
 
+import co.develhope.meteoapp.data.domainmodel.CardSpecificDay
 import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.network.service.GeocodingService
 import co.develhope.meteoapp.network.service.WeatherService
@@ -95,6 +96,20 @@ class NetworkProvider {
             startDate = start_Date,
             endDate = end_Date
         ).daily.toDomain() ?: emptyList()
+    }
+
+    suspend fun getDailySummary(
+        latitude: Double,
+        longitude: Double,
+        start_Date: String,
+        end_Date: String
+    ): List<CardSpecificDay> {
+        return provideWeatherService().getDaySummary(
+            latitude = latitude,
+            longitude = longitude,
+            startDate = start_Date,
+            endDate = end_Date
+        ).hourly.toDomain() ?: emptyList()
     }
 
 

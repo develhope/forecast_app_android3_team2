@@ -139,7 +139,8 @@ object DataSource {
             lat = 0.0,
             log = 0.0,
             date = OffsetDateTime.now()
-        ), Place(
+        ),
+        Place(
             city = "Catania",
             region = "Sicilia",
             lat = 0.0,

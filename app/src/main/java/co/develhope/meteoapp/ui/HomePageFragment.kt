@@ -47,7 +47,8 @@ class HomePageFragment : Fragment() {
                     38.116667,
                     13.366667,
                     OffsetDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE).toString(),
-                    OffsetDateTime.now().plusDays(6).format(DateTimeFormatter.ISO_LOCAL_DATE).toString()
+                    OffsetDateTime.now().plusDays(6).format(DateTimeFormatter.ISO_LOCAL_DATE)
+                        .toString()
                 )
                 Log.d("prova", "${palermo.get(0)}")
                 Log.d("prova", "${palermo.get(1)}")
