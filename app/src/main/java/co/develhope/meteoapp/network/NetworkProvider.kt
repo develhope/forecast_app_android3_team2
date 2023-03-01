@@ -97,7 +97,7 @@ class NetworkProvider {
             longitude = longitude,
             startDate = start_Date,
             endDate = end_Date
-        ).daily.toDomain() ?: emptyList()
+        ).body()?.daily?.toDomain() ?: emptyList()
     }
 
     suspend fun getDailySummary(

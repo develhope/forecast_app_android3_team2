@@ -3,6 +3,7 @@ package co.develhope.meteoapp.network.service
 import co.develhope.meteoapp.network.dto.DaySummary
 import co.develhope.meteoapp.network.dto.WeeklySummary
 import org.threeten.bp.OffsetDateTime
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 import java.util.*
@@ -50,5 +51,5 @@ interface WeatherService {
         ),
         @Query("current_weather") currentWeather: Boolean = true,
         @Query("timezone") timeZone: String = "auto"
-    ): WeeklySummary
+    ): Response<WeeklySummary>
 }
