@@ -1,6 +1,7 @@
 package co.develhope.meteoapp.network
 
 import co.develhope.meteoapp.data.domainmodel.CardSpecificDay
+import co.develhope.meteoapp.data.domainmodel.HourlySpecificDay
 import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.network.service.GeocodingService
@@ -111,7 +112,7 @@ class NetworkProvider {
             longitude = longitude,
             startDate = start_Date,
             endDate = end_Date
-        ).hourly.toDomain() ?: emptyList()
+        ).hourly.toDomainCard() ?: emptyList()
     }
 
     suspend fun getPlace(language: String):List<Place>{
@@ -119,6 +120,19 @@ class NetworkProvider {
             name = "Palermo",
             language = language
         ).toDomain() ?: emptyList()
+    }
+    suspend fun getHourly(
+        latitude: Double,
+        longitude: Double,
+        start_Date: String,
+        end_Date: String
+    ):List<HourlySpecificDay>{
+        return provideWeatherService().getDaySummary(
+            latitude = latitude,
+            longitude = longitude,
+            startDate = start_Date,
+            endDate = end_Date
+        ).hourly.toDomainHourly()
     }
 
 

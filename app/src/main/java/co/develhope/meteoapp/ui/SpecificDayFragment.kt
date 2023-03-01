@@ -49,13 +49,20 @@ class SpecificDayFragment : Fragment() {
 
         lifecycleScope.launch {
             try {
-                val palermo = NetworkProvider().getDailySummary(
+                val palermocard = NetworkProvider().getDailySummary(
                     38.116667,
                     13.366667,
                     OffsetDateTime.now().toLocalDate().toString(),
                     OffsetDateTime.now().toLocalDate().toString()
                 )
-                Log.d("provadaily", "${palermo}")
+                    val palermohourly = NetworkProvider().getHourly(
+                    38.116667,
+                    13.366667,
+                    OffsetDateTime.now().toLocalDate().toString(),
+                    OffsetDateTime.now().toLocalDate().toString()
+                )
+                Log.d("prova card specific day", "${palermocard}")
+                Log.d("prova hourly specific day", "${palermohourly}")
 
 
             } catch (e: Exception) {

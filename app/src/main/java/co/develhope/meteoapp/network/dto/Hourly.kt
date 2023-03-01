@@ -2,6 +2,8 @@ package co.develhope.meteoapp.network.dto
 
 
 import co.develhope.meteoapp.data.domainmodel.CardSpecificDay
+import co.develhope.meteoapp.data.domainmodel.HourlySpecificDay
+import co.develhope.meteoapp.data.domainmodel.getWeatherType
 import com.google.gson.annotations.SerializedName
 
 data class Hourly(
@@ -30,8 +32,9 @@ data class Hourly(
     @SerializedName("winddirection_10m")
     val windDirection: List<Int>,
 
+
 ) {
-    fun toDomain(): List<CardSpecificDay> {
+    fun toDomainCard(): List<CardSpecificDay> {
         return this.time.mapIndexed { index, time ->
             CardSpecificDay(
                 uv = this.snowfall.getOrNull(index)?.toInt() ?: 0,
@@ -40,6 +43,18 @@ data class Hourly(
                 pioggia = this.rain.getOrNull(index)?.toInt() ?: 0,
                 umidita = this.relativehumidity_2m.getOrNull(index)?.toInt() ?: 0,
                 percepita = this.apparent_temperature.getOrNull(index)?.toInt() ?:0
+            )
+        }
+    }
+
+    fun toDomainHourly():List<HourlySpecificDay>{
+        return this.time.mapIndexed{ index, time ->
+            HourlySpecificDay(
+                time = org.threeten.bp.OffsetDateTime.now(),
+                weatherType =this.weathercode.getOrNull(index).getWeatherType(),
+                temp = this.apparent_temperature.getOrNull(index)?.toInt() ?:0,
+                umidity = this.relativehumidity_2m.getOrNull(index)?.toInt() ?:0
+
             )
         }
     }
