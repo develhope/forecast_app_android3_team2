@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="HomePage"
-        android:id="@+id/HomePage"
+    <item
+        android:title="@string/homepage_name_menu"
+        android:id="@id/homePageFragment"
         android:icon="@drawable/vector__2_"
         />
-    <item android:title="Oggi"
-        android:id="@+id/Oggi"
+
+    <item
+        android:title="@string/oggi_name_menu"
+        android:id="@id/specificDayFragment"
         android:icon="@drawable/akar_icons_calendar"/>
-    <item android:title="Domani"
-        android:id="@+id/Domani"
+
+    <item
+        android:title="@string/domani_name_menu"
+        android:id="@id/specificDayFragment"
         android:icon="@drawable/group__4_"/>
-    <item android:title="Search"
-        android:id="@+id/Search"
+
+    <item
+        android:title="@string/search_name_menu"
+        android:id="@id/searchFragment"
         android:icon="@drawable/search_1"/>
 </menu>
