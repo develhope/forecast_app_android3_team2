@@ -49,35 +49,33 @@ class SearchFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                val filterSearch = DataSource.loadSearchData().filter {
-                    it.city.contains(s.toString(), true)
-                }
-                Log.d("searchBar", "$filterSearch")
-                binding.RVSearch.adapter = SearchAdapter(
-                    createListSearch(filterSearch)
-                )
+                searchPlace(s.toString())
             }
 
         })
     }
-    override fun onStart() {
-        super.onStart()
+        private fun searchPlace(place : String) {
+            lifecycleScope.launch {
+                try {
+                    val places = NetworkProvider().getPlace(
+                        place
+                    )
+                    //Fill the adapter with places
 
-        lifecycleScope.launch {
-            try {
-                val palermo = NetworkProvider().getPlace(
-                    "italy"
-                )
-                Log.d("provaPlace","$palermo")
+                    binding.RVSearch.adapter = SearchAdapter(
+                        createListSearch(places)
+                    )
 
-            } catch (e: Exception) {
-                e.printStackTrace()
-                Log.d("prova", "errore")
-                Log.d("prova", "${OffsetDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)}")
+                    Log.d("provaPlace","$palermo")
 
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    Log.d("prova", "errore")
+                    Log.d("prova", "${OffsetDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)}")
+
+                }
             }
         }
-    }
 
 }
 
