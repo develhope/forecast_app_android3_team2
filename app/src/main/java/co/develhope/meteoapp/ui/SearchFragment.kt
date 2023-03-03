@@ -66,7 +66,7 @@ class SearchFragment : Fragment() {
                         createListSearch(places)
                     )
 
-                    Log.d("provaPlace","$palermo")
+                    Log.d("provaPlace","$places")
 
                 } catch (e: Exception) {
                     e.printStackTrace()
