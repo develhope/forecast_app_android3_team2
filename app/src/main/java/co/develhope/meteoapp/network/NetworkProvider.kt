@@ -112,21 +112,21 @@ class NetworkProvider {
             longitude = longitude,
             startDate = start_Date,
             endDate = end_Date
-        ).hourly.toDomainCard() ?: emptyList()
+        ).hourly.toDomainCard()
     }
 
-    suspend fun getPlace(language: String):List<Place>{
+    suspend fun getPlace(place: String): List<Place> {
         return provideGeocodingService().getCityInfo(
-            name = "Palermo",
-            language = language
-        ).toDomain() ?: emptyList()
+            name = place
+        ).toDomain()
     }
+
     suspend fun getHourly(
         latitude: Double,
         longitude: Double,
         start_Date: String,
         end_Date: String
-    ):List<HourlySpecificDay>{
+    ): List<HourlySpecificDay> {
         return provideWeatherService().getDaySummary(
             latitude = latitude,
             longitude = longitude,
