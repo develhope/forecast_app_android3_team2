@@ -8,10 +8,8 @@ import co.develhope.meteoapp.network.service.GeocodingService
 import co.develhope.meteoapp.network.service.WeatherService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import kotlinx.coroutines.delay
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.intellij.lang.annotations.Language
 import org.threeten.bp.OffsetDateTime
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -75,11 +73,11 @@ class NetworkProvider {
     }
 
 
-    fun provideWeatherService(): WeatherService {
+    private fun provideWeatherService(): WeatherService {
         return retrofitWeather.create(WeatherService::class.java)
     }
 
-    fun provideGeocodingService(): GeocodingService {
+    private fun provideGeocodingService(): GeocodingService {
         return retrofitGeocoding.create(GeocodingService::class.java)
     }
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.R
+import co.develhope.meteoapp.data.domainmodel.DayForecast
 import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
@@ -40,7 +41,7 @@ class HomePageAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is CardViewHolder -> holder.bind(dataset[position] as HomePageItem.CardItem)
+            is CardViewHolder -> holder.bind(dataset[position] as HomePageItem.CardItem, position)
 
             is CurrentCityViewHolder -> holder.bind(dataset[position] as HomePageItem.Title)
 
@@ -64,15 +65,15 @@ class HomePageAdapter(
     class CardViewHolder(private val binding: TemplateCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("StringFormatMatches")
-        fun bind(cardItem: HomePageItem.CardItem) {
+        fun bind(cardItem: HomePageItem.CardItem, position: Int) {
 
             binding.day.text = itemView.context.getString(
-                R.string.oggi,
-                cardItem.dailyForecast.date.dayOfWeek.name
+                R.string.oggi, getItaDay(cardItem.dailyForecast.date.plusDays(position.toLong()-1).dayOfWeek.name
+                )
             )
             binding.data.text = itemView.context.getString(
                 R.string.data,
-                cardItem.dailyForecast.date.dayOfMonth.toString(),
+                cardItem.dailyForecast.date.dayOfMonth.plus(position).toString(),
                 cardItem.dailyForecast.date.month.value.toString()
             )
             binding.tempmin.text = itemView.context.getString(
@@ -118,5 +119,18 @@ class HomePageAdapter(
         const val TYPE_CARD = 0
         const val TYPE_CURRENTCITY = 1
         const val TYPE_PROX5DAY = 2
+    }
+}
+
+private fun getItaDay(day: String): String {
+    return when (day) {
+        "MONDAY" -> "Lunedì"
+        "TUESDAY" -> "Martedì"
+        "WEDNESDAY" -> "Mercoledì"
+        "THURSDAY" -> "Giovedì"
+        "FRIDAY" -> "Venerdì"
+        "SATURDAY" -> "Sabato"
+        "SUNDAY" -> "Domenica"
+        else -> ""
     }
 }

@@ -19,7 +19,8 @@ object DataSource {
                 wind = 21,
                 tempMin = 7,
                 tempMax = 12,
-                rain = 70
+                rain = 70,
+                date = OffsetDateTime.now()
             ),
             place = Place(
                 city = "Palermo",
@@ -37,7 +38,8 @@ object DataSource {
                 wind = 7,
                 tempMin = 15,
                 tempMax = 21,
-                rain = 9
+                rain = 9,
+                date = OffsetDateTime.now()
             ),
             place = Place(
                 city = "Palermo",
@@ -55,7 +57,8 @@ object DataSource {
                 wind = 15,
                 tempMin = 9,
                 tempMax = 16,
-                rain = 22
+                rain = 22,
+                date = OffsetDateTime.now()
             ),
             place = Place(
                 city = "Palermo",
@@ -73,7 +76,8 @@ object DataSource {
                 wind = 3,
                 tempMin = 5,
                 tempMax = 16,
-                rain = 4
+                rain = 4,
+                date =OffsetDateTime.now()
             ),
             place = Place(
                 city = "Palermo",
@@ -91,7 +95,8 @@ object DataSource {
                 wind = 3,
                 tempMin = 5,
                 tempMax = 16,
-                rain = 4
+                rain = 4,
+                date =OffsetDateTime.now()
 
             ),
             place = Place(
@@ -110,7 +115,8 @@ object DataSource {
                 wind = 3,
                 tempMin = 5,
                 tempMax = 16,
-                rain = 4
+                rain = 4,
+                date = OffsetDateTime.now()
             ),
             place = Place(
                 city = "Palermo",

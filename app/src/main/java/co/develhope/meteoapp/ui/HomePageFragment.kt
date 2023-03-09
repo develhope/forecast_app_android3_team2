@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.data.DataSource
+import co.develhope.meteoapp.data.domainmodel.DayForecast
+import co.develhope.meteoapp.data.domainmodel.Place
+import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.network.NetworkProvider
 import co.develhope.meteoapp.ui.adapter.HomePageAdapter
@@ -16,7 +19,6 @@ import co.develhope.meteoapp.ui.utils.createListToShow
 import kotlinx.coroutines.launch
 import org.threeten.bp.OffsetDateTime
 import org.threeten.bp.format.DateTimeFormatter
-import java.util.*
 
 class HomePageFragment : Fragment() {
     private lateinit var binding: FragmentHomepageBinding
@@ -32,8 +34,7 @@ class HomePageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         val listHome = createListToShow(DataSource.getDayForecast())
-        val adapterCard = HomePageAdapter(listHome)
-        binding.RVhome.adapter = adapterCard
+
         binding.RVhome.layoutManager = LinearLayoutManager(view.context)
 
     }
@@ -50,6 +51,8 @@ class HomePageFragment : Fragment() {
                     OffsetDateTime.now().plusDays(6).format(DateTimeFormatter.ISO_LOCAL_DATE)
                         .toString()
                 )
+                val adapterCard = HomePageAdapter(createListToShow(createitemfothompage(palermo)))
+                binding.RVhome.adapter = adapterCard
                 Log.d("prova", "${palermo.get(0)}")
                 Log.d("prova", "${palermo.get(1)}")
                 Log.d("prova", "${palermo.get(2)}")
@@ -67,5 +70,28 @@ class HomePageFragment : Fragment() {
         }
     }
 
+    private fun createitemfothompage(item: List<WeatherSummary>): List<DayForecast> {
+        val homepageitem = item.mapIndexed { index, weatherSummary ->
+            DayForecast(
+                place = Place(
+                    city = "Palermo",
+                    region = "Sicilia",
+                    lat = 38.12136,
+                    log = 13.35844,
+                    date = OffsetDateTime.now()
+                ), date = OffsetDateTime.now(), weatherSummary = WeatherSummary(
+                    weatherType = weatherSummary.weatherType,
+                    humidity = weatherSummary.humidity,
+                    wind = weatherSummary.wind,
+                    tempMin = weatherSummary.tempMin,
+                    tempMax = weatherSummary.tempMax,
+                    rain = weatherSummary.rain,
+                    date= weatherSummary.date
+                )
+            )
+
+        }
+        return homepageitem
+    }
 
 }

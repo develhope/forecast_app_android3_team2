@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.data.DataSource
+import co.develhope.meteoapp.data.domainmodel.DaySpecificDay
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
 import co.develhope.meteoapp.network.NetworkProvider
 import co.develhope.meteoapp.ui.adapter.SearchAdapter
@@ -76,6 +77,5 @@ class SearchFragment : Fragment() {
                 }
             }
         }
-
 }
 

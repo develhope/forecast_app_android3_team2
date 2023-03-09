@@ -51,7 +51,7 @@ class SpecificDayAdapter( private val list: List<SpecificDayModel>):
         RecyclerView.ViewHolder(hourly.root) {
 
         fun bind(infoHourly: SpecificDayModel.SpecificDayHourly) {
-            hourly.specificDayTime.text = itemView.context.getString(R.string.time,infoHourly.daySpecificDay.hourlySpecificDay.time.toString())
+            hourly.specificDayTime.text = itemView.context.getString(R.string.time,infoHourly.daySpecificDay.hourlySpecificDay.time.hour.toString())
             hourly.specificdayType.setImageResource(infoHourly.daySpecificDay.hourlySpecificDay.weatherType.setIconWeatherType())
             hourly.specificdayTemp.text = itemView.context.getString(R.string.temp,infoHourly.daySpecificDay.hourlySpecificDay.temp.toString())
             hourly.specificdayUmidity.text =itemView.context.getString(R.string.umidity,infoHourly.daySpecificDay.hourlySpecificDay.umidity.toString())

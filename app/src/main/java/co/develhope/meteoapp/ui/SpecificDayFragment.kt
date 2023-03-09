@@ -9,7 +9,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.data.DataSource.getSpecificDay
+import co.develhope.meteoapp.data.domainmodel.CardSpecificDay
 import co.develhope.meteoapp.data.domainmodel.DaySpecificDay
+import co.develhope.meteoapp.data.domainmodel.HourlySpecificDay
+import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.ui.adapter.SpecificDayAdapter
 import co.develhope.meteoapp.ui.adapter.SpecificDayModel
 
@@ -38,24 +41,27 @@ class SpecificDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        val listSpecificDay= createListToShow(getSpecificDay())
+        val listSpecificDay = createListToShow(getSpecificDay())
         val adapter = SpecificDayAdapter(listSpecificDay)
         binding.itemSpecificday.adapter = adapter
         binding.itemSpecificday.layoutManager = LinearLayoutManager(view.context)
 
     }
+
     override fun onStart() {
         super.onStart()
 
         lifecycleScope.launch {
             try {
+
+
                 val palermocard = NetworkProvider().getDailySummary(
                     38.116667,
                     13.366667,
-                    OffsetDateTime.now().toLocalDate().toString(),
-                    OffsetDateTime.now().toLocalDate().toString()
+                    OffsetDateTime.now().toLocalDateTime().toString(),
+                    OffsetDateTime.now().plusDays(1).toString()
                 )
-                    val palermohourly = NetworkProvider().getHourly(
+                val palermohourly = NetworkProvider().getHourly(
                     38.116667,
                     13.366667,
                     OffsetDateTime.now().toLocalDate().toString(),
@@ -89,6 +95,34 @@ class SpecificDayFragment : Fragment() {
         listToReturn.removeAt(3)
         return listToReturn
     }
+    /*
+    private fun converteItem(itemHourly : List<HourlySpecificDay> , itemCard: List<CardSpecificDay>): List<DaySpecificDay>{
+        val hourlySpecificDay = itemHourly.mapIndexed { index, hourlySpecificDay ->
+            DaySpecificDay(
+                place = Place(
+                    city = "",
+                    region = "",
+                    lat = 0.0,
+                    log = 0.0,
+                    date =
+                ), cardSpecificDay = CardSpecificDay(
+                    percepita = 0,
+                    umidita = 0,
+                    copertura = 0,
+                    uv = 0,
+                    vento = 0,
+                    pioggia = 0
+                ), hourlySpecificDay = HourlySpecificDay(
+                    time =,
+                    weatherType =,
+                    temp = 0,
+                    umidity = 0
+                )
+
+            )
+        }
+    }
+*/
 }
 
 
