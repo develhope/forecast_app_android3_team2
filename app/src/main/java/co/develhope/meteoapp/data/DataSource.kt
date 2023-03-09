@@ -12,7 +12,6 @@ import org.threeten.bp.OffsetDateTime
 object DataSource {
     private val dailyForecastList = mutableListOf<DayForecast>(
         DayForecast(
-            date = OffsetDateTime.now(),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.RAINY,
                 humidity = 30,
@@ -31,7 +30,6 @@ object DataSource {
             )
         ),
         DayForecast(
-            date = OffsetDateTime.now().plusDays(1),
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 12,
@@ -39,7 +37,7 @@ object DataSource {
                 tempMin = 15,
                 tempMax = 21,
                 rain = 9,
-                date = OffsetDateTime.now()
+                date = OffsetDateTime.now().plusDays(1),
             ),
             place = Place(
                 city = "Palermo",
@@ -50,7 +48,7 @@ object DataSource {
             )
         ),
         DayForecast(
-            date = OffsetDateTime.now().plusDays(2),
+
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.CLOUDY,
                 humidity = 15,
@@ -58,7 +56,7 @@ object DataSource {
                 tempMin = 9,
                 tempMax = 16,
                 rain = 22,
-                date = OffsetDateTime.now()
+                date = OffsetDateTime.now().plusDays(2),
             ),
             place = Place(
                 city = "Palermo",
@@ -69,7 +67,7 @@ object DataSource {
             )
         ),
         DayForecast(
-            date = OffsetDateTime.now().plusDays(3),
+
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -77,7 +75,7 @@ object DataSource {
                 tempMin = 5,
                 tempMax = 16,
                 rain = 4,
-                date =OffsetDateTime.now()
+                date = OffsetDateTime.now().plusDays(3),
             ),
             place = Place(
                 city = "Palermo",
@@ -88,7 +86,7 @@ object DataSource {
             )
         ),
         DayForecast(
-            date = OffsetDateTime.now().plusDays(4),
+
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -96,7 +94,7 @@ object DataSource {
                 tempMin = 5,
                 tempMax = 16,
                 rain = 4,
-                date =OffsetDateTime.now()
+                date =OffsetDateTime.now().plusDays(4)
 
             ),
             place = Place(
@@ -108,7 +106,7 @@ object DataSource {
             )
         ),
         DayForecast(
-            date = OffsetDateTime.now().plusDays(5),
+
             weatherSummary = WeatherSummary(
                 weatherType = WeatherType.SUNNY,
                 humidity = 20,
@@ -116,7 +114,7 @@ object DataSource {
                 tempMin = 5,
                 tempMax = 16,
                 rain = 4,
-                date = OffsetDateTime.now()
+                date = OffsetDateTime.now().plusDays(5),
             ),
             place = Place(
                 city = "Palermo",

@@ -42,8 +42,7 @@ class SpecificDayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         val listSpecificDay = createListToShow(getSpecificDay())
-        val adapter = SpecificDayAdapter(listSpecificDay)
-        binding.itemSpecificday.adapter = adapter
+
         binding.itemSpecificday.layoutManager = LinearLayoutManager(view.context)
 
     }
@@ -61,15 +60,16 @@ class SpecificDayFragment : Fragment() {
                     OffsetDateTime.now().toLocalDateTime().toString(),
                     OffsetDateTime.now().plusDays(1).toString()
                 )
-                val palermohourly = NetworkProvider().getHourly(
+                NetworkProvider().getHourly(
                     38.116667,
                     13.366667,
                     OffsetDateTime.now().toLocalDate().toString(),
                     OffsetDateTime.now().toLocalDate().toString()
                 )
                 Log.d("prova card specific day", "${palermocard}")
-                Log.d("prova hourly specific day", "${palermohourly}")
-
+                //Log.d("prova hourly specific day", "${palermohourly}")
+                val adapter = SpecificDayAdapter(getSpecificDay(converteItem(palermocard)))
+                binding.itemSpecificday.adapter = adapter
 
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -95,34 +95,34 @@ class SpecificDayFragment : Fragment() {
         listToReturn.removeAt(3)
         return listToReturn
     }
-    /*
-    private fun converteItem(itemHourly : List<HourlySpecificDay> , itemCard: List<CardSpecificDay>): List<DaySpecificDay>{
-        val hourlySpecificDay = itemHourly.mapIndexed { index, hourlySpecificDay ->
+
+    private fun converteItem(item : List<DaySpecificDay>):List<SpecificDayModel> {
+        val hourlySpecificDay = item.mapIndexed { index, DaySpecificDay ->
             DaySpecificDay(
                 place = Place(
-                    city = "",
-                    region = "",
-                    lat = 0.0,
-                    log = 0.0,
-                    date =
+                    city = "Palermo",
+                    region = "Sicilia",
+                    lat = 38.12136,
+                    log = 13.35844,
+                    date =OffsetDateTime.now()
                 ), cardSpecificDay = CardSpecificDay(
-                    percepita = 0,
-                    umidita = 0,
-                    copertura = 0,
-                    uv = 0,
-                    vento = 0,
-                    pioggia = 0
+                    percepita = DaySpecificDay.cardSpecificDay.percepita,
+                    umidita = DaySpecificDay.cardSpecificDay.umidita,
+                    copertura = DaySpecificDay.cardSpecificDay.copertura,
+                    uv = DaySpecificDay.cardSpecificDay.uv,
+                    vento = DaySpecificDay.cardSpecificDay.vento,
+                    pioggia = DaySpecificDay.cardSpecificDay.pioggia
                 ), hourlySpecificDay = HourlySpecificDay(
-                    time =,
-                    weatherType =,
-                    temp = 0,
-                    umidity = 0
+                    time =DaySpecificDay.hourlySpecificDay.time,
+                    weatherType =DaySpecificDay.hourlySpecificDay.weatherType,
+                    temp = DaySpecificDay.hourlySpecificDay.temp,
+                    umidity = DaySpecificDay.hourlySpecificDay.umidity
                 )
 
             )
         }
-    }
-*/
+        }
+
 }
 
 

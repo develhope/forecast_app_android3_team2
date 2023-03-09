@@ -68,13 +68,13 @@ class HomePageAdapter(
         fun bind(cardItem: HomePageItem.CardItem, position: Int) {
 
             binding.day.text = itemView.context.getString(
-                R.string.oggi, getItaDay(cardItem.dailyForecast.date.plusDays(position.toLong()-1).dayOfWeek.name
+                R.string.oggi, getItaDay(cardItem.dailyForecast.weatherSummary.date.plusDays(position.toLong()-1).dayOfWeek.name
                 )
             )
             binding.data.text = itemView.context.getString(
                 R.string.data,
-                cardItem.dailyForecast.date.dayOfMonth.plus(position).toString(),
-                cardItem.dailyForecast.date.month.value.toString()
+                cardItem.dailyForecast.weatherSummary.date.dayOfMonth.plus(position).toString(),
+                cardItem.dailyForecast.weatherSummary.date.month.value.toString()
             )
             binding.tempmin.text = itemView.context.getString(
                 R.string.tempmin,

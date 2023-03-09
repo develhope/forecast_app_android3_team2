@@ -79,7 +79,7 @@ class HomePageFragment : Fragment() {
                     lat = 38.12136,
                     log = 13.35844,
                     date = OffsetDateTime.now()
-                ), date = OffsetDateTime.now(), weatherSummary = WeatherSummary(
+                ),  weatherSummary = WeatherSummary(
                     weatherType = weatherSummary.weatherType,
                     humidity = weatherSummary.humidity,
                     wind = weatherSummary.wind,
