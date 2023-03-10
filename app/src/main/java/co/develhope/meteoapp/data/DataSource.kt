@@ -11,31 +11,11 @@ import org.threeten.bp.OffsetDateTime
 
 object DataSource {
 
-    private val searchList = listOf<Place>(
-
-        Place(
-            city = "Palermo",
-            region = "Sicilia",
-            lat = 0.0,
-            log = 0.0,
-        ),
-        Place(
-            city = "Casteltermini",
-            region = "Sicilia",
-            lat = 0.0,
-            log = 0.0,
-        ),
-        Place(
-            city = "Catania",
-            region = "Sicilia",
-            lat = 0.0,
-            log = 0.0,
-        ),
-    )
-
-    fun loadSearchData(): List<Place> {
-        return searchList
+    private var placeSelected: Place? =  null
+    fun saveSelectedPlace(place: Place){
+        placeSelected = place
     }
+    fun getSelectedPlace(): Place? = placeSelected
 
 }
 

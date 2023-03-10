@@ -66,8 +66,10 @@ class SearchFragment : Fragment() {
 
                     binding.RVSearch.adapter = SearchAdapter(
                         createListSearch(places)
-                    ){
-                        when(it){
+                    ){action, place ->
+                        DataSource.saveSelectedPlace(place)
+                        Log.d("prova di salvataggio", "${DataSource.getSelectedPlace()}")
+                        when(action){
                             SearchAction.CardClick -> findNavController().navigate(R.id.action_searchFragment_to_homePageFragment)
                         }
                     }

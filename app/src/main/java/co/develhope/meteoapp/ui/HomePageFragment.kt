@@ -13,6 +13,7 @@ import co.develhope.meteoapp.data.domainmodel.DayForecast
 import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.R
+import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.network.NetworkProvider
 import co.develhope.meteoapp.ui.adapter.HomePageAdapter
@@ -47,8 +48,8 @@ class HomePageFragment : Fragment() {
         lifecycleScope.launch {
             try {
                 val palermo: List<WeatherSummary> = NetworkProvider().getWeekSummary(
-                    getPlace().lat,
-                    getPlace().log,
+                    DataSource.getSelectedPlace()?.lat ?:38.116667,
+                    DataSource.getSelectedPlace()?.log ?:13.366667,
                     getDate(),
                     getDate()
                 )
