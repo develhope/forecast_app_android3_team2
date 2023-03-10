@@ -73,13 +73,13 @@ class HomePageAdapter(
         @SuppressLint("StringFormatMatches")
         fun bind(cardItem: HomePageItem.CardItem, action: (HomepageAction) -> Unit, position: Int) {
 
-            binding.day.text = itemView.context.getString(R.string.oggi,cardItem.dailyForecast.date.dayOfWeek.name)
+            binding.day.text = itemView.context.getString(R.string.oggi, getItaDay(cardItem.dailyForecast.date.dayOfWeek.name))
             binding.data.text = itemView.context.getString(R.string.data,cardItem.dailyForecast.date.dayOfMonth.toString(),cardItem.dailyForecast.date.month.value.toString())
-            binding.tempmin.text = itemView.context.getString(R.string.tempmin,cardItem.dailyForecast.weatherSummary.tempMin.toString())
-            binding.tempmax.text = itemView.context.getString(R.string.tempmax,cardItem.dailyForecast.weatherSummary.tempMax.toString())
-            binding.kmh.text = itemView.context.getString(R.string.kmh,cardItem.dailyForecast.weatherSummary.wind.toString())
-            binding.umidity.text = itemView.context.getString(R.string.rain,cardItem.dailyForecast.weatherSummary.rain.toString())
-            binding.imagetype.setImageResource(cardItem.dailyForecast.weatherSummary.weatherType.setIconWeatherType())
+            binding.tempmin.text = itemView.context.getString(R.string.tempmin,cardItem.dailyForecast.tempMin.toString())
+            binding.tempmax.text = itemView.context.getString(R.string.tempmax,cardItem.dailyForecast.tempMax.toString())
+            binding.kmh.text = itemView.context.getString(R.string.kmh,cardItem.dailyForecast.wind.toString())
+            binding.umidity.text = itemView.context.getString(R.string.rain,cardItem.dailyForecast.rain.toString())
+            binding.imagetype.setImageResource(cardItem.dailyForecast.weatherType.setIconWeatherType())
             binding.templateCard.setOnClickListener {
                 action(HomepageAction.CardClick)
 
@@ -113,7 +113,7 @@ class HomePageAdapter(
     }
 }
 
-private fun getItaDay(day: String): String {
+fun getItaDay(day: String): String {
     return when (day) {
         "MONDAY" -> "Lunedì"
         "TUESDAY" -> "Martedì"

@@ -19,7 +19,11 @@
         android:id="@+id/searchFragment"
         android:name="co.develhope.meteoapp.ui.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment" />
+    </fragment>
     <fragment
         android:id="@+id/specificDayFragment"
         android:name="co.develhope.meteoapp.ui.SpecificDayFragment"

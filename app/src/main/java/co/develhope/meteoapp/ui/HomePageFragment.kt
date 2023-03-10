@@ -13,7 +13,6 @@ import co.develhope.meteoapp.data.domainmodel.DayForecast
 import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.R
-import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.network.NetworkProvider
 import co.develhope.meteoapp.ui.adapter.HomePageAdapter
@@ -22,7 +21,6 @@ import kotlinx.coroutines.launch
 import org.threeten.bp.OffsetDateTime
 import org.threeten.bp.format.DateTimeFormatter
 import co.develhope.meteoapp.ui.adapter.HomepageAction
-import co.develhope.meteoapp.ui.utils.createListToShow
 
 class HomePageFragment : Fragment() {
     private lateinit var binding: FragmentHomepageBinding
@@ -36,31 +34,31 @@ class HomePageFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-
-        val listHome = createListToShow(DataSource.getDayForecast())
-        val adapterCard = HomePageAdapter(listHome){
-            when(it){
-                HomepageAction.CardClick ->findNavController().navigate(R.id.action_homePageFragment_to_specificDayFragment)
-            }
-        }
-        binding.RVhome.adapter = adapterCard
         binding.RVhome.layoutManager = LinearLayoutManager(view.context)
-
     }
 
     override fun onStart() {
         super.onStart()
+        getHomeCoroutine()
+    }
+
+    private fun getHomeCoroutine() {
 
         lifecycleScope.launch {
             try {
-                val palermo : List<WeatherSummary> = NetworkProvider().getWeekSummary(
-                    38.116667,
-                    13.366667,
-                    OffsetDateTime.now(),
-                    OffsetDateTime.now().plusDays(6)
+                val palermo: List<WeatherSummary> = NetworkProvider().getWeekSummary(
+                    getPlace().lat,
+                    getPlace().log,
+                    getDate(),
+                    getDate()
                 )
-                val adapterCard = HomePageAdapter(createListToShow(palermo))
+
+                val adapterCard =
+                    HomePageAdapter(createListToShow(palermo)) {
+                        when (it) {
+                            HomepageAction.CardClick -> findNavController().navigate(R.id.action_homePageFragment_to_specificDayFragment)
+                        }
+                    }
                 binding.RVhome.adapter = adapterCard
                 Log.d("prova", "${palermo.get(0)}")
                 Log.d("prova", "${palermo.get(1)}")
@@ -78,8 +76,8 @@ class HomePageFragment : Fragment() {
             }
         }
     }
-
-    private fun getPlace() : Place = Place(
+    private fun getDate() : OffsetDateTime = OffsetDateTime.now()
+    private fun getPlace(): Place = Place(
         city = "Palermo",
         region = "Sicilia",
         lat = 38.116667,
@@ -94,14 +92,14 @@ class HomePageFragment : Fragment() {
                     region = "Sicilia",
                     lat = 38.12136,
                     log = 13.35844,
-                ),  weatherSummary = WeatherSummary(
+                ), weatherSummary = WeatherSummary(
                     weatherType = weatherSummary.weatherType,
                     humidity = weatherSummary.humidity,
                     wind = weatherSummary.wind,
                     tempMin = weatherSummary.tempMin,
                     tempMax = weatherSummary.tempMax,
                     rain = weatherSummary.rain,
-                    date= weatherSummary.date
+                    date = weatherSummary.date
                 )
             )
 

@@ -9,11 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import co.develhope.meteoapp.R
 import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.data.domainmodel.DaySpecificDay
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
 import co.develhope.meteoapp.network.NetworkProvider
+import co.develhope.meteoapp.ui.adapter.SearchAction
 import co.develhope.meteoapp.ui.adapter.SearchAdapter
 import co.develhope.meteoapp.ui.utils.createListSearch
 import kotlinx.coroutines.launch
@@ -34,9 +37,7 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val listSearch = createListSearch(DataSource.loadSearchData())
-        val adapterSearch = SearchAdapter(listSearch)
-        binding.RVSearch.adapter = adapterSearch
+
         binding.RVSearch.layoutManager = LinearLayoutManager(view.context)
         searchCity()
     }
@@ -65,7 +66,11 @@ class SearchFragment : Fragment() {
 
                     binding.RVSearch.adapter = SearchAdapter(
                         createListSearch(places)
-                    )
+                    ){
+                        when(it){
+                            SearchAction.CardClick -> findNavController().navigate(R.id.action_searchFragment_to_homePageFragment)
+                        }
+                    }
 
                     Log.d("provaPlace","$places")
 
