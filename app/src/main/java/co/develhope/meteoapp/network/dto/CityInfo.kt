@@ -18,8 +18,6 @@ data class CityInfo(
                 region = this.results.getOrNull(index)?.country.toString(),
                 lat = this.results.getOrNull(index)?.latitude.toString().toDouble(),
                 log = this.results.getOrNull(index)?.longitude.toString().toDouble(),
-                date = OffsetDateTime.now()
-
             )
         }
     }

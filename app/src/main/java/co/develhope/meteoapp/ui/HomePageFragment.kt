@@ -33,7 +33,6 @@ class HomePageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        val listHome = createListToShow(DataSource.getDayForecast())
 
         binding.RVhome.layoutManager = LinearLayoutManager(view.context)
 
@@ -78,7 +77,6 @@ class HomePageFragment : Fragment() {
                     region = "Sicilia",
                     lat = 38.12136,
                     log = 13.35844,
-                    date = OffsetDateTime.now()
                 ),  weatherSummary = WeatherSummary(
                     weatherType = weatherSummary.weatherType,
                     humidity = weatherSummary.humidity,

@@ -8,5 +8,4 @@ data class Place(
     val region: String,
     val lat: Double,
     val log: Double,
-    val date: OffsetDateTime
 )
