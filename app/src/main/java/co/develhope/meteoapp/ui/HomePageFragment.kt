@@ -110,8 +110,7 @@ class HomePageFragment : Fragment() {
 
     private fun createListToShow(dayForecastList: List<WeatherSummary>): List<HomePageItem> {
         val listToReturn = mutableListOf<HomePageItem>()
-
-        listToReturn.add(HomePageItem.Title(getPlace()))
+        listToReturn.add(HomePageItem.Title(DataSource.getSelectedPlace()!!))
         listToReturn.add(HomePageItem.CardItem(dayForecastList.first()))
         listToReturn.add(HomePageItem.Subtitle)
 

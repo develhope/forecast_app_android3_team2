@@ -12,7 +12,7 @@
     <string name="precip_">precip.</string>
     <string name="vento">vento</string>
     <string name="prox5day">%s</string>
-    <string name="city_search">%s</string>
+    <string name="city_search">%s, %s</string>
     <string name="temp_search">%s</string>
     <string name="weathertype_search">%s</string>
     <string name="search_city">%s</string>
