@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.data.domainmodel.DayForecast
 import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.data.domainmodel.WeatherSummary
+import co.develhope.meteoapp.R
+import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.network.NetworkProvider
 import co.develhope.meteoapp.ui.adapter.HomePageAdapter
@@ -18,6 +21,8 @@ import co.develhope.meteoapp.ui.adapter.HomePageItem
 import kotlinx.coroutines.launch
 import org.threeten.bp.OffsetDateTime
 import org.threeten.bp.format.DateTimeFormatter
+import co.develhope.meteoapp.ui.adapter.HomepageAction
+import co.develhope.meteoapp.ui.utils.createListToShow
 
 class HomePageFragment : Fragment() {
     private lateinit var binding: FragmentHomepageBinding
@@ -33,6 +38,13 @@ class HomePageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
 
+        val listHome = createListToShow(DataSource.getDayForecast())
+        val adapterCard = HomePageAdapter(listHome){
+            when(it){
+                HomepageAction.CardClick ->findNavController().navigate(R.id.action_homePageFragment_to_specificDayFragment)
+            }
+        }
+        binding.RVhome.adapter = adapterCard
         binding.RVhome.layoutManager = LinearLayoutManager(view.context)
 
     }
