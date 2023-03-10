@@ -96,7 +96,7 @@ class SpecificDayFragment : Fragment() {
         return listToReturn
     }
 
-    private fun converteItem(item : List<DaySpecificDay>):List<SpecificDayModel> {
+    private fun converteItem(item : List<DaySpecificDay>): List<DaySpecificDay> {
         val hourlySpecificDay = item.mapIndexed { index, DaySpecificDay ->
             DaySpecificDay(
                 place = Place(
@@ -120,7 +120,9 @@ class SpecificDayFragment : Fragment() {
                 )
 
             )
+
         }
+        return hourlySpecificDay
         }
 
 }
