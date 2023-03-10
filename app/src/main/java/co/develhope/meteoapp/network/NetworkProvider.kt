@@ -87,14 +87,14 @@ class NetworkProvider {
     suspend fun getWeekSummary(
         latitude: Double,
         longitude: Double,
-        start_Date: String,
-        end_Date: String
+        start_Date: OffsetDateTime,
+        end_Date: OffsetDateTime
     ): List<WeatherSummary> {
         return provideWeatherService().getWeeklySummary(
             latitude = latitude,
             longitude = longitude,
-            startDate = start_Date,
-            endDate = end_Date
+//            startDate = start_Date.toLocalDate(),
+//            endDate = end_Date.toLocalDate()
         ).body()?.daily?.toDomain() ?: emptyList()
     }
 

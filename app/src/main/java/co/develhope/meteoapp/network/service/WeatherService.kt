@@ -37,8 +37,6 @@ interface WeatherService {
     suspend fun getWeeklySummary(
         @Query("latitude") latitude: Double,
         @Query("longitude") longitude: Double,
-        @Query("start_date") startDate: String,
-        @Query("end_date") endDate: String,
         @Query("daily") daily: List<String> = listOf(
             "weathercode",
             "temperature_2m_max",
@@ -50,6 +48,6 @@ interface WeatherService {
             "windspeed_10m_max"
         ),
         @Query("current_weather") currentWeather: Boolean = true,
-        @Query("timezone") timeZone: String = "auto"
+        @Query("timezone") timeZone: String = "Europe/Berlin"
     ): Response<WeeklySummary>
 }

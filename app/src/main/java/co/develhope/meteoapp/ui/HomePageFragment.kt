@@ -45,9 +45,8 @@ class HomePageFragment : Fragment() {
                 val palermo : List<WeatherSummary> = NetworkProvider().getWeekSummary(
                     38.116667,
                     13.366667,
-                    OffsetDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE).toString(),
-                    OffsetDateTime.now().plusDays(6).format(DateTimeFormatter.ISO_LOCAL_DATE)
-                        .toString()
+                    OffsetDateTime.now(),
+                    OffsetDateTime.now().plusDays(6)
                 )
                 val adapterCard = HomePageAdapter(createListToShow(palermo))
                 binding.RVhome.adapter = adapterCard

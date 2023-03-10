@@ -36,7 +36,7 @@ data class Daily(
                 tempMin = this.temperature2mMin.getOrNull(index)?.toInt() ?:0 ,
                 tempMax = this.temperature2mMax.getOrNull(index)?.toInt() ?:0 ,
                 rain = this.rainSum.getOrNull(index)?.toInt() ?:0,
-                date = OffsetDateTime.now()
+                date = date
             )
         }
     }
