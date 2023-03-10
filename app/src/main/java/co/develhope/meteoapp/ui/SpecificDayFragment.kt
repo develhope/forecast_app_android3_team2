@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.data.domainmodel.HourlyForecast
 import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.databinding.FragmentSpecificDayBinding
@@ -47,8 +48,8 @@ class SpecificDayFragment : Fragment() {
         lifecycleScope.launch {
             try {
                 val hourlyForecast = NetworkProvider().getDailySummary(
-                    getPlace().lat,
-                    getPlace().log,
+                    DataSource.getSelectedPlace()?.lat ?: 38.116667,
+                    DataSource.getSelectedPlace()?.log ?: 13.366667,
                     getDate(),
                     getDate()
                 )
@@ -68,18 +69,19 @@ class SpecificDayFragment : Fragment() {
         }
     }
 
-    private fun getPlace() : Place = Place(
+    private fun getPlace(): Place = Place(
         city = "Palermo",
         region = "Sicilia",
         lat = 38.116667,
         log = 13.366667
     ) //DataSource.getPlace()
 
-    private fun getDate() : OffsetDateTime = OffsetDateTime.now()
+    private fun getDate(): OffsetDateTime = OffsetDateTime.now()
 
     private fun createListToShow(list: List<HourlyForecast>): List<SpecificDayModel> {
         val listToReturn = mutableListOf<SpecificDayModel>()
-        val filteredList  = list.filter { hourlyForecast -> hourlyForecast.hourlySpecificDay.time.isAfter(getDate()) }
+        val filteredList =
+            list.filter { hourlyForecast -> hourlyForecast.hourlySpecificDay.time.isAfter(getDate()) }
 
 
         listToReturn.add(SpecificDayModel.SpecificDayTitle(place = getPlace(), date = getDate()))
