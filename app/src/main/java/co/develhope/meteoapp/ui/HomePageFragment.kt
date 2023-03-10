@@ -8,14 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.data.domainmodel.DayForecast
 import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.network.NetworkProvider
 import co.develhope.meteoapp.ui.adapter.HomePageAdapter
-import co.develhope.meteoapp.ui.utils.createListToShow
+import co.develhope.meteoapp.ui.adapter.HomePageItem
 import kotlinx.coroutines.launch
 import org.threeten.bp.OffsetDateTime
 import org.threeten.bp.format.DateTimeFormatter
@@ -43,14 +42,14 @@ class HomePageFragment : Fragment() {
 
         lifecycleScope.launch {
             try {
-                val palermo = NetworkProvider().getWeekSummary(
+                val palermo : List<WeatherSummary> = NetworkProvider().getWeekSummary(
                     38.116667,
                     13.366667,
                     OffsetDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE).toString(),
                     OffsetDateTime.now().plusDays(6).format(DateTimeFormatter.ISO_LOCAL_DATE)
                         .toString()
                 )
-                val adapterCard = HomePageAdapter(createListToShow(createitemfothompage(palermo)))
+                val adapterCard = HomePageAdapter(createListToShow(palermo))
                 binding.RVhome.adapter = adapterCard
                 Log.d("prova", "${palermo.get(0)}")
                 Log.d("prova", "${palermo.get(1)}")
@@ -68,6 +67,13 @@ class HomePageFragment : Fragment() {
             }
         }
     }
+
+    private fun getPlace() : Place = Place(
+        city = "Palermo",
+        region = "Sicilia",
+        lat = 38.116667,
+        log = 13.366667
+    ) //DataSource.getPlace()
 
     private fun createitemfothompage(item: List<WeatherSummary>): List<DayForecast> {
         val homepageitem = item.mapIndexed { index, weatherSummary ->
@@ -90,6 +96,22 @@ class HomePageFragment : Fragment() {
 
         }
         return homepageitem
+    }
+
+    private fun createListToShow(dayForecastList: List<WeatherSummary>): List<HomePageItem> {
+        val listToReturn = mutableListOf<HomePageItem>()
+
+        listToReturn.add(HomePageItem.Title(getPlace()))
+        listToReturn.add(HomePageItem.CardItem(dayForecastList.first()))
+        listToReturn.add(HomePageItem.Subtitle)
+
+        val filteredList = dayForecastList.drop(1)
+        val othersDays: MutableList<HomePageItem.CardItem> = filteredList.map {
+            HomePageItem.CardItem(it)
+        }.toMutableList()
+
+        listToReturn.addAll(othersDays)
+        return listToReturn
     }
 
 }

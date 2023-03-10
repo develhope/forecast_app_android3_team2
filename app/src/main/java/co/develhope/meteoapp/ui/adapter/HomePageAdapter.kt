@@ -41,7 +41,7 @@ class HomePageAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is CardViewHolder -> holder.bind(dataset[position] as HomePageItem.CardItem, position)
+            is CardViewHolder -> holder.bind(dataset[position] as HomePageItem.CardItem)
 
             is CurrentCityViewHolder -> holder.bind(dataset[position] as HomePageItem.Title)
 
@@ -65,34 +65,34 @@ class HomePageAdapter(
     class CardViewHolder(private val binding: TemplateCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("StringFormatMatches")
-        fun bind(cardItem: HomePageItem.CardItem, position: Int) {
+        fun bind(cardItem: HomePageItem.CardItem) {
 
             binding.day.text = itemView.context.getString(
-                R.string.oggi, getItaDay(cardItem.dailyForecast.weatherSummary.date.plusDays(position.toLong()-1).dayOfWeek.name
+                R.string.oggi, getItaDay(cardItem.dailyForecast.date.dayOfWeek.name
                 )
             )
             binding.data.text = itemView.context.getString(
                 R.string.data,
-                cardItem.dailyForecast.weatherSummary.date.dayOfMonth.plus(position).toString(),
-                cardItem.dailyForecast.weatherSummary.date.month.value.toString()
+                cardItem.dailyForecast.date.dayOfMonth.toString(),
+                cardItem.dailyForecast.date.month.value.toString()
             )
             binding.tempmin.text = itemView.context.getString(
                 R.string.tempmin,
-                cardItem.dailyForecast.weatherSummary.tempMin.toString()
+                cardItem.dailyForecast.tempMin.toString()
             )
             binding.tempmax.text = itemView.context.getString(
                 R.string.tempmax,
-                cardItem.dailyForecast.weatherSummary.tempMax.toString()
+                cardItem.dailyForecast.tempMax.toString()
             )
             binding.kmh.text = itemView.context.getString(
                 R.string.kmh,
-                cardItem.dailyForecast.weatherSummary.wind.toString()
+                cardItem.dailyForecast.wind.toString()
             )
             binding.umidity.text = itemView.context.getString(
                 R.string.rain,
-                cardItem.dailyForecast.weatherSummary.rain.toString()
+                cardItem.dailyForecast.rain.toString()
             )
-            binding.imagetype.setImageResource(cardItem.dailyForecast.weatherSummary.weatherType.setIconWeatherType())
+            binding.imagetype.setImageResource(cardItem.dailyForecast.weatherType.setIconWeatherType())
 
         }
     }

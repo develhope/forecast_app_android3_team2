@@ -1,12 +1,12 @@
 package co.develhope.meteoapp.ui.adapter
 
-import co.develhope.meteoapp.data.domainmodel.DayForecast
 import co.develhope.meteoapp.data.domainmodel.Place
+import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 
 
 sealed class HomePageItem {
     data class CardItem(
-        val dailyForecast: DayForecast
+        val dailyForecast: WeatherSummary
         ) : HomePageItem()
 
     data class Title(val place: Place) : HomePageItem()

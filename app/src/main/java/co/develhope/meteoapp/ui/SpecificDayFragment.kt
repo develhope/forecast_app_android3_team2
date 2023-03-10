@@ -73,7 +73,7 @@ class SpecificDayFragment : Fragment() {
         region = "Sicilia",
         lat = 38.116667,
         log = 13.366667
-    )
+    ) //DataSource.getPlace()
 
     private fun getDate() : OffsetDateTime = OffsetDateTime.now()
 
