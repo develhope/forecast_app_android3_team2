@@ -20,7 +20,6 @@ import co.develhope.meteoapp.databinding.FragmentSpecificDayBinding
 import co.develhope.meteoapp.network.NetworkProvider
 import kotlinx.coroutines.launch
 import org.threeten.bp.OffsetDateTime
-import org.threeten.bp.format.DateTimeFormatter
 
 
 class SpecificDayFragment : Fragment() {
