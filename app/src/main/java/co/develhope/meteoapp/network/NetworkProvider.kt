@@ -1,8 +1,6 @@
 package co.develhope.meteoapp.network
 
-import co.develhope.meteoapp.data.domainmodel.CardSpecificDay
 import co.develhope.meteoapp.data.domainmodel.HourlyForecast
-import co.develhope.meteoapp.data.domainmodel.HourlySpecificDay
 import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.network.service.GeocodingService
@@ -103,14 +101,14 @@ class NetworkProvider {
     suspend fun getDailySummary(
         latitude: Double,
         longitude: Double,
-        start_Date: String,
-        end_Date: String
+        start_Date: OffsetDateTime,
+        end_Date: OffsetDateTime
     ): List<HourlyForecast> {
         return provideWeatherService().getDaySummary(
             latitude = latitude,
             longitude = longitude,
-            startDate = start_Date,
-            endDate = end_Date
+            startDate = start_Date.toLocalDate(),
+            endDate = end_Date.toLocalDate()
         ).hourly.toDomain()
     }
 

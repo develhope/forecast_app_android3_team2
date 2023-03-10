@@ -2,7 +2,7 @@ package co.develhope.meteoapp.network.service
 
 import co.develhope.meteoapp.network.dto.DaySummary
 import co.develhope.meteoapp.network.dto.WeeklySummary
-import org.threeten.bp.OffsetDateTime
+import org.threeten.bp.LocalDate
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -14,8 +14,8 @@ interface WeatherService {
     suspend fun getDaySummary(
         @Query("latitude") latitude: Double,
         @Query("longitude") longitude: Double,
-        @Query("start_date") startDate: String,
-        @Query("end_date") endDate: String,
+        @Query("start_date") startDate: LocalDate,
+        @Query("end_date") endDate: LocalDate,
         @Query("hourly") hourly: List<String> = listOf(
             "temperature_2m",
             "rain",

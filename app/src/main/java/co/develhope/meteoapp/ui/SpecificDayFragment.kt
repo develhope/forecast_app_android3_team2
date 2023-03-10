@@ -49,8 +49,8 @@ class SpecificDayFragment : Fragment() {
                 val hourlyForecast = NetworkProvider().getDailySummary(
                     getPlace().lat,
                     getPlace().log,
-                    getDate().toLocalDateTime().toString(),
-                    getDate().toLocalDateTime().toString()
+                    getDate(),
+                    getDate()
                 )
 
                 Log.d("prova card specific day", "${hourlyForecast}")
