@@ -79,12 +79,14 @@ class SpecificDayFragment : Fragment() {
 
     private fun createListToShow(list: List<HourlyForecast>): List<SpecificDayModel> {
         val listToReturn = mutableListOf<SpecificDayModel>()
+        val filteredList  = list.filter { hourlyForecast -> hourlyForecast.hourlySpecificDay.time.isAfter(getDate()) }
+
 
         listToReturn.add(SpecificDayModel.SpecificDayTitle(place = getPlace(), date = getDate()))
-        listToReturn.add(SpecificDayModel.SpecificDayHourly(list.first()))
-        listToReturn.add(SpecificDayModel.SpecificDayCard(list.first().cardSpecificDay))
+        listToReturn.add(SpecificDayModel.SpecificDayHourly(filteredList.first()))
+        listToReturn.add(SpecificDayModel.SpecificDayCard(filteredList.first().cardSpecificDay))
 
-        val otherHours: MutableList<SpecificDayModel.SpecificDayHourly> = list.map {
+        val otherHours: MutableList<SpecificDayModel.SpecificDayHourly> = filteredList.map {
             SpecificDayModel.SpecificDayHourly(it)
         }.toMutableList()
         listToReturn.addAll(otherHours)
