@@ -62,8 +62,6 @@ class SearchFragment : Fragment() {
                     val places = NetworkProvider().getPlace(
                         place
                     )
-                    //Fill the adapter with places
-
                     binding.RVSearch.adapter = SearchAdapter(
                         createListSearch(places)
                     ){action, place ->
@@ -79,7 +77,6 @@ class SearchFragment : Fragment() {
                 } catch (e: Exception) {
                     e.printStackTrace()
                     Log.d("prova", "errore")
-                    Log.d("prova", "${OffsetDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)}")
 
                 }
             }

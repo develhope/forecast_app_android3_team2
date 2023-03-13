@@ -63,8 +63,6 @@ class SpecificDayFragment : Fragment() {
             } catch (e: Exception) {
                 e.printStackTrace()
                 Log.d("provadaily", "errore")
-                Log.d("provadaily", "${OffsetDateTime.now().toLocalDate().toString()}")
-
             }
         }
     }

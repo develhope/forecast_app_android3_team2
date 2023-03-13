@@ -40,7 +40,11 @@ class HomePageFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        getHomeCoroutine()
+        if (DataSource.getSelectedPlace() == null) {
+            findNavController().navigate(R.id.searchFragment)
+        } else {
+            getHomeCoroutine()
+        }
     }
 
     private fun getHomeCoroutine() {
@@ -48,8 +52,8 @@ class HomePageFragment : Fragment() {
         lifecycleScope.launch {
             try {
                 val palermo: List<WeatherSummary> = NetworkProvider().getWeekSummary(
-                    DataSource.getSelectedPlace()?.lat ?:38.116667,
-                    DataSource.getSelectedPlace()?.log ?:13.366667,
+                    DataSource.getSelectedPlace()?.lat ?: 38.116667,
+                    DataSource.getSelectedPlace()?.log ?: 13.366667,
                     getDate(),
                     getDate()
                 )
@@ -61,23 +65,15 @@ class HomePageFragment : Fragment() {
                         }
                     }
                 binding.RVhome.adapter = adapterCard
-                Log.d("prova", "${palermo.get(0)}")
-                Log.d("prova", "${palermo.get(1)}")
-                Log.d("prova", "${palermo.get(2)}")
-                Log.d("prova", "${palermo.get(3)}")
-                Log.d("prova", "${palermo.get(4)}")
-                Log.d("prova", "${palermo.get(5)}")
-                Log.d("prova", "${palermo.get(6)}")
 
             } catch (e: Exception) {
                 e.printStackTrace()
                 Log.d("prova", "errore")
-                Log.d("prova", "${OffsetDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)}")
-
             }
         }
     }
-    private fun getDate() : OffsetDateTime = OffsetDateTime.now()
+
+    private fun getDate(): OffsetDateTime = OffsetDateTime.now()
     private fun getPlace(): Place = Place(
         city = "Palermo",
         region = "Sicilia",
@@ -120,6 +116,7 @@ class HomePageFragment : Fragment() {
         }.toMutableList()
 
         listToReturn.addAll(othersDays)
+        listToReturn.removeLast()
         return listToReturn
     }
 
