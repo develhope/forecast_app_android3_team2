@@ -82,7 +82,7 @@ class SpecificDayAdapter(private val list: List<SpecificDayModel>) :
                 R.string.time,
                 infoHourly.hourlyForecast.hourlySpecificDay.time.hour.toString()
             )
-            hourly.specificdayType.setImageResource(infoHourly.hourlyForecast.hourlySpecificDay.weatherType.setIconWeatherType())
+            hourly.specificdayType.setImageResource( infoHourly.hourlyForecast.hourlySpecificDay.weatherType.setIconWeatherType())
             hourly.specificdayTemp.text = itemView.context.getString(
                 R.string.temp,
                 infoHourly.hourlyForecast.hourlySpecificDay.temp.toString()

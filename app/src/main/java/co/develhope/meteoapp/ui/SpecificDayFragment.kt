@@ -67,12 +67,7 @@ class SpecificDayFragment : Fragment() {
         }
     }
 
-    private fun getPlace(): Place = Place(
-        city = "Palermo",
-        region = "Sicilia",
-        lat = 38.116667,
-        log = 13.366667
-    ) //DataSource.getPlace()
+
 
     private fun getDate(): OffsetDateTime = OffsetDateTime.now()
 
@@ -82,7 +77,7 @@ class SpecificDayFragment : Fragment() {
             list.filter { hourlyForecast -> hourlyForecast.hourlySpecificDay.time.isAfter(getDate()) }
 
 
-        listToReturn.add(SpecificDayModel.SpecificDayTitle(place = getPlace(), date = getDate()))
+        listToReturn.add(SpecificDayModel.SpecificDayTitle(DataSource.getSelectedPlace()!!, date = getDate()))
         listToReturn.add(SpecificDayModel.SpecificDayHourly(filteredList.first()))
         listToReturn.add(SpecificDayModel.SpecificDayCard(filteredList.first().cardSpecificDay))
 
