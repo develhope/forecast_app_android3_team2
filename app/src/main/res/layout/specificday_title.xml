@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_24_dp"
         android:textColor="#230EA5"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:text="@string/today"
         app:layout_constraintStart_toStartOf="parent"
