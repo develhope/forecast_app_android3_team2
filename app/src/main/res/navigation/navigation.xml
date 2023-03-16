@@ -14,20 +14,21 @@
             app:popUpTo="@id/homePageFragment"
             app:popUpToSaveState="true"
             />
+        <action
+            android:id="@+id/action_homePageFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="co.develhope.meteoapp.ui.SearchFragment"
         android:label="fragment_search"
-         >
+        tools:layout="@layout/fragment_search" >
         <action
             android:id="@+id/action_searchFragment_to_homePageFragment"
             app:destination="@id/homePageFragment"
-            app:popUpTo="@id/homePageFragment"
-            app:popUpToSaveState="true"/>
-        <action
-            android:id="@+id/action_searchFragment_to_homePageFragment2"
-            app:destination="@id/homePageFragment" />
+           />
+
     </fragment>
     <fragment
         android:id="@+id/specificDayFragment"
@@ -35,6 +36,7 @@
         android:label="SpecificDayFragment" >
         <action
             android:id="@+id/action_specificDayFragment_to_homePageFragment"
-            app:destination="@id/homePageFragment" />
+            app:destination="@id/homePageFragment"
+            />
     </fragment>
 </navigation>
