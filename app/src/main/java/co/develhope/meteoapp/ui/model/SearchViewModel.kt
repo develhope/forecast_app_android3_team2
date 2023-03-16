@@ -23,11 +23,9 @@ class SearchViewModel : ViewModel() {
                 )
                 _searchResult.value = places
 
-                Log.d("provaPlace","$places")
 
             } catch (e: Exception) {
                 e.printStackTrace()
-                Log.d("prova", "errore")
 
             }
 

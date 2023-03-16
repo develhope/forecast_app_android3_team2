@@ -88,13 +88,11 @@ class NetworkProvider {
         latitude: Double,
         longitude: Double,
         start_Date: OffsetDateTime,
-        end_Date: OffsetDateTime
+        end_Date: OffsetDateTime,
     ): List<WeatherSummary> {
         return provideWeatherService().getWeeklySummary(
             latitude = latitude,
             longitude = longitude,
-//            startDate = start_Date.toLocalDate(),
-//            endDate = end_Date.toLocalDate()
         ).body()?.daily?.toDomain() ?: emptyList()
     }
 
@@ -109,7 +107,7 @@ class NetworkProvider {
             longitude = longitude,
             startDate = start_Date.toLocalDate(),
             endDate = end_Date.toLocalDate()
-        ).hourly.toDomain()
+        ).body()?.hourly?.toDomain() ?: emptyList()
     }
 
     suspend fun getPlace(place: String): List<Place> {

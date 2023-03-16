@@ -31,11 +31,6 @@ class MainActivity : AppCompatActivity() {
         val navGraph = navController.navInflater.inflate(R.navigation.navigation)
         navController.graph = navGraph
         setupWithNavController(binding.bottomNavBar,navController)
-
-       /* if (navController.popBackStack()) {
-            finish()
-        }*/
-
     }
 }
 

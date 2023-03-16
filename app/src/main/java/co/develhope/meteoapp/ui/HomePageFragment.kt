@@ -64,32 +64,4 @@ class HomePageFragment : Fragment() {
 
     }
 
-
-
-
-    private fun createitemfothompage(item: List<WeatherSummary>): List<DayForecast> {
-        val homepageitem = item.mapIndexed { index, weatherSummary ->
-            DayForecast(
-                place = Place(
-                    city = "Palermo",
-                    region = "Sicilia",
-                    lat = 38.12136,
-                    log = 13.35844,
-                ), weatherSummary = WeatherSummary(
-                    weatherType = weatherSummary.weatherType,
-                    humidity = weatherSummary.humidity,
-                    wind = weatherSummary.wind,
-                    tempMin = weatherSummary.tempMin,
-                    tempMax = weatherSummary.tempMax,
-                    rain = weatherSummary.rain,
-                    date = weatherSummary.date
-                )
-            )
-
-        }
-        return homepageitem
-    }
-
-
-
 }

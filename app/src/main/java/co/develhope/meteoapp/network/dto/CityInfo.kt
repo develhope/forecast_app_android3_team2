@@ -15,7 +15,7 @@ data class CityInfo(
         return this.results.mapIndexed{ index, result ->
             Place(
                 city = this.results.getOrNull(index)?.name.toString(),
-                region = this.results.getOrNull(index)?.country.toString(),
+                region = this.results.getOrNull(index)?.admin1 .toString(),
                 lat = this.results.getOrNull(index)?.latitude.toString().toDouble(),
                 log = this.results.getOrNull(index)?.longitude.toString().toDouble(),
             )

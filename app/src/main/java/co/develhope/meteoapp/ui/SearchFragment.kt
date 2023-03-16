@@ -63,7 +63,6 @@ class SearchFragment : Fragment() {
                 createListSearch(it)
             ){action, place ->
                 DataSource.saveSelectedPlace(place)
-                Log.d("prova di salvataggio", "${DataSource.getSelectedPlace()}")
                 when(action){
                     SearchAction.CardClick -> findNavController().navigate(R.id.action_searchFragment_to_homePageFragment)
                 }

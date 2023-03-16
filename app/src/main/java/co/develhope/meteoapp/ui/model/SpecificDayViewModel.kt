@@ -27,7 +27,6 @@ class SpecificDayViewModel: ViewModel()  {
 
             } catch (e: Exception) {
                 e.printStackTrace()
-                Log.d("provadaily", "errore")
             }
         }
     }
