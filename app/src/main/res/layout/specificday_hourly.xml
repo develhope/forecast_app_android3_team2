@@ -62,13 +62,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="54dp"
         android:layout_marginTop="@dimen/margin_16_dp"
+        android:layout_marginEnd="50dp"
         android:drawablePadding="@dimen/drawablePadding_10_dp"
         android:gravity="top"
         android:text="@string/umidity"
         app:drawableStartCompat="@drawable/drop"
-        app:layout_constraintStart_toEndOf="@+id/specificday_temp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View

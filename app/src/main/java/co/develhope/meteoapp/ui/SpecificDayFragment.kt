@@ -71,6 +71,9 @@ class SpecificDayFragment : Fragment() {
 
     private fun getDate(): OffsetDateTime = OffsetDateTime.now()
 
+
+
+
     private fun createListToShow(list: List<HourlyForecast>): List<SpecificDayModel> {
         val listToReturn = mutableListOf<SpecificDayModel>()
         val filteredList =
