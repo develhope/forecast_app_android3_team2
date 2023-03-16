@@ -9,21 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.R
 import co.develhope.meteoapp.data.DataSource
-import co.develhope.meteoapp.data.domainmodel.DaySpecificDay
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
-import co.develhope.meteoapp.network.NetworkProvider
 import co.develhope.meteoapp.ui.adapter.SearchAction
 import co.develhope.meteoapp.ui.adapter.SearchAdapter
 import co.develhope.meteoapp.ui.model.SearchViewModel
 import co.develhope.meteoapp.ui.utils.createListSearch
-import kotlinx.coroutines.launch
-import org.threeten.bp.OffsetDateTime
-import org.threeten.bp.format.DateTimeFormatter
 
 class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
