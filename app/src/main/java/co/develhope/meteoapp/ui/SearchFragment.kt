@@ -8,11 +8,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import co.develhope.meteoapp.R
 import co.develhope.meteoapp.data.DataSource
+import co.develhope.meteoapp.data.domainmodel.DaySpecificDay
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
+import co.develhope.meteoapp.network.NetworkProvider
+import co.develhope.meteoapp.ui.adapter.SearchAction
 import co.develhope.meteoapp.ui.adapter.SearchAdapter
 import co.develhope.meteoapp.ui.utils.createListSearch
+import kotlinx.coroutines.launch
+import org.threeten.bp.OffsetDateTime
+import org.threeten.bp.format.DateTimeFormatter
 
 class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
@@ -28,9 +37,7 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val listSearch = createListSearch(DataSource.loadSearchData())
-        val adapterSearch = SearchAdapter(listSearch)
-        binding.RVSearch.adapter = adapterSearch
+
         binding.RVSearch.layoutManager = LinearLayoutManager(view.context)
         searchCity()
     }
@@ -44,17 +51,35 @@ class SearchFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                val filterSearch = DataSource.loadSearchData().filter {
-                    it.cityName.contains(s.toString(), true)
-                }
-                Log.d("searchBar", "$filterSearch")
-                binding.RVSearch.adapter = SearchAdapter(
-                    createListSearch(filterSearch)
-                )
+                searchPlace(s.toString())
             }
 
         })
     }
+        private fun searchPlace(place : String) {
+            lifecycleScope.launch {
+                try {
+                    val places = NetworkProvider().getPlace(
+                        place
+                    )
+                    binding.RVSearch.adapter = SearchAdapter(
+                        createListSearch(places)
+                    ){action, place ->
+                        DataSource.saveSelectedPlace(place)
+                        Log.d("prova di salvataggio", "${DataSource.getSelectedPlace()}")
+                        when(action){
+                            SearchAction.CardClick -> findNavController().navigate(R.id.action_searchFragment_to_homePageFragment)
+                        }
+                    }
 
+                    Log.d("provaPlace","$places")
+
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    Log.d("prova", "errore")
+
+                }
+            }
+        }
 }
 

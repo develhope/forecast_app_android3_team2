@@ -12,7 +12,7 @@
     <string name="precip_">precip.</string>
     <string name="vento">vento</string>
     <string name="prox5day">%s</string>
-    <string name="city_search">%s</string>
+    <string name="city_search">%s, %s</string>
     <string name="temp_search">%s</string>
     <string name="weathertype_search">%s</string>
     <string name="search_city">%s</string>
@@ -22,7 +22,7 @@
     <string name="image_of_weather_type">image of weather type</string>
     <!---string title-->
     <string name="city_region">%s , %s</string>
-    <string name="today">Today,</string>
+    <string name="today">Oggi,</string>
     <string name="today_details">%s %s %s</string>
 
     <!---string hourly-->

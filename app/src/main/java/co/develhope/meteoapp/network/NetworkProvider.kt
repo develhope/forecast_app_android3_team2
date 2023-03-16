@@ -1,5 +1,8 @@
 package co.develhope.meteoapp.network
 
+import co.develhope.meteoapp.data.domainmodel.HourlyForecast
+import co.develhope.meteoapp.data.domainmodel.Place
+import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.network.service.GeocodingService
 import co.develhope.meteoapp.network.service.WeatherService
 import com.google.gson.Gson
@@ -69,12 +72,11 @@ class NetworkProvider {
     }
 
 
-
-    fun provideWeatherService() : WeatherService {
+    private fun provideWeatherService(): WeatherService {
         return retrofitWeather.create(WeatherService::class.java)
     }
 
-    fun provideGeocodingService() : GeocodingService {
+    private fun provideGeocodingService(): GeocodingService {
         return retrofitGeocoding.create(GeocodingService::class.java)
     }
 
@@ -82,5 +84,37 @@ class NetworkProvider {
         .registerTypeAdapter(OffsetDateTime::class.java, OffsetDateTimeTypeAdapter())
         .create()
 
-    // mancano le funzioni che vanno usate per le chiamate di rete
+    suspend fun getWeekSummary(
+        latitude: Double,
+        longitude: Double,
+        start_Date: OffsetDateTime,
+        end_Date: OffsetDateTime
+    ): List<WeatherSummary> {
+        return provideWeatherService().getWeeklySummary(
+            latitude = latitude,
+            longitude = longitude,
+//            startDate = start_Date.toLocalDate(),
+//            endDate = end_Date.toLocalDate()
+        ).body()?.daily?.toDomain() ?: emptyList()
+    }
+
+    suspend fun getDailySummary(
+        latitude: Double,
+        longitude: Double,
+        start_Date: OffsetDateTime,
+        end_Date: OffsetDateTime
+    ): List<HourlyForecast> {
+        return provideWeatherService().getDaySummary(
+            latitude = latitude,
+            longitude = longitude,
+            startDate = start_Date.toLocalDate(),
+            endDate = end_Date.toLocalDate()
+        ).hourly.toDomain()
+    }
+
+    suspend fun getPlace(place: String): List<Place> {
+        return provideGeocodingService().getCityInfo(
+            name = place
+        ).toDomain()
+    }
 }

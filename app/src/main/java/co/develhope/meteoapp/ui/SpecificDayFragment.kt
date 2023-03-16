@@ -1,17 +1,22 @@
 package co.develhope.meteoapp.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.develhope.meteoapp.data.DataSource.getSpecificDay
-import co.develhope.meteoapp.data.domainmodel.DaySpecificDay
+import co.develhope.meteoapp.data.DataSource
+import co.develhope.meteoapp.data.domainmodel.HourlyForecast
+import co.develhope.meteoapp.data.domainmodel.Place
+import co.develhope.meteoapp.databinding.FragmentSpecificDayBinding
+import co.develhope.meteoapp.network.NetworkProvider
 import co.develhope.meteoapp.ui.adapter.SpecificDayAdapter
 import co.develhope.meteoapp.ui.adapter.SpecificDayModel
-
-import co.develhope.meteoapp.databinding.FragmentSpecificDayBinding
+import kotlinx.coroutines.launch
+import org.threeten.bp.OffsetDateTime
 
 
 class SpecificDayFragment : Fragment() {
@@ -24,29 +29,62 @@ class SpecificDayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentSpecificDayBinding.inflate(inflater, container, false)
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        val listSpecificDay= createListToShow(getSpecificDay())
-        val adapter = SpecificDayAdapter(listSpecificDay)
-        binding.itemSpecificday.adapter = adapter
         binding.itemSpecificday.layoutManager = LinearLayoutManager(view.context)
 
     }
 
-    private fun createListToShow(list: List<DaySpecificDay>): List<SpecificDayModel> {
+    override fun onStart() {
+        super.onStart()
+        getHourlyForecast()
+    }
+
+    private fun getHourlyForecast() {
+        lifecycleScope.launch {
+            try {
+                val hourlyForecast = NetworkProvider().getDailySummary(
+                    DataSource.getSelectedPlace()?.lat ?: 38.116667,
+                    DataSource.getSelectedPlace()?.log ?: 13.366667,
+                    getDate(),
+                    getDate()
+                )
+
+                Log.d("prova card specific day", "${hourlyForecast}")
+                val specificDayItems: List<SpecificDayModel> = createListToShow(hourlyForecast)
+
+                val adapter = SpecificDayAdapter(specificDayItems)
+                binding.itemSpecificday.adapter = adapter
+
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Log.d("provadaily", "errore")
+            }
+        }
+    }
+
+
+
+    private fun getDate(): OffsetDateTime = OffsetDateTime.now()
+
+
+
+
+    private fun createListToShow(list: List<HourlyForecast>): List<SpecificDayModel> {
         val listToReturn = mutableListOf<SpecificDayModel>()
+        val filteredList =
+            list.filter { hourlyForecast -> hourlyForecast.hourlySpecificDay.time.isAfter(getDate()) }
 
-        listToReturn.add(SpecificDayModel.SpecificDayTitle(list.first().place))
-        listToReturn.add(SpecificDayModel.SpecificDayHourly(list.first()))
-        listToReturn.add(SpecificDayModel.SpecificDayCard(list.first().cardSpecificDay))
 
-        val otherHours: MutableList<SpecificDayModel.SpecificDayHourly> = list.map {
+        listToReturn.add(SpecificDayModel.SpecificDayTitle(DataSource.getSelectedPlace()!!, date = getDate()))
+        listToReturn.add(SpecificDayModel.SpecificDayHourly(filteredList.first()))
+        listToReturn.add(SpecificDayModel.SpecificDayCard(filteredList.first().cardSpecificDay))
+
+        val otherHours: MutableList<SpecificDayModel.SpecificDayHourly> = filteredList.map {
             SpecificDayModel.SpecificDayHourly(it)
         }.toMutableList()
         listToReturn.addAll(otherHours)

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/frame_48"
+        android:id="@+id/template_search_card"
         android:layout_width="@dimen/widht_354_dp"
         android:layout_height="@dimen/height_66_dp"
         android:layout_alignParentLeft="true"

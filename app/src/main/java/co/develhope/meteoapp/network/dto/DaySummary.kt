@@ -1,6 +1,7 @@
 package co.develhope.meteoapp.network.dto
 
 
+import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import com.google.gson.annotations.SerializedName
 
 data class DaySummary(
@@ -23,5 +24,6 @@ data class DaySummary(
     @SerializedName("timezone_abbreviation")
     val timezoneAbbreviation: String,
     @SerializedName("utc_offset_seconds")
-    val utcOffsetSeconds: Int
+    val utcOffsetSeconds: Int,
+
 )

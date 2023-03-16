@@ -2,22 +2,52 @@ package co.develhope.meteoapp.network.service
 
 import co.develhope.meteoapp.network.dto.DaySummary
 import co.develhope.meteoapp.network.dto.WeeklySummary
+import org.threeten.bp.LocalDate
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 import java.util.*
 
+//  true&timezone=Europe%2FBerlin&start_date=2022-10-03&end_date=2022-10-03
 interface WeatherService {
-    @GET("forecast?hourly=temperature_2m,rain,showers,snowfall,weathercode,windspeed_10m&current_weather=true&timezone=Europe%2FBerlin")
-    suspend fun getDaySummary (@Query("latitude") latitude : Double = 41.8955,
-                               @Query("longitude") longitude : Double = 12.4823,
-                               @Query("start_date") startDate: Date,
-                               @Query("end_date") endDate: Date
-    ):DaySummary
+    @GET("forecast?")
+    suspend fun getDaySummary(
+        @Query("latitude") latitude: Double,
+        @Query("longitude") longitude: Double,
+        @Query("start_date") startDate: LocalDate,
+        @Query("end_date") endDate: LocalDate,
+        @Query("hourly") hourly: List<String> = listOf(
+            "temperature_2m",
+            "rain",
+            "showers",
+            "snowfall",
+            "weathercode",
+            "windspeed_10m",
+            "cloudcover",
+            "precipitation_probability",
+            "relativehumidity_2m",
+            "apparent_temperature",
 
-    @GET("forecast?daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,rain_sum&current_weather=true&timezone=Europe%2FBerlin")
-    suspend fun getWeeklySummary(@Query("latitude") latitude : Double = 41.8955,
-                                 @Query("longitude") longitude : Double = 12.4823,
-                                 @Query("start_date") startDate : Date,
-                                 @Query("end_date") endDate : Date
-    ) : WeeklySummary
+        ),
+        @Query("current_weather") currentWeather: Boolean = true,
+        @Query("timezone") timeZone: String = "auto"
+    ): DaySummary
+
+    @GET("forecast?")
+    suspend fun getWeeklySummary(
+        @Query("latitude") latitude: Double,
+        @Query("longitude") longitude: Double,
+        @Query("daily") daily: List<String> = listOf(
+            "weathercode",
+            "temperature_2m_max",
+            "temperature_2m_min",
+            "sunrise",
+            "sunset",
+            "precipitation_sum",
+            "rain_sum",
+            "windspeed_10m_max"
+        ),
+        @Query("current_weather") currentWeather: Boolean = true,
+        @Query("timezone") timeZone: String = "Europe/Berlin"
+    ): Response<WeeklySummary>
 }

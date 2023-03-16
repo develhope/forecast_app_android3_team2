@@ -4,13 +4,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.R
+import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.databinding.CardSearchTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateRicercheRecentiBinding
 
-
+sealed class SearchAction(){
+    object CardClick : SearchAction()
+}
 class SearchAdapter(
 
-    private val dataset: List<SearchItem>
+    private val dataset: List<SearchItem>,
+    private val action: (SearchAction, Place) -> Unit
+
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType){
@@ -28,7 +33,7 @@ class SearchAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder){
-            is CitySearchViewHolder -> holder.bind(dataset[position] as SearchItem.SearchCard)
+            is CitySearchViewHolder -> holder.bind(dataset[position] as SearchItem.SearchCard, action , position )
 
             is RicercheRecentiViewHolder -> holder.bind(dataset[position] as SearchItem.RicercheRecenti)
         }
@@ -54,8 +59,11 @@ class SearchAdapter(
 
     class CitySearchViewHolder(val binding : CardSearchTemplateBinding):
         RecyclerView.ViewHolder(binding.root){
-        fun bind(city: SearchItem.SearchCard){
-            binding.city.text = binding.root.context.getString(R.string.city_search,city.info.cityName)
+        fun bind(city: SearchItem.SearchCard, action: (SearchAction, Place) -> Unit, position: Int){
+            binding.city.text = binding.root.context.getString(R.string.city_search,city.info.city, city.info.region)
+            binding.templateSearchCard.setOnClickListener {
+                action(SearchAction.CardClick, city.info)
+            }
         }
     }
 

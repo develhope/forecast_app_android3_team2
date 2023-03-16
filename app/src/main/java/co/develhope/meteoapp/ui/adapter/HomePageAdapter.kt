@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.R
+import co.develhope.meteoapp.data.domainmodel.DayForecast
+import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
@@ -72,13 +74,13 @@ class HomePageAdapter(
         @SuppressLint("StringFormatMatches")
         fun bind(cardItem: HomePageItem.CardItem, action: (HomepageAction) -> Unit, position: Int) {
 
-            binding.day.text = itemView.context.getString(R.string.oggi,cardItem.dailyForecast.date.dayOfWeek.name)
+            binding.day.text = itemView.context.getString(R.string.oggi, getItaDay(cardItem.dailyForecast.date.dayOfWeek.name))
             binding.data.text = itemView.context.getString(R.string.data,cardItem.dailyForecast.date.dayOfMonth.toString(),cardItem.dailyForecast.date.month.value.toString())
-            binding.tempmin.text = itemView.context.getString(R.string.tempmin,cardItem.dailyForecast.weatherSummary.tempMin.toString())
-            binding.tempmax.text = itemView.context.getString(R.string.tempmax,cardItem.dailyForecast.weatherSummary.tempMax.toString())
-            binding.kmh.text = itemView.context.getString(R.string.kmh,cardItem.dailyForecast.weatherSummary.wind.toString())
-            binding.umidity.text = itemView.context.getString(R.string.rain,cardItem.dailyForecast.weatherSummary.rain.toString())
-            binding.imagetype.setImageResource(cardItem.dailyForecast.weatherSummary.weatherType.setIconWeatherType())
+            binding.tempmin.text = itemView.context.getString(R.string.tempmin,cardItem.dailyForecast.tempMin.toString())
+            binding.tempmax.text = itemView.context.getString(R.string.tempmax,cardItem.dailyForecast.tempMax.toString())
+            binding.kmh.text = itemView.context.getString(R.string.kmh,cardItem.dailyForecast.wind.toString())
+            binding.umidity.text = itemView.context.getString(R.string.rain,cardItem.dailyForecast.rain.toString())
+            binding.imagetype.setImageResource(cardItem.dailyForecast.weatherType.setIconWeatherType())
             binding.templateCard.setOnClickListener {
                 action(HomepageAction.CardClick)
 
@@ -90,7 +92,11 @@ class HomePageAdapter(
     class CurrentCityViewHolder(private val binding: CurrentCityTemplateBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(currentcity: HomePageItem.Title) {
-            binding.currentCityTextview.text = itemView.context.getString(R.string.title_homepage, currentcity.place.city, currentcity.place.region)
+            binding.currentCityTextview.text = itemView.context.getString(
+                R.string.title_homepage,
+                currentcity.place.city,
+                currentcity.place.region
+            )
         }
     }
 
@@ -105,5 +111,18 @@ class HomePageAdapter(
         const val TYPE_CARD = 0
         const val TYPE_CURRENTCITY = 1
         const val TYPE_PROX5DAY = 2
+    }
+}
+
+fun getItaDay(day: String): String {
+    return when (day) {
+        "MONDAY" -> "Lunedì"
+        "TUESDAY" -> "Martedì"
+        "WEDNESDAY" -> "Mercoledì"
+        "THURSDAY" -> "Giovedì"
+        "FRIDAY" -> "Venerdì"
+        "SATURDAY" -> "Sabato"
+        "SUNDAY" -> "Domenica"
+        else -> ""
     }
 }

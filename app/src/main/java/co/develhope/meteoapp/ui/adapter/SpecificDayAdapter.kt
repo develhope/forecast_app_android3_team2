@@ -7,10 +7,10 @@ import co.develhope.meteoapp.R
 import co.develhope.meteoapp.databinding.SpecificdayCardBinding
 import co.develhope.meteoapp.databinding.SpecificdayHourlyBinding
 import co.develhope.meteoapp.databinding.SpecificdayTitleBinding
+import java.time.Month
 
 
-
-class SpecificDayAdapter( private val list: List<SpecificDayModel>):
+class SpecificDayAdapter(private val list: List<SpecificDayModel>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
@@ -27,8 +27,19 @@ class SpecificDayAdapter( private val list: List<SpecificDayModel>):
         RecyclerView.ViewHolder(title.root) {
 
         fun bind(infoTitle: SpecificDayModel.SpecificDayTitle) {
-            title.titleSpecificDay.text = itemView.context.getString(R.string.city_region,infoTitle.place.city,infoTitle.place.region)
-            title.infoDateSpecificDay.text= itemView.context.getString(R.string.today_details,infoTitle.place.date.dayOfWeek.name, infoTitle.place.date.dayOfMonth.toString(),infoTitle.place.date.month.name)
+            title.titleSpecificDay.text = itemView.context.getString(
+                R.string.city_region,
+                infoTitle.place.city,
+                infoTitle.place.region
+            )
+            title.infoDateSpecificDay.text = itemView.context.getString(
+                R.string.today_details, getItaDay(
+                    infoTitle.date.dayOfWeek.name
+                ),
+                infoTitle.date.dayOfMonth.toString(),
+                getItaMonth(infoTitle.date.month.name)
+            )
+
         }
     }
 
@@ -36,12 +47,28 @@ class SpecificDayAdapter( private val list: List<SpecificDayModel>):
         RecyclerView.ViewHolder(card.root) {
 
         fun bind(infoCard: SpecificDayModel.SpecificDayCard) {
-            card.spDatoPercepita.text = itemView.context.getString(R.string.DatoPercepita, infoCard.cardSpecificDay.percepita.toString())
-            card.spDatoUv.text =itemView.context.getString(R.string.DatoUv,infoCard.cardSpecificDay.uv.toString())
-            card.spDatoUmidita.text = itemView.context.getString(R.string.DatoUmidita,infoCard.cardSpecificDay.umidita.toString())
-            card.spDatoCopertura.text = itemView.context.getString(R.string.DatoCopertura,infoCard.cardSpecificDay.copertura.toString())
-            card.spDatoPioggia.text = itemView.context.getString(R.string.DatoPioggia,infoCard.cardSpecificDay.pioggia.toString())
-            card.spDatoVento.text = itemView.context.getString(R.string.DatoVento,infoCard.cardSpecificDay.vento.toString())
+            card.spDatoPercepita.text = itemView.context.getString(
+                R.string.DatoPercepita,
+                infoCard.cardSpecificDay.percepita.toString()
+            )
+            card.spDatoUv.text =
+                itemView.context.getString(R.string.DatoUv, infoCard.cardSpecificDay.uv.toString())
+            card.spDatoUmidita.text = itemView.context.getString(
+                R.string.DatoUmidita,
+                infoCard.cardSpecificDay.umidita.toString()
+            )
+            card.spDatoCopertura.text = itemView.context.getString(
+                R.string.DatoCopertura,
+                infoCard.cardSpecificDay.copertura.toString()
+            )
+            card.spDatoPioggia.text = itemView.context.getString(
+                R.string.DatoPioggia,
+                infoCard.cardSpecificDay.pioggia.toString()
+            )
+            card.spDatoVento.text = itemView.context.getString(
+                R.string.DatoVento,
+                infoCard.cardSpecificDay.vento.toString()
+            )
 
         }
     }
@@ -51,14 +78,20 @@ class SpecificDayAdapter( private val list: List<SpecificDayModel>):
         RecyclerView.ViewHolder(hourly.root) {
 
         fun bind(infoHourly: SpecificDayModel.SpecificDayHourly) {
-            hourly.specificDayTime.text = itemView.context.getString(R.string.time,infoHourly.daySpecificDay.hourlySpecificDay.time.toString())
-            hourly.specificdayType.setImageResource(infoHourly.daySpecificDay.hourlySpecificDay.weatherType.setIconWeatherType())
-            hourly.specificdayTemp.text = itemView.context.getString(R.string.temp,infoHourly.daySpecificDay.hourlySpecificDay.temp.toString())
-            hourly.specificdayUmidity.text =itemView.context.getString(R.string.umidity,infoHourly.daySpecificDay.hourlySpecificDay.umidity.toString())
-
+            hourly.specificDayTime.text = itemView.context.getString(
+                R.string.time,
+                infoHourly.hourlyForecast.hourlySpecificDay.time.hour.toString()
+            )
+            hourly.specificdayType.setImageResource( infoHourly.hourlyForecast.hourlySpecificDay.weatherType.setIconWeatherType())
+            hourly.specificdayTemp.text = itemView.context.getString(
+                R.string.temp,
+                infoHourly.hourlyForecast.hourlySpecificDay.temp.toString()
+            )
+            hourly.specificdayUmidity.text = itemView.context.getString(
+                R.string.umidity,
+                infoHourly.hourlyForecast.hourlySpecificDay.umidity.toString()
+            )
         }
-
-
     }
 
     companion object {
@@ -69,13 +102,14 @@ class SpecificDayAdapter( private val list: List<SpecificDayModel>):
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            TITLE -> { TitleViewHolder(
-                SpecificdayTitleBinding.inflate(
-                    LayoutInflater.from(parent.context),
-                    parent,
-                    false
+            TITLE -> {
+                TitleViewHolder(
+                    SpecificdayTitleBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
                 )
-            )
             }
             CARD -> {
                 CardViewHolder(
@@ -100,10 +134,10 @@ class SpecificDayAdapter( private val list: List<SpecificDayModel>):
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (holder){
+        when (holder) {
             is TitleViewHolder -> holder.bind(list[position] as SpecificDayModel.SpecificDayTitle)
             is CardViewHolder -> holder.bind(list[position] as SpecificDayModel.SpecificDayCard)
-            is HourlyViewHolder -> holder.bind( list [position] as SpecificDayModel.SpecificDayHourly)
+            is HourlyViewHolder -> holder.bind(list[position] as SpecificDayModel.SpecificDayHourly)
         }
 
     }
@@ -114,6 +148,23 @@ class SpecificDayAdapter( private val list: List<SpecificDayModel>):
     }
 }
 
+fun getItaMonth(month: String): String {
+    return when (month) {
+        "JANUARY" -> "Gennaio"
+        "FEBRUARY" -> "Febbraio"
+        "MARCH" -> "Marzo"
+        "APRIL" -> "Aprile"
+        "MAY" -> "Maggio"
+        "JUNE" -> "Giugno"
+        "JULY" -> "Luglio"
+        "AUGUST" -> "Agosto"
+        "SEPTEMBER" -> "Settembre"
+        "OCTOBER" -> "Ottobre"
+        "NOVEMBER" -> "Novembre"
+        "DECEMBER" -> "Dicembre"
+        else -> ""
+    }
+}
 
 
 
