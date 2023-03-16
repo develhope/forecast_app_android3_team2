@@ -17,7 +17,7 @@
     <string name="weathertype_search">%s</string>
     <string name="search_city">%s</string>
     <string name="ricerche_recenti">Ricerche recenti</string>
-    <string name="search_string">cerca città</string>
+    <string name="search_string">Cerca città</string>
     <string name="next_days">PROSSIMI 5 GIORNI</string>
     <string name="image_of_weather_type">image of weather type</string>
     <!---string title-->
@@ -33,12 +33,12 @@
 
 
     <!---string card titles-->
-    <string name="sp_percepita">Perceived</string>
-    <string name="sp_UV">UV index</string>
-    <string name="sp_umidita">Humidity</string>
-    <string name="sp_vento">Wind </string>
-    <string name="copertura">Coverage</string>
-    <string name="pioggia">Rain</string>
+    <string name="sp_percepita">Percepita</string>
+    <string name="sp_UV">Indice UV</string>
+    <string name="sp_umidita">Umidità</string>
+    <string name="sp_vento">Vento</string>
+    <string name="copertura">Copertura</string>
+    <string name="pioggia">Pioggia</string>
     <!--- string card data-->
     <string name="DatoPercepita"> %s °</string>
     <string name="DatoUv">%s</string>
