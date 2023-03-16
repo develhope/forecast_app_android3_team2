@@ -16,6 +16,7 @@ object DataSource {
         placeSelected = place
     }
     fun getSelectedPlace(): Place? = placeSelected
+    fun getDate(): OffsetDateTime = OffsetDateTime.now()
 
 }
 

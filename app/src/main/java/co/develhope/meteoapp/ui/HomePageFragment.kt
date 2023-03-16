@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,15 +23,19 @@ import kotlinx.coroutines.launch
 import org.threeten.bp.OffsetDateTime
 import org.threeten.bp.format.DateTimeFormatter
 import co.develhope.meteoapp.ui.adapter.HomepageAction
+import co.develhope.meteoapp.ui.model.HomePageViewModel
+import co.develhope.meteoapp.ui.utils.createListToShow
 
 class HomePageFragment : Fragment() {
     private lateinit var binding: FragmentHomepageBinding
+    private lateinit var viewModel : HomePageViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentHomepageBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this).get(HomePageViewModel::class.java)
         return binding.root
     }
 
@@ -43,43 +48,24 @@ class HomePageFragment : Fragment() {
         if (DataSource.getSelectedPlace() == null) {
             findNavController().navigate(R.id.searchFragment)
         } else {
-            getHomeCoroutine()
+            viewModel.getHomeCoroutine()
         }
-    }
 
-    private fun getHomeCoroutine() {
-
-        lifecycleScope.launch {
-            try {
-                val palermo: List<WeatherSummary> = NetworkProvider().getWeekSummary(
-                    DataSource.getSelectedPlace()?.lat ?: 38.116667,
-                    DataSource.getSelectedPlace()?.log ?: 13.366667,
-                    getDate(),
-                    getDate()
-                )
-
-                val adapterCard =
-                    HomePageAdapter(createListToShow(palermo)) {
-                        when (it) {
-                            HomepageAction.CardClick -> findNavController().navigate(R.id.action_homePageFragment_to_specificDayFragment)
-                        }
+        viewModel.homepageResult.observe(viewLifecycleOwner){
+            val adapterCard =
+                HomePageAdapter(createListToShow(it)) {
+                    when (it) {
+                        HomepageAction.CardClick -> findNavController().navigate(R.id.action_homePageFragment_to_specificDayFragment)
                     }
-                binding.RVhome.adapter = adapterCard
+                }
+            binding.RVhome.adapter = adapterCard
 
-            } catch (e: Exception) {
-                e.printStackTrace()
-                Log.d("prova", "errore")
-            }
         }
+
     }
 
-    private fun getDate(): OffsetDateTime = OffsetDateTime.now()
-    private fun getPlace(): Place = Place(
-        city = "Palermo",
-        region = "Sicilia",
-        lat = 38.116667,
-        log = 13.366667
-    ) //DataSource.getPlace()
+
+
 
     private fun createitemfothompage(item: List<WeatherSummary>): List<DayForecast> {
         val homepageitem = item.mapIndexed { index, weatherSummary ->
@@ -104,20 +90,6 @@ class HomePageFragment : Fragment() {
         return homepageitem
     }
 
-    private fun createListToShow(dayForecastList: List<WeatherSummary>): List<HomePageItem> {
-        val listToReturn = mutableListOf<HomePageItem>()
-        listToReturn.add(HomePageItem.Title(DataSource.getSelectedPlace()!!))
-        listToReturn.add(HomePageItem.CardItem(dayForecastList.first()))
-        listToReturn.add(HomePageItem.Subtitle)
 
-        val filteredList = dayForecastList.drop(1)
-        val othersDays: MutableList<HomePageItem.CardItem> = filteredList.map {
-            HomePageItem.CardItem(it)
-        }.toMutableList()
-
-        listToReturn.addAll(othersDays)
-        listToReturn.removeLast()
-        return listToReturn
-    }
 
 }
