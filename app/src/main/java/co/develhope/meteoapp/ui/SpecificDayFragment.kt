@@ -1,24 +1,18 @@
 package co.develhope.meteoapp.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.data.domainmodel.HourlyForecast
-import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.databinding.FragmentSpecificDayBinding
-import co.develhope.meteoapp.network.NetworkProvider
 import co.develhope.meteoapp.ui.adapter.SpecificDayAdapter
 import co.develhope.meteoapp.ui.adapter.SpecificDayModel
 import co.develhope.meteoapp.ui.model.SpecificDayViewModel
-import kotlinx.coroutines.launch
-import org.threeten.bp.OffsetDateTime
 
 
 class SpecificDayFragment : Fragment() {
@@ -32,7 +26,7 @@ private lateinit var viewModel: SpecificDayViewModel
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSpecificDayBinding.inflate(inflater, container, false)
-        viewModel= ViewModelProvider(this).get(SpecificDayViewModel::class.java)
+        viewModel= ViewModelProvider(this)[SpecificDayViewModel::class.java]
 
         return binding.root
 

@@ -5,12 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.R
-import co.develhope.meteoapp.data.domainmodel.DayForecast
-import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
-import co.develhope.meteoapp.ui.utils.getItaDay
 import co.develhope.meteoapp.ui.utils.getLocalizedDay
 
 
