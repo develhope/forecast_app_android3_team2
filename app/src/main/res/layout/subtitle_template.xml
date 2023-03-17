@@ -8,7 +8,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="34dp"
+        android:layout_marginStart="@dimen/margin_24_dp"
         android:layout_marginTop="@dimen/margin_24_dp"
         android:layout_marginBottom="5dp"
         android:text="TextView"
