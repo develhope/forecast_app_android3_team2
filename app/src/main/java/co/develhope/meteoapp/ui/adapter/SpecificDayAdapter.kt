@@ -7,7 +7,8 @@ import co.develhope.meteoapp.R
 import co.develhope.meteoapp.databinding.SpecificdayCardBinding
 import co.develhope.meteoapp.databinding.SpecificdayHourlyBinding
 import co.develhope.meteoapp.databinding.SpecificdayTitleBinding
-import java.time.Month
+import co.develhope.meteoapp.ui.utils.getLocalizedDay
+import co.develhope.meteoapp.ui.utils.getLocalizedMonth
 
 
 class SpecificDayAdapter(private val list: List<SpecificDayModel>) :
@@ -33,11 +34,11 @@ class SpecificDayAdapter(private val list: List<SpecificDayModel>) :
                 infoTitle.place.region
             )
             title.infoDateSpecificDay.text = itemView.context.getString(
-                R.string.today_details, getItaDay(
+                R.string.today_details, getLocalizedDay(
                     infoTitle.date.dayOfWeek.name
                 ),
                 infoTitle.date.dayOfMonth.toString(),
-                getItaMonth(infoTitle.date.month.name)
+                getLocalizedMonth(infoTitle.date.month.name)
             )
 
         }
@@ -147,27 +148,6 @@ class SpecificDayAdapter(private val list: List<SpecificDayModel>) :
         return list.size
     }
 }
-
-fun getItaMonth(month: String): String {
-    return when (month) {
-        "JANUARY" -> "Gennaio"
-        "FEBRUARY" -> "Febbraio"
-        "MARCH" -> "Marzo"
-        "APRIL" -> "Aprile"
-        "MAY" -> "Maggio"
-        "JUNE" -> "Giugno"
-        "JULY" -> "Luglio"
-        "AUGUST" -> "Agosto"
-        "SEPTEMBER" -> "Settembre"
-        "OCTOBER" -> "Ottobre"
-        "NOVEMBER" -> "Novembre"
-        "DECEMBER" -> "Dicembre"
-        else -> ""
-    }
-}
-
-
-
 
 
 

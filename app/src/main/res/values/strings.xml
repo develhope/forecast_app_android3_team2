@@ -1,35 +1,35 @@
 <resources>
     <string name="app_name">meteoapp</string>
-    <string name="title_homepage">%s, %s</string>
-    <string name="min">min.</string>
-    <string name="max">max.</string>
-    <string name="oggi">%s</string>
-    <string name="tempmin">%s°</string>
-    <string name="tempmax">%s°</string>
-    <string name="data">%s/%s</string>
-    <string name="rain">%s %%</string>
-    <string name="kmh">%s km/h</string>
+    <string name="title_homepage" translatable="false">%s, %s</string>
+    <string name="min" translatable="false">min.</string>
+    <string name="max" translatable="false">max.</string>
+    <string name="oggi" translatable="false">%s</string>
+    <string name="tempmin" translatable="false">%s°</string>
+    <string name="tempmax" translatable="false">%s°</string>
+    <string name="data" translatable="false">%s/%s</string>
+    <string name="rain" translatable="false">%s %%</string>
+    <string name="kmh" translatable="false">%s km/h</string>
     <string name="precip_">precip.</string>
     <string name="vento">vento</string>
-    <string name="prox5day">%s</string>
-    <string name="city_search">%s, %s</string>
-    <string name="temp_search">%s</string>
-    <string name="weathertype_search">%s</string>
-    <string name="search_city">%s</string>
+    <string name="prox5day" translatable="false">%s</string>
+    <string name="city_search" translatable="false">%s, %s</string>
+    <string name="temp_search" translatable="false">%s</string>
+    <string name="weathertype_search" translatable="false">%s</string>
+    <string name="search_city" translatable="false">%s</string>
     <string name="ricerche_recenti">Ricerche recenti</string>
     <string name="search_string">Cerca città</string>
-    <string name="next_days">PROSSIMI 5 GIORNI</string>
-    <string name="image_of_weather_type">image of weather type</string>
+    <string name="next_days">Prossimi 5 giorni</string>
+    <string name="image_of_weather_type" translatable="false">image of weather type</string>
     <!---string title-->
-    <string name="city_region">%s , %s</string>
+    <string name="city_region" translatable="false">%s , %s</string>
     <string name="today">Oggi,</string>
-    <string name="today_details">%s %s %s</string>
+    <string name="today_details" translatable="false">%s %s %s</string>
 
     <!---string hourly-->
-    <string name="time">%s:00</string>
-    <string name="type">type</string>
-    <string name="temp">%s °</string>
-    <string name="umidity">%s %%</string>
+    <string name="time" translatable="false">%s:00</string>
+    <string name="type" translatable="false">type</string>
+    <string name="temp" translatable="false">%s °</string>
+    <string name="umidity" translatable="false">%s %%</string>
 
 
     <!---string card titles-->

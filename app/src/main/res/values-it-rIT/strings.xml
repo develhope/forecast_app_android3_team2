@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">meteoapp</string>
+    <string name="precip_">Precip.</string>
+    <string name="vento">Vento</string>
+    <string name="ricerche_recenti">Ricerche recenti</string>
+    <string name="search_string">Cerca città</string>
+    <string name="today">Oggi,</string>
+    <string name="sp_percepita">Percepita</string>
+    <string name="sp_UV">Indice UV</string>
+    <string name="sp_umidita">Umidità</string>
+    <string name="sp_vento">Vento</string>
+    <string name="copertura">Copertura</string>
+    <string name="pioggia">Pioggia</string>
+    <string name="cerca_citta">Cerca città</string>
+    <string name="homepage_name_menu">Home</string>
+    <string name="oggi_name_menu">Oggi</string>
+    <string name="domani_name_menu">Domani</string>
+    <string name="search_name_menu">Cerca</string>
+    <string name="next_days">Prossimi 5 giorni</string>
+</resources>

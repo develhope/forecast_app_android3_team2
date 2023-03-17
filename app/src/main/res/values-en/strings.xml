@@ -5,6 +5,7 @@
     <string name="vento">Wind</string>
     <string name="ricerche_recenti">Recent searches</string>
     <string name="search_string">Search city</string>
+    <string name="next_days">Next 5 days</string>
     <string name="today">Today,</string>
     <string name="sp_percepita">Perceived</string>
     <string name="sp_UV">UV Index</string>
