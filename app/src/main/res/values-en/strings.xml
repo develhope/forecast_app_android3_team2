@@ -18,4 +18,5 @@
     <string name="oggi_name_menu">Today</string>
     <string name="domani_name_menu">Tomorrow</string>
     <string name="search_name_menu">Search</string>
+    <string name="language">en</string>
 </resources>

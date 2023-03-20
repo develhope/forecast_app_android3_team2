@@ -48,7 +48,7 @@ class SearchFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                viewModel.searchPlace(s.toString())
+                viewModel.searchPlace(s.toString(),requireContext().getString(R.string.language))
             }
 
         })

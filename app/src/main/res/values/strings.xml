@@ -55,5 +55,6 @@
     <string name="oggi_name_menu">Oggi</string>
     <string name="domani_name_menu">Domani</string>
     <string name="search_name_menu">Cerca</string>
+    <string name="language">it</string>
 
 </resources>

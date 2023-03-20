@@ -18,4 +18,5 @@
     <string name="domani_name_menu">Domani</string>
     <string name="search_name_menu">Cerca</string>
     <string name="next_days">Prossimi 5 giorni</string>
+    <string name="language">it</string>
 </resources>

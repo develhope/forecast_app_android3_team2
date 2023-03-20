@@ -1,5 +1,6 @@
 package co.develhope.meteoapp.ui.model
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,12 +15,13 @@ class SearchViewModel : ViewModel() {
     private var _searchResult = MutableLiveData<List<Place>>()
     val searchResult : LiveData<List<Place>> get() = _searchResult
 
-     fun searchPlace(searchResult : String) {
+     fun searchPlace(searchResult : String, language :String) {
 
         viewModelScope.launch {
             try {
                 val places = NetworkProvider().getPlace(
-                    searchResult
+                    searchResult,
+                    language = language
                 )
                 _searchResult.value = places
 
