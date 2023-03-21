@@ -13,6 +13,7 @@ import co.develhope.meteoapp.databinding.FragmentSpecificDayBinding
 import co.develhope.meteoapp.ui.adapter.SpecificDayAdapter
 import co.develhope.meteoapp.ui.adapter.SpecificDayModel
 import co.develhope.meteoapp.ui.model.SpecificDayViewModel
+import co.develhope.meteoapp.ui.utils.createListToShowSpecificDay
 
 
 class SpecificDayFragment : Fragment() {
@@ -42,7 +43,7 @@ private lateinit var viewModel: SpecificDayViewModel
         viewModel.getHourlyForecast()
 
         viewModel.specificDayResult.observe(viewLifecycleOwner){
-            val specificDayItems: List<SpecificDayModel> = createListToShow(it)
+            val specificDayItems: List<SpecificDayModel> = createListToShowSpecificDay(it)
 
             val adapter = SpecificDayAdapter(specificDayItems)
             binding.itemSpecificday.adapter = adapter
@@ -52,24 +53,7 @@ private lateinit var viewModel: SpecificDayViewModel
 
 
 
-    private fun createListToShow(list: List<HourlyForecast>): List<SpecificDayModel> {
-        val listToReturn = mutableListOf<SpecificDayModel>()
-        val filteredList =
-            list.filter { hourlyForecast -> hourlyForecast.hourlySpecificDay.time.isAfter(DataSource.getDate()) }
 
-
-        listToReturn.add(SpecificDayModel.SpecificDayTitle(DataSource.getSelectedPlace()!!, date = DataSource.getDate()))
-        listToReturn.add(SpecificDayModel.SpecificDayHourly(filteredList.first()))
-        listToReturn.add(SpecificDayModel.SpecificDayCard(filteredList.first().cardSpecificDay))
-
-        val otherHours: MutableList<SpecificDayModel.SpecificDayHourly> = filteredList.map {
-            SpecificDayModel.SpecificDayHourly(it)
-        }.toMutableList()
-        listToReturn.addAll(otherHours)
-
-        listToReturn.removeAt(3)
-        return listToReturn
-    }
 }
 
 

@@ -14,7 +14,7 @@ import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.ui.adapter.HomePageAdapter
 import co.develhope.meteoapp.ui.adapter.HomepageAction
 import co.develhope.meteoapp.ui.model.HomePageViewModel
-import co.develhope.meteoapp.ui.utils.createListToShow
+import co.develhope.meteoapp.ui.utils.createListToShowHome
 
 class HomePageFragment : Fragment() {
     private lateinit var binding: FragmentHomepageBinding
@@ -43,7 +43,7 @@ class HomePageFragment : Fragment() {
 
         viewModel.homepageResult.observe(viewLifecycleOwner){ it ->
             val adapterCard =
-                HomePageAdapter(createListToShow(it)) {
+                HomePageAdapter(createListToShowHome(it)) {
                     when (it) {
                         HomepageAction.CardClick -> findNavController().navigate(R.id.action_homePageFragment_to_specificDayFragment)
                     }
