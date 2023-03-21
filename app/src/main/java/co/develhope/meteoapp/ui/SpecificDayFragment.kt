@@ -49,11 +49,6 @@ private lateinit var viewModel: SpecificDayViewModel
             binding.itemSpecificday.adapter = adapter
         }
     }
-
-
-
-
-
 }
 
 
