@@ -3,7 +3,6 @@ package co.develhope.meteoapp.network.dto
 
 import co.develhope.meteoapp.data.domainmodel.Place
 import com.google.gson.annotations.SerializedName
-import org.threeten.bp.OffsetDateTime
 
 data class CityInfo(
     @SerializedName("generationtime_ms")

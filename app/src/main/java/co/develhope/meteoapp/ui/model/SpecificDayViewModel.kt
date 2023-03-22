@@ -1,13 +1,13 @@
 package co.develhope.meteoapp.ui.model
 
-import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.data.DataSource.getDate
 import co.develhope.meteoapp.data.domainmodel.HourlyForecast
 import co.develhope.meteoapp.network.NetworkProvider
-import co.develhope.meteoapp.ui.adapter.SpecificDayAdapter
-import co.develhope.meteoapp.ui.adapter.SpecificDayModel
 import kotlinx.coroutines.launch
 
 class SpecificDayViewModel: ViewModel()  {

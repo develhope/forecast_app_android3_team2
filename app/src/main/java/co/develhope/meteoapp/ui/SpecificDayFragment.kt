@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.develhope.meteoapp.data.DataSource
-import co.develhope.meteoapp.data.domainmodel.HourlyForecast
 import co.develhope.meteoapp.databinding.FragmentSpecificDayBinding
 import co.develhope.meteoapp.ui.adapter.SpecificDayAdapter
 import co.develhope.meteoapp.ui.adapter.SpecificDayModel

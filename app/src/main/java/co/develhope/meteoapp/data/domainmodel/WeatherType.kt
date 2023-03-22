@@ -1,7 +1,6 @@
 package co.develhope.meteoapp.data.domainmodel
 
 import co.develhope.meteoapp.R
-import org.threeten.bp.OffsetDateTime
 
 enum class WeatherType {
     SUNNY, CLOUDY, RAINY, FOGGY, TEMPEST, HEAVYRAIN;
