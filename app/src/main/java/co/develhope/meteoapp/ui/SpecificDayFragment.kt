@@ -12,6 +12,7 @@ import co.develhope.meteoapp.data.domainmodel.HourlyForecast
 import co.develhope.meteoapp.databinding.FragmentSpecificDayBinding
 import co.develhope.meteoapp.ui.adapter.SpecificDayAdapter
 import co.develhope.meteoapp.ui.adapter.SpecificDayModel
+import co.develhope.meteoapp.ui.model.SpecificDayResult
 import co.develhope.meteoapp.ui.model.SpecificDayViewModel
 import co.develhope.meteoapp.ui.utils.createListToShowSpecificDay
 
@@ -42,11 +43,21 @@ private lateinit var viewModel: SpecificDayViewModel
         super.onStart()
         viewModel.getHourlyForecast()
 
-        viewModel.specificDayResult.observe(viewLifecycleOwner){
-            val specificDayItems: List<SpecificDayModel> = createListToShowSpecificDay(it)
+        setupObserver()
+    }
 
-            val adapter = SpecificDayAdapter(specificDayItems)
-            binding.itemSpecificday.adapter = adapter
+    private fun setupObserver() {
+        viewModel.specificDayResult.observe(viewLifecycleOwner) {
+            when(it){
+                is SpecificDayResult.Error -> TODO()
+                is SpecificDayResult.Success -> {
+                    val specificDayItems: List<SpecificDayModel> = createListToShowSpecificDay(it.list)
+                    val adapter = SpecificDayAdapter(specificDayItems)
+                    binding.itemSpecificday.adapter = adapter
+                }
+
+            }
+
         }
     }
 }

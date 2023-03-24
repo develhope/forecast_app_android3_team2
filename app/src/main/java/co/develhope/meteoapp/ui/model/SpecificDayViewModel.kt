@@ -1,18 +1,24 @@
 package co.develhope.meteoapp.ui.model
 
-import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.data.DataSource.getDate
 import co.develhope.meteoapp.data.domainmodel.HourlyForecast
 import co.develhope.meteoapp.network.NetworkProvider
-import co.develhope.meteoapp.ui.adapter.SpecificDayAdapter
-import co.develhope.meteoapp.ui.adapter.SpecificDayModel
 import kotlinx.coroutines.launch
 
+
+sealed class SpecificDayResult(){
+    data class Success(val list: List<HourlyForecast>): SpecificDayResult()
+    data class Error(val e : Exception):SpecificDayResult()
+}
+
 class SpecificDayViewModel: ViewModel()  {
-    private var _specificDayResult = MutableLiveData<List<HourlyForecast>>()
-    val specificDayResult : LiveData<List<HourlyForecast>> get() = _specificDayResult
+    private var _specificDayResult = MutableLiveData<SpecificDayResult>()
+    val specificDayResult : LiveData<SpecificDayResult> get() = _specificDayResult
 
     fun getHourlyForecast() {
         viewModelScope.launch {
@@ -23,9 +29,10 @@ class SpecificDayViewModel: ViewModel()  {
                     getDate(),
                     getDate()
                 )
-                _specificDayResult.value = hourlyForecast
+                _specificDayResult.value = SpecificDayResult.Success(hourlyForecast)
 
             } catch (e: Exception) {
+                _specificDayResult.value = SpecificDayResult.Error(e)
                 e.printStackTrace()
             }
         }
