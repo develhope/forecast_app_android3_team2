@@ -9,10 +9,11 @@ import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
 import co.develhope.meteoapp.ui.utils.getLocalizedDay
+import org.threeten.bp.OffsetDateTime
 
 
 sealed class HomepageAction(){
-    object CardClick : HomepageAction()
+    data class CardClick(val date: OffsetDateTime) : HomepageAction()
 }
 class HomePageAdapter(
     private val dataset: List<HomePageItem>,
@@ -81,7 +82,9 @@ class HomePageAdapter(
             binding.umidity.text = itemView.context.getString(R.string.rain,cardItem.dailyForecast.rain.toString())
             binding.imagetype.setImageResource(cardItem.dailyForecast.weatherType.setIconWeatherType())
             binding.templateCard.setOnClickListener {
-                action(HomepageAction.CardClick)
+                action(HomepageAction.CardClick(
+                    date = cardItem.dailyForecast.date
+                ))
 
             }
 

@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.R
 import co.develhope.meteoapp.data.DataSource
+import co.develhope.meteoapp.data.DataSource.saveDateSelected
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.ui.adapter.HomePageAdapter
 import co.develhope.meteoapp.ui.adapter.HomepageAction
@@ -45,7 +46,11 @@ class HomePageFragment : Fragment() {
             val adapterCard =
                 HomePageAdapter(createListToShowHome(it)) {
                     when (it) {
-                        HomepageAction.CardClick -> findNavController().navigate(R.id.action_homePageFragment_to_specificDayFragment)
+                         is HomepageAction.CardClick  ->{
+                            saveDateSelected(it.date)
+                            findNavController().navigate(R.id.action_homePageFragment_to_specificDayFragment)
+                        }
+
                     }
                 }
             binding.RVhome.adapter = adapterCard
