@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -15,6 +16,7 @@ import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
 import co.develhope.meteoapp.ui.adapter.SearchAction
 import co.develhope.meteoapp.ui.adapter.SearchAdapter
+import co.develhope.meteoapp.ui.model.SearchResult
 import co.develhope.meteoapp.ui.model.SearchViewModel
 import co.develhope.meteoapp.ui.utils.createListSearch
 
@@ -48,7 +50,7 @@ class SearchFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                viewModel.searchPlace(s.toString(),requireContext().getString(R.string.language))
+                viewModel.searchPlace(s.toString(), requireContext().getString(R.string.language))
             }
 
         })
@@ -56,16 +58,23 @@ class SearchFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        viewModel.searchResult.observe(viewLifecycleOwner){
-
-            binding.RVSearch.adapter = SearchAdapter(
-                createListSearch(it)
-            ){action, place ->
-                DataSource.saveSelectedPlace(place)
-                when(action){
-                    SearchAction.CardClick -> findNavController().navigate(R.id.action_searchFragment_to_homePageFragment)
+        viewModel.searchResult.observe(viewLifecycleOwner) {
+            when (it) {
+                is SearchResult.Success -> {
+                    binding.RVSearch.adapter = SearchAdapter(
+                        createListSearch(it.list)
+                    ) { action, place ->
+                        DataSource.saveSelectedPlace(place)
+                        when (action) {
+                            SearchAction.CardClick -> findNavController().navigate(R.id.action_searchFragment_to_homePageFragment)
+                        }
+                    }
                 }
+                is SearchResult.Error -> Toast.makeText(requireContext(),"errore", Toast.LENGTH_SHORT ).show()
+                is SearchResult.GenericError -> TODO()
             }
+
+
         }
     }
 
