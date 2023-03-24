@@ -7,13 +7,16 @@ import androidx.lifecycle.viewModelScope
 import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.data.DataSource.getDate
 import co.develhope.meteoapp.data.domainmodel.HourlyForecast
+import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.network.NetworkProvider
 import kotlinx.coroutines.launch
+import org.threeten.bp.OffsetDateTime
 
 
 sealed class SpecificDayResult(){
-    data class Success(val list: List<HourlyForecast>): SpecificDayResult()
+    data class Success(val list: List<HourlyForecast>,val place: Place, val  date: OffsetDateTime): SpecificDayResult()
     data class Error(val e : Exception):SpecificDayResult()
+    object GenericError :SpecificDayResult()
 }
 
 class SpecificDayViewModel: ViewModel()  {
@@ -23,13 +26,22 @@ class SpecificDayViewModel: ViewModel()  {
     fun getHourlyForecast() {
         viewModelScope.launch {
             try {
-                val hourlyForecast = NetworkProvider().getDailySummary(
-                    DataSource.getSelectedPlace()?.lat ?: 38.116667,
-                    DataSource.getSelectedPlace()?.log ?: 13.366667,
-                    getDate(),
-                    getDate()
-                )
-                _specificDayResult.value = SpecificDayResult.Success(hourlyForecast)
+
+                val place = DataSource.getSelectedPlace()
+                val date = DataSource.getDate()
+                if (place != null && date != null){
+                    val hourlyForecast = NetworkProvider().getDailySummary(
+                        place.lat,
+                        place.log,
+                        date,
+                        date
+                    )
+                    _specificDayResult.value = SpecificDayResult.Success(hourlyForecast,place,date)
+
+                }else{
+                    _specificDayResult.value = SpecificDayResult.GenericError
+                }
+
 
             } catch (e: Exception) {
                 _specificDayResult.value = SpecificDayResult.Error(e)

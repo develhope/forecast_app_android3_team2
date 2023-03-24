@@ -49,11 +49,11 @@ private lateinit var viewModel: SpecificDayViewModel
             when(it){
                 is SpecificDayResult.Error -> TODO()
                 is SpecificDayResult.Success -> {
-                    val specificDayItems: List<SpecificDayModel> = createListToShowSpecificDay(it.list)
+                    val specificDayItems: List<SpecificDayModel> = createListToShowSpecificDay(it.list,it.place,it.date)
                     val adapter = SpecificDayAdapter(specificDayItems)
                     binding.itemSpecificday.adapter = adapter
                 }
-
+                SpecificDayResult.GenericError -> TODO()
             }
 
         }
