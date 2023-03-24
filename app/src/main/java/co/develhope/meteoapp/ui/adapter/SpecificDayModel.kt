@@ -1,7 +1,6 @@
 package co.develhope.meteoapp.ui.adapter
 
 import co.develhope.meteoapp.data.domainmodel.CardSpecificDay
-import co.develhope.meteoapp.data.domainmodel.DaySpecificDay
 import co.develhope.meteoapp.data.domainmodel.HourlyForecast
 import co.develhope.meteoapp.data.domainmodel.Place
 import org.threeten.bp.OffsetDateTime
