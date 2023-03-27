@@ -1,11 +1,14 @@
 package co.develhope.meteoapp.ui.model
 
-import androidx.lifecycle.*
-import co.develhope.meteoapp.data.DataSource
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import co.develhope.meteoapp.ApplicationMeteo
 import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.data.domainmodel.WeatherSummary
 import co.develhope.meteoapp.network.NetworkProvider
-
 import kotlinx.coroutines.launch
 import org.threeten.bp.OffsetDateTime
 
@@ -25,8 +28,8 @@ class HomePageViewModel :ViewModel() {
 
         viewModelScope.launch {
             try {
-                val place = DataSource.getSelectedPlace()
-                val date = DataSource.getDate()
+                val place = ApplicationMeteo.preferences?.getPreferencePlace()
+                val date = ApplicationMeteo.preferences?.getPreferenceDate()
 
                 if (place != null && date != null){
                     val palermo: List<WeatherSummary> = NetworkProvider().getWeekSummary(
@@ -34,8 +37,10 @@ class HomePageViewModel :ViewModel() {
                         place.log,
                         date,
                         date
+
                     )
-                    _homepageResult.value = HomePageResult.Success(palermo,place, date)
+                    Log.d("palermo", "$palermo")
+                    _homepageResult.value = HomePageResult.Success(palermo,place,date)
                 } else{
                     _homepageResult.value = HomePageResult.GenericError
                 }

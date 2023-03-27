@@ -3,6 +3,7 @@ package co.develhope.meteoapp.ui
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import co.develhope.meteoapp.ApplicationMeteo
 import co.develhope.meteoapp.R
-import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
 import co.develhope.meteoapp.ui.adapter.SearchAction
 import co.develhope.meteoapp.ui.adapter.SearchAdapter
@@ -47,6 +48,7 @@ class SearchFragment : Fragment() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -58,25 +60,32 @@ class SearchFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        setupViewModel()
+
+    }
+
+    private fun setupViewModel() {
         viewModel.searchResult.observe(viewLifecycleOwner) {
             when (it) {
                 is SearchResult.Success -> {
                     binding.RVSearch.adapter = SearchAdapter(
                         createListSearch(it.list)
                     ) { action, place ->
-                        DataSource.saveSelectedPlace(place)
+                        ApplicationMeteo.preferences?.savePreferencePlace(place)
+                        Log.d("place","${ApplicationMeteo.preferences?.getPreferencePlace()}")
                         when (action) {
                             SearchAction.CardClick -> findNavController().navigate(R.id.action_searchFragment_to_homePageFragment)
                         }
                     }
                 }
-                is SearchResult.Error -> Toast.makeText(requireContext(),"errore", Toast.LENGTH_SHORT ).show()
+                is SearchResult.Error -> Toast.makeText(
+                    requireContext(),
+                    "errore",
+                    Toast.LENGTH_SHORT
+                ).show()
                 is SearchResult.GenericError -> TODO()
             }
-
-
         }
     }
-
 }
 

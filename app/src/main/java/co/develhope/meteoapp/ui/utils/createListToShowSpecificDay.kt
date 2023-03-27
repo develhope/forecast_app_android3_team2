@@ -1,6 +1,5 @@
 package co.develhope.meteoapp.ui.utils
 
-import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.data.domainmodel.HourlyForecast
 import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.ui.adapter.SpecificDayModel
