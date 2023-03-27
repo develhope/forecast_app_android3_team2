@@ -15,6 +15,7 @@ import co.develhope.meteoapp.R
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.ui.adapter.HomePageAdapter
 import co.develhope.meteoapp.ui.adapter.HomepageAction
+import co.develhope.meteoapp.ui.adapter.SearchAction
 import co.develhope.meteoapp.ui.model.HomePageResult
 import co.develhope.meteoapp.ui.model.HomePageViewModel
 import co.develhope.meteoapp.ui.utils.createListToShowHome
@@ -54,7 +55,7 @@ class HomePageFragment : Fragment() {
     private fun setupObserverHome() {
         viewModel.homepageResult.observe(viewLifecycleOwner) {
             when (it) {
-                is HomePageResult.Error -> TODO()
+                is HomePageResult.Error -> Toast.makeText(requireContext(),"prosciutto e provola",Toast.LENGTH_SHORT).show()
                 is HomePageResult.GenericError -> Toast.makeText(
                     requireContext(),
                     "errore",
@@ -66,8 +67,8 @@ class HomePageFragment : Fragment() {
                         HomePageAdapter(createListToShowHome(it.list, it.place, it.date)) { page ->
                             when (page) {
                                 is HomepageAction.CardClick -> {
-                                    Log.d("data salvata","${page.date}")
-                                    ApplicationMeteo.preferences?.savePreferenceDate(it.date)
+
+                                    Log.d("dataSalvata","${it.date}")
                                     findNavController().navigate(R.id.action_homePageFragment_to_specificDayFragment)
                                 }
 

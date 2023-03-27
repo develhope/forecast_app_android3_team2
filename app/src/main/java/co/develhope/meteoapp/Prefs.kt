@@ -1,6 +1,7 @@
 package co.develhope.meteoapp
 
 import android.content.Context
+import android.util.Log
 import co.develhope.meteoapp.data.domainmodel.Place
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

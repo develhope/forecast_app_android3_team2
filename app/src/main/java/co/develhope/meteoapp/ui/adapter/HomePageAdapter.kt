@@ -1,9 +1,11 @@
 package co.develhope.meteoapp.ui.adapter
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import co.develhope.meteoapp.ApplicationMeteo
 import co.develhope.meteoapp.R
 import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
@@ -13,7 +15,9 @@ import org.threeten.bp.OffsetDateTime
 
 
 sealed class HomepageAction(){
-    data class CardClick(val date: OffsetDateTime) : HomepageAction()
+    data class CardClick(val date: OffsetDateTime) : HomepageAction(){
+
+    }
 }
 class HomePageAdapter(
     private val dataset: List<HomePageItem>,
@@ -82,8 +86,10 @@ class HomePageAdapter(
             binding.umidity.text = itemView.context.getString(R.string.rain,cardItem.dailyForecast.rain.toString())
             binding.imagetype.setImageResource(cardItem.dailyForecast.weatherType.setIconWeatherType())
             binding.templateCard.setOnClickListener {
+                ApplicationMeteo.preferences?.savePreferenceDate(cardItem.dailyForecast.date)
                 action(HomepageAction.CardClick(
                     date = cardItem.dailyForecast.date
+
                 ))
 
             }
