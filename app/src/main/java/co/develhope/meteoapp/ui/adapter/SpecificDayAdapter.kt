@@ -1,7 +1,9 @@
 package co.develhope.meteoapp.ui.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.graphics.rotationMatrix
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.R
 import co.develhope.meteoapp.databinding.SpecificdayCardBinding
@@ -83,6 +85,20 @@ class SpecificDayAdapter(private val list: List<SpecificDayModel>) :
                 R.string.DatoVento,
                 infoHourly.hourlyForecast.cardSpecificDay.vento.toString()
             )
+            hourly.freccia.setOnClickListener{
+
+                hourly.cardItem.visibility=
+
+                if (hourly.cardItem.visibility== View.GONE){
+                    hourly.freccia.rotation = 180.0F
+                    View.VISIBLE
+
+                }
+                else{
+                    hourly.freccia.rotation = 0.0F
+                    View.GONE
+
+            } }
 
         }
         }

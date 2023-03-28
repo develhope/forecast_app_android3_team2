@@ -17,7 +17,7 @@
         android:id="@+id/specificDay_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_24_dp"
+        android:layout_marginStart="@dimen/margin_30_dp"
         android:layout_marginTop="@dimen/margin_19_dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -47,7 +47,7 @@
         style="@style/id_sp_hourly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="61dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="@dimen/margin_16_dp"
         android:text="@string/temp"
         app:layout_constraintStart_toEndOf="@+id/specificday_type"
@@ -62,13 +62,24 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="@dimen/margin_16_dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="@dimen/margin_10_dp"
         android:drawablePadding="@dimen/drawablePadding_10_dp"
         android:gravity="top"
         android:text="@string/umidity"
         app:drawableStartCompat="@drawable/drop"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/freccia"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/freccia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16_dp"
+        android:layout_marginEnd="@dimen/margin_30_dp"
+        android:src="@drawable/akar_icons_chevron_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <View
         android:layout_width="match_parent"
@@ -85,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_10_dp"
         app:layout_constraintEnd_toEndOf="parent"
-
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:cardElevation="@dimen/elevation_10_dp"
         app:cardCornerRadius="@dimen/corner_radius_8_dp"
@@ -98,6 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_15_dp"
+
 
             >
 

@@ -31,7 +31,6 @@ class HomePageFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentHomepageBinding.inflate(inflater, container, false)
-        ApplicationMeteo.preferences?.savePreferencePlace(Place("casteltermini", "sicilia",37.3227,13.3835))
         viewModel = ViewModelProvider(this)[HomePageViewModel::class.java]
         gestioneplacenullo()
 
