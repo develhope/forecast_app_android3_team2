@@ -48,11 +48,15 @@ class SearchFragment : Fragment() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
             }
 
             override fun afterTextChanged(s: Editable?) {
-                viewModel.searchPlace(s.toString(), requireContext().getString(R.string.language))
+                if(s.toString().length>2) {
+                    viewModel.searchPlace(
+                        s.toString(),
+                        requireContext().getString(R.string.language)
+                    )
+                }
             }
 
         })
@@ -72,17 +76,22 @@ class SearchFragment : Fragment() {
                         createListSearch(it.list)
                     ) { action, place ->
                         ApplicationMeteo.preferences?.savePreferencePlace(place)
-                        Log.d("place","${ApplicationMeteo.preferences?.getPreferencePlace()}")
+                        Log.d("place", "${ApplicationMeteo.preferences?.getPreferencePlace()}")
                         when (action) {
                             SearchAction.CardClick -> findNavController().navigate(R.id.action_searchFragment_to_homePageFragment)
                         }
                     }
                 }
-                is SearchResult.Error -> Toast.makeText(
-                    requireContext(),
-                    "errore",
-                    Toast.LENGTH_SHORT
-                ).show()
+                is SearchResult.Error -> {
+                    Log.e("vediamo", "${it.e.message}")
+                    println(it.e.message)
+                    Toast.makeText(
+                        requireContext(),
+                        "${it.e.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                }
                 is SearchResult.GenericError -> TODO()
             }
         }

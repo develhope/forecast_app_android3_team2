@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.ApplicationMeteo
 import co.develhope.meteoapp.R
+import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.ui.adapter.HomePageAdapter
 import co.develhope.meteoapp.ui.adapter.HomepageAction
@@ -30,7 +31,12 @@ class HomePageFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentHomepageBinding.inflate(inflater, container, false)
+
         viewModel = ViewModelProvider(this)[HomePageViewModel::class.java]
+        gestioneplacenullo()
+
+
+
         return binding.root
     }
 
@@ -40,16 +46,18 @@ class HomePageFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+
+
+    }
+
+    private fun gestioneplacenullo() {
         if (ApplicationMeteo.preferences?.getPreferencePlace() == null) {
             findNavController().navigate(R.id.searchFragment)
         } else {
-           ApplicationMeteo.preferences?.savePreferenceDate(OffsetDateTime.now())
+            ApplicationMeteo.preferences?.savePreferenceDate(OffsetDateTime.now())
             setupObserverHome()
             viewModel.getHomeCoroutine()
         }
-
-
-
     }
 
     private fun setupObserverHome() {
@@ -58,7 +66,7 @@ class HomePageFragment : Fragment() {
                 is HomePageResult.Error -> Toast.makeText(requireContext(),"prosciutto e provola",Toast.LENGTH_SHORT).show()
                 is HomePageResult.GenericError -> Toast.makeText(
                     requireContext(),
-                    "errore",
+                    "loading",
                     Toast.LENGTH_SHORT
                 ).show()
 

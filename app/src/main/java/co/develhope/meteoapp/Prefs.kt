@@ -22,7 +22,7 @@ class Prefs(context: Context) {
    }
 
    fun getPreferencePlace(): Place {
-      val jsonPlace= preferencesPlace.getString("place",null)
+      val jsonPlace= preferencesPlace.getString("place", null)
       val itemType = object : TypeToken<Place>() {}.type
       val place = gson.fromJson<Place>(jsonPlace,itemType)
       return  place
@@ -34,7 +34,7 @@ class Prefs(context: Context) {
    }
 
    fun getPreferenceDate(): OffsetDateTime{
-      val jsonDate = preferencesDate.getString("date",OffsetDateTime.now().toString())
+      val jsonDate = preferencesDate.getString("date",null)
       val itemType = object : TypeToken<OffsetDateTime>() {}.type
       val date = gson.fromJson<OffsetDateTime>(jsonDate,itemType)
       return date
