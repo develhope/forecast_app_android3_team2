@@ -73,7 +73,7 @@ fun getEnMonth(month: String): String {
         "JULY" -> "July"
         "AUGUST" -> "August"
         "SEPTEMBER" -> "September"
-        "OCTOBER" -> "Ottobre"
+        "OCTOBER" -> "October"
         "NOVEMBER" -> "November"
         "DECEMBER" -> "December"
         else -> ""
