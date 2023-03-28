@@ -21,11 +21,11 @@ class Prefs(context: Context) {
       preferencesPlace.edit().putString("place",placeString).apply()
    }
 
-   fun getPreferencePlace(): Place {
+   fun getPreferencePlace(): Place? {
       val jsonPlace= preferencesPlace.getString("place", null)
       val itemType = object : TypeToken<Place>() {}.type
       val place = gson.fromJson<Place>(jsonPlace,itemType)
-      return  place
+      return  jsonPlace?.let { place }
    }
 
    fun savePreferenceDate(date: OffsetDateTime){
