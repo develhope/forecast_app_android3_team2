@@ -13,8 +13,6 @@ fun createListToShowSpecificDay(list: List<HourlyForecast>, place: Place, date: 
 
     listToReturn.add(SpecificDayModel.SpecificDayTitle(place,date))
     listToReturn.add(SpecificDayModel.SpecificDayHourly(filteredList.first()))
-    listToReturn.add(SpecificDayModel.SpecificDayCard(filteredList.first().cardSpecificDay))
-
     val otherHours: MutableList<SpecificDayModel.SpecificDayHourly> = filteredList.map {
         SpecificDayModel.SpecificDayHourly(it)
     }.toMutableList()
