@@ -7,8 +7,6 @@ import org.threeten.bp.OffsetDateTime
 
 sealed class SpecificDayModel {
 
-    data class SpecificDayCard(val cardSpecificDay: CardSpecificDay) : SpecificDayModel()
-
     data class SpecificDayHourly(val hourlyForecast: HourlyForecast) : SpecificDayModel()
 
     data class SpecificDayTitle(val place: Place, val date: OffsetDateTime) : SpecificDayModel()

@@ -22,7 +22,7 @@
     <string name="image_of_weather_type" translatable="false">image of weather type</string>
     <!---string title-->
     <string name="city_region" translatable="false">%s , %s</string>
-    <string name="today">Oggi,</string>
+    <string name="today">%s,</string>
     <string name="today_details" translatable="false">%s %s %s</string>
 
     <!---string hourly-->
