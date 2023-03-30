@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">meteoapp</string>
-    <string name="precip_">precip.</string>
+    <string name="precip_">Precip.</string>
     <string name="vento">Wind</string>
     <string name="ricerche_recenti">Recent searches</string>
     <string name="search_string">Search city</string>
