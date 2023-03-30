@@ -85,10 +85,11 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_1_dp"
+        android:layout_height="1.5dp"
         android:layout_marginStart="@dimen/margin_20_dp"
         android:layout_marginTop="@dimen/margin_16_dp"
         android:layout_marginEnd="@dimen/margin_20_dp"
+        android:layout_marginBottom="@dimen/margin_10_dp"
         android:background="#ABA4FF"
         app:layout_constraintTop_toBottomOf="@id/specificday_type" />
 
@@ -97,7 +98,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_10_dp"
-        android:layout_marginBottom="@dimen/margin_10_dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
