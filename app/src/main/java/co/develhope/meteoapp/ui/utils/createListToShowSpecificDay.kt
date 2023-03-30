@@ -7,9 +7,8 @@ import org.threeten.bp.OffsetDateTime
 
 fun createListToShowSpecificDay(list: List<HourlyForecast>, place: Place, date: OffsetDateTime): List<SpecificDayModel> {
     val listToReturn = mutableListOf<SpecificDayModel>()
-    val filteredList =
-        list.filter { hourlyForecast -> hourlyForecast.hourlySpecificDay.time.isAfter(date) }
 
+    val  filteredList= list.filter { hourlyForecast -> hourlyForecast.hourlySpecificDay.time.isAfter(date) }
 
     listToReturn.add(SpecificDayModel.SpecificDayTitle(place,date))
     val otherHours: MutableList<SpecificDayModel.SpecificDayHourly> = filteredList.map {

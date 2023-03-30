@@ -8,6 +8,7 @@
         />
 
     <item
+        
         android:title="@string/oggi_name_menu"
         android:id="@id/specificDayFragment"
         android:icon="@drawable/akar_icons_calendar"/>

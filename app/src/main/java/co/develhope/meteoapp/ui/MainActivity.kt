@@ -1,6 +1,7 @@
 package co.develhope.meteoapp.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
@@ -15,9 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
        setNavigationGraph()
-
+        }
     }
 
     private fun setNavigationGraph() {
@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         val navGraph = navController.navInflater.inflate(R.navigation.navigation)
         navController.graph = navGraph
+
+
         setupWithNavController(binding.bottomNavBar,navController)
     }
 }

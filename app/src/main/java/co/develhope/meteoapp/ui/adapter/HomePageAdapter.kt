@@ -10,8 +10,11 @@ import co.develhope.meteoapp.R
 import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
+import co.develhope.meteoapp.ui.utils.createListToShowSpecificDay
 import co.develhope.meteoapp.ui.utils.getLocalizedDay
+import org.threeten.bp.LocalDate
 import org.threeten.bp.OffsetDateTime
+import java.util.Calendar
 
 
 sealed class HomepageAction(){
@@ -78,24 +81,40 @@ class HomePageAdapter(
         @SuppressLint("StringFormatMatches")
         fun bind(cardItem: HomePageItem.CardItem, action: (HomepageAction) -> Unit, position: Int) {
 
-            binding.day.text = itemView.context.getString(R.string.oggi, getLocalizedDay(cardItem.dailyForecast.date.dayOfWeek.name))
-            binding.data.text = itemView.context.getString(R.string.data,cardItem.dailyForecast.date.dayOfMonth.toString(),cardItem.dailyForecast.date.month.value.toString())
-            binding.tempmin.text = itemView.context.getString(R.string.tempmin,cardItem.dailyForecast.tempMin.toString())
-            binding.tempmax.text = itemView.context.getString(R.string.tempmax,cardItem.dailyForecast.tempMax.toString())
-            binding.kmh.text = itemView.context.getString(R.string.kmh,cardItem.dailyForecast.wind.toString())
-            binding.umidity.text = itemView.context.getString(R.string.rain,cardItem.dailyForecast.rain.toString())
+            binding.day.text = itemView.context.getString(
+                R.string.oggi,
+                getLocalizedDay(cardItem.dailyForecast.date.dayOfWeek.name)
+            )
+            binding.data.text = itemView.context.getString(
+                R.string.data,
+                cardItem.dailyForecast.date.dayOfMonth.toString(),
+                cardItem.dailyForecast.date.month.value.toString()
+            )
+            binding.tempmin.text = itemView.context.getString(
+                R.string.tempmin,
+                cardItem.dailyForecast.tempMin.toString()
+            )
+            binding.tempmax.text = itemView.context.getString(
+                R.string.tempmax,
+                cardItem.dailyForecast.tempMax.toString()
+            )
+            binding.kmh.text =
+                itemView.context.getString(R.string.kmh, cardItem.dailyForecast.wind.toString())
+            binding.umidity.text =
+                itemView.context.getString(R.string.rain, cardItem.dailyForecast.rain.toString())
             binding.imagetype.setImageResource(cardItem.dailyForecast.weatherType.setIconWeatherType())
             binding.templateCard.setOnClickListener {
                 ApplicationMeteo.preferences?.savePreferenceDate(cardItem.dailyForecast.date)
-                action(HomepageAction.CardClick(
-                    date = cardItem.dailyForecast.date
+                action(
+                    HomepageAction.CardClick
+                        (date = cardItem.dailyForecast.date)
+                )
+            }
+        }
 
-                ))
 
             }
 
-        }
-    }
 
     class CurrentCityViewHolder(private val binding: CurrentCityTemplateBinding) :
         RecyclerView.ViewHolder(binding.root) {
