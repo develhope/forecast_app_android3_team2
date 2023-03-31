@@ -13,16 +13,16 @@ import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.databinding.FragmentSpecificDayBinding
 import co.develhope.meteoapp.ui.adapter.SpecificDayAdapter
 import co.develhope.meteoapp.ui.adapter.SpecificDayModel
-import co.develhope.meteoapp.ui.model.SpecificDayResult
-import co.develhope.meteoapp.ui.model.SpecificDayViewModel
+import co.develhope.meteoapp.ui.model.TodayResult
+import co.develhope.meteoapp.ui.model.TodayViewModel
 import co.develhope.meteoapp.ui.utils.createListToShowSpecificDay
 import org.threeten.bp.OffsetDateTime
 
 
-class SpecificDayFragment : Fragment() {
+class TodayFragment : Fragment() {
 
     private var _binding: FragmentSpecificDayBinding? = null
-private lateinit var viewModel: SpecificDayViewModel
+    private lateinit var viewModel: TodayViewModel
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -30,7 +30,7 @@ private lateinit var viewModel: SpecificDayViewModel
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSpecificDayBinding.inflate(inflater, container, false)
-        viewModel= ViewModelProvider(this)[SpecificDayViewModel::class.java]
+        viewModel = ViewModelProvider(this)[TodayViewModel::class.java]
 
         return binding.root
 
@@ -43,39 +43,45 @@ private lateinit var viewModel: SpecificDayViewModel
 
     override fun onStart() {
         super.onStart()
-        viewModel.getHourlyForecast()
+        viewModel.getTodayHourlyForecast()
 
-        setupObserver()
+        setupTodayObserver()
     }
 
-    private fun setupObserver() {
-        viewModel.specificDayResult.observe(viewLifecycleOwner) {
-            when(it){
-                is SpecificDayResult.Error -> TODO()
-                is SpecificDayResult.Success -> {
+    private fun setupTodayObserver() {
+        viewModel.todayResult.observe(viewLifecycleOwner) {
+            when (it) {
+                is TodayResult.Error -> TODO()
+                is TodayResult.Success -> {
 
-                     val filteredList : List<HourlyForecast> =   if(ApplicationMeteo.preferences?.getPreferenceDate()!!.dayOfYear == OffsetDateTime.now().dayOfYear){
-                        it.list.filter {hourlyForecast ->
-                            hourlyForecast.hourlySpecificDay.time.isAfter(OffsetDateTime.now())
+                    val filteredList: List<HourlyForecast> =
+                        if (ApplicationMeteo.preferences?.getPreferenceDate()!!.dayOfYear == OffsetDateTime.now().dayOfYear) {
+                            it.list.filter { hourlyForecast ->
+                                hourlyForecast.hourlySpecificDay.time.isAfter(OffsetDateTime.now())
+                            }
+                        } else {
+                            it.list
                         }
-                    }else{
-                        it.list
-                    }
-                    val specificDayItems= createListToShowSpecificDay(filteredList, it.place,it.date)
+                    val specificDayItems =
+                        createListToShowSpecificDay(filteredList, it.place, it.date)
                     val adapter = SpecificDayAdapter(specificDayItems)
                     binding.itemSpecificday.adapter = adapter
                 }
-                SpecificDayResult.GenericError -> TODO()
+                TodayResult.GenericError -> TODO()
             }
 
         }
 
     }
 
-    private fun createListHour (list: List<HourlyForecast>, place: Place, date: OffsetDateTime): List<SpecificDayModel>{
+    private fun createListHour(
+        list: List<HourlyForecast>,
+        place: Place,
+        date: OffsetDateTime
+    ): List<SpecificDayModel> {
         val listToReturn = mutableListOf<SpecificDayModel>()
 
-        listToReturn.add(SpecificDayModel.SpecificDayTitle(place,date))
+        listToReturn.add(SpecificDayModel.SpecificDayTitle(place, date))
 
 
         val otherHours: MutableList<SpecificDayModel.SpecificDayHourly> = list.map {

@@ -10,12 +10,12 @@
     <item
         
         android:title="@string/oggi_name_menu"
-        android:id="@id/specificDayFragment"
+        android:id="@id/todayFragment"
         android:icon="@drawable/akar_icons_calendar"/>
 
     <item
         android:title="@string/domani_name_menu"
-        android:id="@id/specificDayFragment"
+        android:id="@id/tomorrowFragment"
         android:icon="@drawable/group__4_"/>
 
     <item

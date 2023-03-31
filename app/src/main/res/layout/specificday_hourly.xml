@@ -98,15 +98,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_10_dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:cardElevation="@dimen/elevation_10_dp"
-        app:cardCornerRadius="@dimen/corner_radius_8_dp"
         app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/corner_radius_8_dp"
 
-        app:layout_constraintTop_toBottomOf="@id/specificday_type"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/specificday_type">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -118,45 +119,45 @@
 
             <TextView
                 android:id="@+id/sp_percepita"
+                style="@style/body_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_18_dp"
                 android:layout_marginTop="@dimen/margin_18_dp"
                 android:text="@string/sp_percepita"
-                style="@style/body_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/sp_indiceUV"
+                style="@style/body_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_198_dp"
                 android:layout_marginTop="@dimen/margin_18_dp"
                 android:text="@string/sp_UV"
-                style="@style/body_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/sp_dato_percepita"
+                style="@style/style_dato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_18_dp"
                 android:layout_marginTop="@dimen/margin_37_dp"
                 android:text="@string/DatoPercepita"
-                style="@style/style_dato"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/sp_dato_uv"
+                style="@style/style_dato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_198_dp"
                 android:layout_marginTop="@dimen/margin_37_dp"
                 android:text="@string/DatoUv"
-                style="@style/style_dato"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -172,12 +173,12 @@
 
             <TextView
                 android:id="@+id/sp_umidita"
+                style="@style/body_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_18_dp"
                 android:layout_marginTop="@dimen/margin_84_dp"
                 android:text="@string/sp_umidita"
-                style="@style/body_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -194,23 +195,23 @@
 
             <TextView
                 android:id="@+id/sp_dato_umidita"
+                style="@style/style_dato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_18_dp"
                 android:layout_marginTop="@dimen/margin_106_dp"
                 android:text="@string/DatoUmidita"
-                style="@style/style_dato"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/sp_dato_vento"
+                style="@style/style_dato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_198_dp"
                 android:layout_marginTop="@dimen/margin_106_dp"
                 android:text="@string/DatoVento"
-                style="@style/style_dato"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -226,47 +227,46 @@
 
             <TextView
                 android:id="@+id/sp_copertura"
+                style="@style/body_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_18_dp"
                 android:layout_marginTop="@dimen/margin_153_dp"
                 android:text="@string/copertura"
-                style="@style/body_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-
             <TextView
                 android:id="@+id/sp_pioggia"
+                style="@style/body_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_200_dp"
                 android:layout_marginTop="@dimen/margin_153_dp"
                 android:text="@string/pioggia"
-                style="@style/body_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/sp_dato_copertura"
+                style="@style/style_dato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_18_dp"
                 android:layout_marginTop="@dimen/margin_175_dp"
                 android:text="@string/DatoCopertura"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                style="@style/style_dato" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/sp_dato_pioggia"
+                style="@style/style_dato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_200_dp"
                 android:layout_marginTop="@dimen/margin_175_dp"
                 android:text="@string/DatoPioggia"
-                style="@style/style_dato"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

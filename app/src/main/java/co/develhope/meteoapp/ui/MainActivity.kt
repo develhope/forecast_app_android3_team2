@@ -17,13 +17,7 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
        setNavigationGraph()
-        binding.bottomNavBar.setOnClickListener {
-            var today = binding.bottomNavBar.menu.findItem(R.id.specificDayFragment).title.toString()
-            when(today){
-                getString(R.string.oggi_name_menu) -> Toast.makeText(this, "today", Toast.LENGTH_LONG).show()
-                else -> Toast.makeText(this, "tomorrow", Toast.LENGTH_LONG).show()
-            }
-        }
+
     }
 
     private fun setNavigationGraph() {
