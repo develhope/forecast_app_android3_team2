@@ -53,11 +53,15 @@ private lateinit var viewModel: SpecificDayViewModel
             when(it){
                 is SpecificDayResult.Error -> TODO()
                 is SpecificDayResult.Success -> {
-                    val specificDayItems: List<SpecificDayModel> = if(ApplicationMeteo.preferences?.getPreferenceDate()!!.dayOfYear == OffsetDateTime.now().dayOfYear){
-                        createListToShowSpecificDay(it.list,it.place,it.date)
+
+                     val filteredList : List<HourlyForecast> =   if(ApplicationMeteo.preferences?.getPreferenceDate()!!.dayOfYear == OffsetDateTime.now().dayOfYear){
+                        it.list.filter {hourlyForecast ->
+                            hourlyForecast.hourlySpecificDay.time.isAfter(OffsetDateTime.now())
+                        }
                     }else{
-                        createListHour(it.list,it.place,it.date)
+                        it.list
                     }
+                    val specificDayItems= createListToShowSpecificDay(filteredList, it.place,it.date)
                     val adapter = SpecificDayAdapter(specificDayItems)
                     binding.itemSpecificday.adapter = adapter
                 }

@@ -6,15 +6,18 @@ import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.ui.adapter.SpecificDayModel
 import org.threeten.bp.OffsetDateTime
 
-fun createListToShowSpecificDay(list: List<HourlyForecast>, place: Place, date: OffsetDateTime): List<SpecificDayModel> {
+fun createListToShowSpecificDay(
+    list: List<HourlyForecast>,
+    place: Place,
+    date: OffsetDateTime
+): List<SpecificDayModel> {
     val listToReturn = mutableListOf<SpecificDayModel>()
 
-    val  filteredList= list.filter { hourlyForecast -> hourlyForecast.hourlySpecificDay.time.isAfter(ApplicationMeteo.preferences?.getPreferenceDate()) }
 
-    listToReturn.add(SpecificDayModel.SpecificDayTitle(place,date))
-    val otherHours: MutableList<SpecificDayModel.SpecificDayHourly> = filteredList.map {
+    listToReturn.add(SpecificDayModel.SpecificDayTitle(place, date))
+    val otherHours: List<SpecificDayModel.SpecificDayHourly> = list.map {
         SpecificDayModel.SpecificDayHourly(it)
-    }.toMutableList()
+    }
     listToReturn.addAll(otherHours)
 
     return listToReturn
