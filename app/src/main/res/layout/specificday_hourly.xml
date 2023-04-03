@@ -100,10 +100,10 @@
         android:layout_margin="@dimen/margin_10_dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:visibility="gone"
+
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/corner_radius_8_dp"
-
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -113,6 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_15_dp"
+            android:layout_marginBottom="@dimen/margin_20_dp"
 
 
             >
