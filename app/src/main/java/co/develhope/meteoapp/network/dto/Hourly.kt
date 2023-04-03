@@ -40,7 +40,7 @@ data class Hourly(
         return this.time.mapIndexed { index, time ->
             HourlyForecast(
                 cardSpecificDay = CardSpecificDay(
-                    uv = null,
+                    uv = "5/10",
                     copertura = this.cloudcover.getOrNull(index)?.toInt() ?: 0,
                     vento = this.windspeed10m.getOrNull(index)?.toInt() ?: 0,
                     pioggia = this.rain.getOrNull(index)?.toInt() ?: 0,

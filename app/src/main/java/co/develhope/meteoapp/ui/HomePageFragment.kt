@@ -76,7 +76,7 @@ class HomePageFragment : Fragment() {
                                 is HomepageAction.CardClick -> {
 
                                     Log.d("dataSalvata","${it.date}")
-                                    findNavController().navigate(R.id.action_homePageFragment_to_specificDayFragment)
+                                    findNavController().navigate(R.id.action_homePageFragment_to_TodayFragment)
                                 }
 
                             }

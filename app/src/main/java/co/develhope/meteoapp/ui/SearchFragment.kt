@@ -14,16 +14,19 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.ApplicationMeteo
 import co.develhope.meteoapp.R
+import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
 import co.develhope.meteoapp.ui.adapter.SearchAction
 import co.develhope.meteoapp.ui.adapter.SearchAdapter
 import co.develhope.meteoapp.ui.model.SearchResult
 import co.develhope.meteoapp.ui.model.SearchViewModel
 import co.develhope.meteoapp.ui.utils.createListSearch
-
 class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private lateinit var viewModel: SearchViewModel
+
+    // Aggiungi questa variabile per tenere traccia della visibilità delle ricerche recenti
+    private var isRecentSearchVisible = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,9 +40,9 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         binding.RVSearch.layoutManager = LinearLayoutManager(view.context)
         searchCity()
+        recentSearch(ApplicationMeteo.preferences?.getPreferencePlace()!!)
     }
 
     private fun searchCity() {
@@ -51,14 +54,14 @@ class SearchFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if(s.toString().length>2) {
+                if (s.toString().length > 2) {
+
                     viewModel.searchPlace(
                         s.toString(),
                         requireContext().getString(R.string.language)
                     )
                 }
             }
-
         })
     }
 
@@ -75,6 +78,12 @@ class SearchFragment : Fragment() {
                     binding.RVSearch.adapter = SearchAdapter(
                         createListSearch(it.list)
                     ) { action, place ->
+                        val recentSearches =
+                            ApplicationMeteo.preferences?.getRecentSearch()?.toMutableList()
+                                ?: mutableListOf()
+                        recentSearches.add(place)
+                        ApplicationMeteo.preferences?.saveRecentSearches(recentSearches)
+
                         ApplicationMeteo.preferences?.savePreferencePlace(place)
                         Log.d("place", "${ApplicationMeteo.preferences?.getPreferencePlace()}")
                         when (action) {
@@ -96,5 +105,17 @@ class SearchFragment : Fragment() {
             }
         }
     }
+    private fun recentSearch(place: Place){
+        val list = ApplicationMeteo.preferences?.getRecentSearch() ?: emptyList()
+        val loadList = list.toMutableList()
+        loadList.add(place)
+        if(loadList.size >6){
+            loadList.removeFirst()
+            ApplicationMeteo.preferences?.saveRecentSearches(loadList)
+            return
+        }
+        ApplicationMeteo.preferences?.saveRecentSearches(loadList)
+    }
+
 }
 
