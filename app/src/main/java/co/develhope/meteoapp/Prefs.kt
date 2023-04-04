@@ -31,7 +31,7 @@ class Prefs(context: Context) {
    }
 
    fun savePreferenceDate(date: OffsetDateTime){
-      val dateString : String = Gson().toJson(date)
+      val dateString : String = gson.toJson(date)
       preferencesDate.edit().putString("date",dateString).apply()
    }
 
@@ -44,7 +44,7 @@ class Prefs(context: Context) {
 
 
    fun saveRecentSearches(place : List<Place>){
-      val recentSearchString : String =Gson().toJson(place)
+      val recentSearchString : String =gson.toJson(place)
       preferencesRecentSearch.edit().putString("recentSearch",recentSearchString).apply()
 
    }

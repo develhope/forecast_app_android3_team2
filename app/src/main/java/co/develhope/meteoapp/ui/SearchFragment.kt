@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.develhope.meteoapp.ApplicationMeteo
 import co.develhope.meteoapp.R
 import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.databinding.FragmentSearchBinding
@@ -42,7 +41,6 @@ class SearchFragment : Fragment() {
 
         binding.RVSearch.layoutManager = LinearLayoutManager(view.context)
         searchCity()
-        recentSearch(ApplicationMeteo.preferences?.getPreferencePlace()!!)
     }
 
     private fun searchCity() {
@@ -68,28 +66,14 @@ class SearchFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         setupViewModel()
-
+        viewModel.getsavesearch()
     }
 
     private fun setupViewModel() {
         viewModel.searchResult.observe(viewLifecycleOwner) {
             when (it) {
                 is SearchResult.Success -> {
-                    binding.RVSearch.adapter = SearchAdapter(
-                        createListSearch(it.list)
-                    ) { action, place ->
-                        val recentSearches =
-                            ApplicationMeteo.preferences?.getRecentSearch()?.toMutableList()
-                                ?: mutableListOf()
-                        recentSearches.add(place)
-                        ApplicationMeteo.preferences?.saveRecentSearches(recentSearches)
-
-                        ApplicationMeteo.preferences?.savePreferencePlace(place)
-                        Log.d("place", "${ApplicationMeteo.preferences?.getPreferencePlace()}")
-                        when (action) {
-                            SearchAction.CardClick -> findNavController().navigate(R.id.action_searchFragment_to_homePageFragment)
-                        }
-                    }
+                    setupAdapter(it.list)
                 }
                 is SearchResult.Error -> {
                     Log.e("vediamo", "${it.e.message}")
@@ -105,17 +89,21 @@ class SearchFragment : Fragment() {
             }
         }
     }
-    private fun recentSearch(place: Place){
-        val list = ApplicationMeteo.preferences?.getRecentSearch() ?: emptyList()
-        val loadList = list.toMutableList()
-        loadList.add(place)
-        if(loadList.size >6){
-            loadList.removeFirst()
-            ApplicationMeteo.preferences?.saveRecentSearches(loadList)
-            return
+
+    private fun setupAdapter(it: List<Place>) {
+        binding.RVSearch.adapter = SearchAdapter(
+            createListSearch(it)
+        ) { action ->
+
+            when (action) {
+                is SearchAction.CardClick -> {
+                    viewModel.savePlace(action.place)
+                    findNavController().navigate(R.id.action_searchFragment_to_homePageFragment)
+                }
+            }
         }
-        ApplicationMeteo.preferences?.saveRecentSearches(loadList)
     }
+
 
 }
 

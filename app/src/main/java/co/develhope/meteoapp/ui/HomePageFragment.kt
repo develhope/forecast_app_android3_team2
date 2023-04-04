@@ -74,9 +74,9 @@ class HomePageFragment : Fragment() {
                         HomePageAdapter(createListToShowHome(it.list, it.place, it.date)) { page ->
                             when (page) {
                                 is HomepageAction.CardClick -> {
-
+                                    ApplicationMeteo.preferences?.savePreferenceDate(it.date)
                                     Log.d("dataSalvata","${it.date}")
-                                    findNavController().navigate(R.id.action_homePageFragment_to_TodayFragment)
+                                    findNavController().navigate(R.id.action_homePageFragment_to_tomorrowFragment)
                                 }
 
                             }

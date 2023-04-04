@@ -9,12 +9,12 @@ import co.develhope.meteoapp.databinding.CardSearchTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateRicercheRecentiBinding
 
 sealed class SearchAction(){
-    object CardClick : SearchAction()
+    data class CardClick(val place: Place) : SearchAction()
 }
 class SearchAdapter(
 
     private val dataset: List<SearchItem>,
-    private val action: (SearchAction, Place) -> Unit
+    private val action: (SearchAction) -> Unit
 
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -59,10 +59,10 @@ class SearchAdapter(
 
     class CitySearchViewHolder(val binding : CardSearchTemplateBinding):
         RecyclerView.ViewHolder(binding.root){
-        fun bind(city: SearchItem.SearchCard, action: (SearchAction, Place) -> Unit, position: Int){
+        fun bind(city: SearchItem.SearchCard, action: (SearchAction) -> Unit, position: Int){
             binding.city.text = binding.root.context.getString(R.string.city_search,city.info.city, city.info.region)
             binding.templateSearchCard.setOnClickListener {
-                action(SearchAction.CardClick, city.info)
+                action(SearchAction.CardClick(city.info))
             }
         }
     }
