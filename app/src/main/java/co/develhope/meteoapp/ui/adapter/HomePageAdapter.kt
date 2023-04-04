@@ -1,23 +1,31 @@
 package co.develhope.meteoapp.ui.adapter
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import co.develhope.meteoapp.ApplicationMeteo
+import co.develhope.meteoapp.OnCardClick
 import co.develhope.meteoapp.R
-import co.develhope.meteoapp.data.domainmodel.DayForecast
-import co.develhope.meteoapp.data.domainmodel.Place
+import co.develhope.meteoapp.data.DataSource.saveDate
 import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
+import co.develhope.meteoapp.ui.utils.createListToShowSpecificDay
+import co.develhope.meteoapp.ui.utils.getLocalizedDay
+import org.threeten.bp.LocalDate
+import org.threeten.bp.OffsetDateTime
+import java.util.Calendar
 
 
 sealed class HomepageAction(){
-    object CardClick : HomepageAction()
+    data class CardClick(val date: OffsetDateTime) : HomepageAction(){
+    }
 }
 class HomePageAdapter(
     private val dataset: List<HomePageItem>,
-    private val action: (HomepageAction) -> Unit
+    private val action: OnCardClick
 
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -72,22 +80,38 @@ class HomePageAdapter(
     class CardViewHolder(private val binding: TemplateCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("StringFormatMatches")
-        fun bind(cardItem: HomePageItem.CardItem, action: (HomepageAction) -> Unit, position: Int) {
+        fun bind(cardItem: HomePageItem.CardItem, action: OnCardClick, position: Int) {
 
-            binding.day.text = itemView.context.getString(R.string.oggi, getItaDay(cardItem.dailyForecast.date.dayOfWeek.name))
-            binding.data.text = itemView.context.getString(R.string.data,cardItem.dailyForecast.date.dayOfMonth.toString(),cardItem.dailyForecast.date.month.value.toString())
-            binding.tempmin.text = itemView.context.getString(R.string.tempmin,cardItem.dailyForecast.tempMin.toString())
-            binding.tempmax.text = itemView.context.getString(R.string.tempmax,cardItem.dailyForecast.tempMax.toString())
-            binding.kmh.text = itemView.context.getString(R.string.kmh,cardItem.dailyForecast.wind.toString())
-            binding.umidity.text = itemView.context.getString(R.string.rain,cardItem.dailyForecast.rain.toString())
+            binding.day.text = itemView.context.getString(
+                R.string.oggi,
+                getLocalizedDay(cardItem.dailyForecast.date.dayOfWeek.name)
+            )
+            binding.data.text = itemView.context.getString(
+                R.string.data,
+                cardItem.dailyForecast.date.dayOfMonth.toString(),
+                cardItem.dailyForecast.date.month.value.toString()
+            )
+            binding.tempmin.text = itemView.context.getString(
+                R.string.tempmin,
+                cardItem.dailyForecast.tempMin.toString()
+            )
+            binding.tempmax.text = itemView.context.getString(
+                R.string.tempmax,
+                cardItem.dailyForecast.tempMax.toString()
+            )
+            binding.kmh.text =
+                itemView.context.getString(R.string.kmh, cardItem.dailyForecast.wind.toString())
+            binding.umidity.text =
+                itemView.context.getString(R.string.rain, cardItem.dailyForecast.rain.toString())
             binding.imagetype.setImageResource(cardItem.dailyForecast.weatherType.setIconWeatherType())
             binding.templateCard.setOnClickListener {
-                action(HomepageAction.CardClick)
+             action.click(cardItem)
+            }
+        }
+
 
             }
 
-        }
-    }
 
     class CurrentCityViewHolder(private val binding: CurrentCityTemplateBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -114,15 +138,4 @@ class HomePageAdapter(
     }
 }
 
-fun getItaDay(day: String): String {
-    return when (day) {
-        "MONDAY" -> "Lunedì"
-        "TUESDAY" -> "Martedì"
-        "WEDNESDAY" -> "Mercoledì"
-        "THURSDAY" -> "Giovedì"
-        "FRIDAY" -> "Venerdì"
-        "SATURDAY" -> "Sabato"
-        "SUNDAY" -> "Domenica"
-        else -> ""
-    }
-}
+

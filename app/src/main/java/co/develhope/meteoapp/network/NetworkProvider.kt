@@ -9,6 +9,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.intellij.lang.annotations.Language
 import org.threeten.bp.OffsetDateTime
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -88,13 +89,11 @@ class NetworkProvider {
         latitude: Double,
         longitude: Double,
         start_Date: OffsetDateTime,
-        end_Date: OffsetDateTime
+        end_Date: OffsetDateTime,
     ): List<WeatherSummary> {
         return provideWeatherService().getWeeklySummary(
             latitude = latitude,
             longitude = longitude,
-//            startDate = start_Date.toLocalDate(),
-//            endDate = end_Date.toLocalDate()
         ).body()?.daily?.toDomain() ?: emptyList()
     }
 
@@ -109,12 +108,13 @@ class NetworkProvider {
             longitude = longitude,
             startDate = start_Date.toLocalDate(),
             endDate = end_Date.toLocalDate()
-        ).hourly.toDomain()
+        ).body()?.hourly?.toDomain() ?: emptyList()
     }
 
-    suspend fun getPlace(place: String): List<Place> {
+    suspend fun getPlace(place: String, language: String): List<Place> {
         return provideGeocodingService().getCityInfo(
-            name = place
+            name = place,
+            language = language
         ).toDomain()
     }
 }

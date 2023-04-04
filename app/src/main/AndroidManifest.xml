@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 <uses-permission android:name="android.permission.INTERNET"/>
     <application
+        android:name=".ApplicationMeteo"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/meteoapp_icon_com"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/meteoapp_icon_com_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Meteoapp"
         tools:targetApi="31">

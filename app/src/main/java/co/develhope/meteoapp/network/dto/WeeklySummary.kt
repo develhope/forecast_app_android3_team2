@@ -1,8 +1,6 @@
 package co.develhope.meteoapp.network.dto
 
 
-import co.develhope.meteoapp.data.domainmodel.WeatherSummary
-import co.develhope.meteoapp.data.domainmodel.getWeatherType
 import com.google.gson.annotations.SerializedName
 
 data class WeeklySummary(

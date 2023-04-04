@@ -9,14 +9,19 @@
         android:name="co.develhope.meteoapp.ui.HomePageFragment"
         android:label="HomePageFragment" >
         <action
-            android:id="@+id/action_homePageFragment_to_specificDayFragment"
-            app:destination="@id/specificDayFragment"
-            app:popUpTo="@id/homePageFragment"
-            app:popUpToSaveState="true"
+            android:id="@+id/action_homePageFragment_to_TodayFragment"
+            app:destination="@id/todayFragment"
+
             />
         <action
             android:id="@+id/action_homePageFragment_to_searchFragment"
             app:destination="@id/searchFragment"
+            />
+        <action
+            android:id="@+id/action_homePageFragment_to_tomorrowFragment"
+            app:destination="@id/tomorrowFragment"
+            app:popUpTo="@id/homePageFragment"
+            app:popUpToSaveState="true"
             />
     </fragment>
     <fragment
@@ -31,12 +36,24 @@
 
     </fragment>
     <fragment
-        android:id="@+id/specificDayFragment"
-        android:name="co.develhope.meteoapp.ui.SpecificDayFragment"
-        android:label="SpecificDayFragment" >
+        android:id="@+id/todayFragment"
+        android:name="co.develhope.meteoapp.ui.TodayFragment"
+        android:label="TodayFragment" >
         <action
-            android:id="@+id/action_specificDayFragment_to_homePageFragment"
+            android:id="@+id/action_TodayFragment_to_homePageFragment"
             app:destination="@id/homePageFragment"
             />
+    </fragment>
+    <fragment
+        android:id="@+id/tomorrowFragment"
+        android:name="co.develhope.meteoapp.ui.TomorrowFragment"
+        android:label="TomorrowFragment" >
+        <action
+            android:id="@+id/action_tomorrowFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment" />
+        <argument
+            android:name="date"
+            app:argType="string"
+            android:defaultValue="tomorrow" />
     </fragment>
 </navigation>

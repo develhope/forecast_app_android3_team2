@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="#F0EFFF"
     android:orientation="vertical"
     tools:context=".ui.SearchFragment">
 
@@ -16,7 +16,7 @@
             android:layout_height="@dimen/height_48_dp"
             android:layout_marginStart="@dimen/margin_18_dp"
             android:layout_marginTop="@dimen/margin_24_dp"
-            android:layout_marginEnd="18dp"
+            android:layout_marginEnd="@dimen/margin_18_dp"
             android:background="@drawable/search_bar_shape"
             android:contextClickable="true"
             android:drawableStart="@drawable/search_1"
