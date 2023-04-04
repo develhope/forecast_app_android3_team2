@@ -1,7 +1,6 @@
 package co.develhope.meteoapp.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,15 +10,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.ApplicationMeteo
-import co.develhope.meteoapp.OnCardClick
+import co.develhope.meteoapp.ui.utils.OnCardClick
 import co.develhope.meteoapp.R
 import co.develhope.meteoapp.data.DataSource.saveDate
-import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.ui.adapter.HomePageAdapter
 import co.develhope.meteoapp.ui.adapter.HomePageItem
-import co.develhope.meteoapp.ui.adapter.HomepageAction
-import co.develhope.meteoapp.ui.adapter.SearchAction
 import co.develhope.meteoapp.ui.model.HomePageResult
 import co.develhope.meteoapp.ui.model.HomePageViewModel
 import co.develhope.meteoapp.ui.utils.createListToShowHome

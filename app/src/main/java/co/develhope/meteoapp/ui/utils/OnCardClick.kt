@@ -1,4 +1,4 @@
-package co.develhope.meteoapp
+package co.develhope.meteoapp.ui.utils
 
 import co.develhope.meteoapp.ui.adapter.HomePageItem
 import java.time.OffsetDateTime

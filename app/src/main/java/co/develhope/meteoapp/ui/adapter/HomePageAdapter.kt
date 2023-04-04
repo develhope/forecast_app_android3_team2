@@ -1,22 +1,16 @@
 package co.develhope.meteoapp.ui.adapter
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import co.develhope.meteoapp.ApplicationMeteo
-import co.develhope.meteoapp.OnCardClick
+import co.develhope.meteoapp.ui.utils.OnCardClick
 import co.develhope.meteoapp.R
-import co.develhope.meteoapp.data.DataSource.saveDate
 import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
-import co.develhope.meteoapp.ui.utils.createListToShowSpecificDay
 import co.develhope.meteoapp.ui.utils.getLocalizedDay
-import org.threeten.bp.LocalDate
 import org.threeten.bp.OffsetDateTime
-import java.util.Calendar
 
 
 sealed class HomepageAction(){
