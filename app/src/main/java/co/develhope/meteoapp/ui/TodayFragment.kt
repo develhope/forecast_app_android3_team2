@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.develhope.meteoapp.ApplicationMeteo
 import co.develhope.meteoapp.data.domainmodel.HourlyForecast
 import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.databinding.FragmentSpecificDayBinding
@@ -44,7 +43,6 @@ class TodayFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         viewModel.getTodayHourlyForecast()
-
         setupTodayObserver()
     }
 
@@ -54,14 +52,10 @@ class TodayFragment : Fragment() {
                 is TodayResult.Error -> TODO()
                 is TodayResult.Success -> {
 
-                    val filteredList: List<HourlyForecast> =
-                        if (ApplicationMeteo.preferences?.getPreferenceDate()!!.dayOfYear == OffsetDateTime.now().dayOfYear) {
-                            it.list.filter { hourlyForecast ->
-                                hourlyForecast.hourlySpecificDay.time.isAfter(OffsetDateTime.now())
-                            }
-                        } else {
-                            it.list
-                        }
+                    val filteredList = it.list.filter { hourlyForecast ->
+                        hourlyForecast.hourlySpecificDay.time.isAfter(OffsetDateTime.now())
+                    }
+
                     val specificDayItems =
                         createListToShowSpecificDay(filteredList, it.place, it.date)
                     val adapter = SpecificDayAdapter(specificDayItems)
@@ -69,28 +63,7 @@ class TodayFragment : Fragment() {
                 }
                 TodayResult.GenericError -> TODO()
             }
-
         }
-
-    }
-
-    private fun createListHour(
-        list: List<HourlyForecast>,
-        place: Place,
-        date: OffsetDateTime
-    ): List<SpecificDayModel> {
-        val listToReturn = mutableListOf<SpecificDayModel>()
-
-        listToReturn.add(SpecificDayModel.SpecificDayTitle(place, date))
-
-
-        val otherHours: MutableList<SpecificDayModel.SpecificDayHourly> = list.map {
-            SpecificDayModel.SpecificDayHourly(it)
-        }.toMutableList()
-        listToReturn.addAll(otherHours)
-
-        return listToReturn
-
     }
 }
 

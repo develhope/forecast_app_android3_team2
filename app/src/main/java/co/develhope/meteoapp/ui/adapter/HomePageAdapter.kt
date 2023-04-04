@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.meteoapp.ApplicationMeteo
+import co.develhope.meteoapp.OnCardClick
 import co.develhope.meteoapp.R
+import co.develhope.meteoapp.data.DataSource.saveDate
 import co.develhope.meteoapp.databinding.CurrentCityTemplateBinding
 import co.develhope.meteoapp.databinding.SubtitleTemplateBinding
 import co.develhope.meteoapp.databinding.TemplateCardBinding
@@ -19,12 +21,11 @@ import java.util.Calendar
 
 sealed class HomepageAction(){
     data class CardClick(val date: OffsetDateTime) : HomepageAction(){
-
     }
 }
 class HomePageAdapter(
     private val dataset: List<HomePageItem>,
-    private val action: (HomepageAction) -> Unit
+    private val action: OnCardClick
 
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -79,7 +80,7 @@ class HomePageAdapter(
     class CardViewHolder(private val binding: TemplateCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("StringFormatMatches")
-        fun bind(cardItem: HomePageItem.CardItem, action: (HomepageAction) -> Unit, position: Int) {
+        fun bind(cardItem: HomePageItem.CardItem, action: OnCardClick, position: Int) {
 
             binding.day.text = itemView.context.getString(
                 R.string.oggi,
@@ -104,11 +105,7 @@ class HomePageAdapter(
                 itemView.context.getString(R.string.rain, cardItem.dailyForecast.rain.toString())
             binding.imagetype.setImageResource(cardItem.dailyForecast.weatherType.setIconWeatherType())
             binding.templateCard.setOnClickListener {
-                ApplicationMeteo.preferences?.savePreferenceDate(cardItem.dailyForecast.date)
-                action(
-                    HomepageAction.CardClick
-                        (date = cardItem.dailyForecast.date)
-                )
+             action.click(cardItem)
             }
         }
 

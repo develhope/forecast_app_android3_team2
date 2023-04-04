@@ -11,10 +11,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.ApplicationMeteo
+import co.develhope.meteoapp.OnCardClick
 import co.develhope.meteoapp.R
+import co.develhope.meteoapp.data.DataSource.saveDate
 import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.databinding.FragmentHomepageBinding
 import co.develhope.meteoapp.ui.adapter.HomePageAdapter
+import co.develhope.meteoapp.ui.adapter.HomePageItem
 import co.develhope.meteoapp.ui.adapter.HomepageAction
 import co.develhope.meteoapp.ui.adapter.SearchAction
 import co.develhope.meteoapp.ui.model.HomePageResult
@@ -53,7 +56,7 @@ class HomePageFragment : Fragment() {
         if (ApplicationMeteo.preferences?.getPreferencePlace() == null) {
             findNavController().navigate(R.id.searchFragment)
         } else {
-            ApplicationMeteo.preferences?.savePreferenceDate(OffsetDateTime.now())
+            saveDate(OffsetDateTime.now())
             setupObserverHome()
             viewModel.getHomeCoroutine()
         }
@@ -71,16 +74,13 @@ class HomePageFragment : Fragment() {
 
                 is HomePageResult.Success -> {
                     val adapterCard =
-                        HomePageAdapter(createListToShowHome(it.list, it.place, it.date)) { page ->
-                            when (page) {
-                                is HomepageAction.CardClick -> {
-                                    ApplicationMeteo.preferences?.savePreferenceDate(it.date)
-                                    Log.d("dataSalvata","${it.date}")
-                                    findNavController().navigate(R.id.action_homePageFragment_to_tomorrowFragment)
-                                }
-
+                        HomePageAdapter(createListToShowHome(it.list, it.place, it.date),object : OnCardClick{
+                            override fun click(cardItem: HomePageItem.CardItem) {
+                                val action = HomePageFragmentDirections.actionHomePageFragmentToTomorrowFragment(cardItem.dailyForecast.date.toString())
+                                findNavController().navigate(action)
                             }
-                        }
+
+                        })
                     binding.RVhome.adapter = adapterCard
 
                 }

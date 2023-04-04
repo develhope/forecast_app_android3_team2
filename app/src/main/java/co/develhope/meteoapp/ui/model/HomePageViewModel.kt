@@ -29,7 +29,7 @@ class HomePageViewModel :ViewModel() {
         viewModelScope.launch {
             try {
                 val place = ApplicationMeteo.preferences?.getPreferencePlace()
-                val date = ApplicationMeteo.preferences?.getPreferenceDate()
+                val date = OffsetDateTime.now()
 
                 if (place != null && date != null){
                     val palermo: List<WeatherSummary> = NetworkProvider().getWeekSummary(

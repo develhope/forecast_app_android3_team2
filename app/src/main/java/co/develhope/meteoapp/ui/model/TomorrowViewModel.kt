@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import co.develhope.meteoapp.ApplicationMeteo
+import co.develhope.meteoapp.data.DataSource
 import co.develhope.meteoapp.data.domainmodel.HourlyForecast
 import co.develhope.meteoapp.data.domainmodel.Place
 import co.develhope.meteoapp.network.NetworkProvider

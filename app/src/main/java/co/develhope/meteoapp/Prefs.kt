@@ -12,7 +12,6 @@ import org.threeten.bp.OffsetDateTime
 class Prefs(context: Context) {
    val preferencesPlace = context.getSharedPreferences("place",Context.MODE_PRIVATE)
 
-   val preferencesDate = context.getSharedPreferences("date", Context.MODE_PRIVATE)
    val preferencesRecentSearch = context.getSharedPreferences("recentSearch", Context.MODE_PRIVATE)
 
    private val gson = GsonBuilder().create()
@@ -30,21 +29,11 @@ class Prefs(context: Context) {
       return  jsonPlace?.let { place }
    }
 
-   fun savePreferenceDate(date: OffsetDateTime){
-      val dateString : String = gson.toJson(date)
-      preferencesDate.edit().putString("date",dateString).apply()
-   }
 
-   fun getPreferenceDate(): OffsetDateTime{
-      val jsonDate = preferencesDate.getString("date",null)
-      val itemType = object : TypeToken<OffsetDateTime>() {}.type
-      val date = gson.fromJson<OffsetDateTime>(jsonDate,itemType)
-      return date
-   }
 
 
    fun saveRecentSearches(place : List<Place>){
-      val recentSearchString : String =gson.toJson(place)
+      val recentSearchString : String =Gson().toJson(place)
       preferencesRecentSearch.edit().putString("recentSearch",recentSearchString).apply()
 
    }

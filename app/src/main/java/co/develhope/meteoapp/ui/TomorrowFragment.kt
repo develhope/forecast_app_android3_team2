@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavArgs
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.meteoapp.ApplicationMeteo
+import co.develhope.meteoapp.data.DataSource.getDate
 import co.develhope.meteoapp.data.domainmodel.HourlyForecast
 import co.develhope.meteoapp.databinding.FragmentSpecificDayBinding
 import co.develhope.meteoapp.ui.adapter.SpecificDayAdapter
@@ -23,6 +26,7 @@ class TomorrowFragment : Fragment() {
     private var _binding: FragmentSpecificDayBinding? = null
     private lateinit var viewModel: TomorrowViewModel
     private val binding get() = _binding!!
+    private val args : TomorrowFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,17 +59,8 @@ class TomorrowFragment : Fragment() {
             when (it) {
                 is TomorrowResult.Error -> TODO()
                 is TomorrowResult.Success -> {
-
-                    val filteredList: List<HourlyForecast> =
-                        if (ApplicationMeteo.preferences?.getPreferenceDate()!!.dayOfYear == OffsetDateTime.now().dayOfYear) {
-                            it.list.filter { hourlyForecast ->
-                                hourlyForecast.hourlySpecificDay.time.isAfter(OffsetDateTime.now())
-                            }
-                        } else {
-                            it.list
-                        }
                     val specificDayItems =
-                        createListToShowSpecificDay(filteredList, it.place, it.date)
+                        createListToShowSpecificDay(it.list,it.place, selectDate())
                     val adapter = SpecificDayAdapter(specificDayItems)
                     binding.itemSpecificday.adapter = adapter
                 }
@@ -75,4 +70,12 @@ class TomorrowFragment : Fragment() {
         }
 
     }
-}
+    fun selectDate() : OffsetDateTime {
+        if (args.date.equals("tomorrow")) {
+            return OffsetDateTime.now().plusDays(1)
+        } else {
+            return OffsetDateTime.parse(args.date)
+        }
+    }
+    }
+

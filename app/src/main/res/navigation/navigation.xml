@@ -51,5 +51,9 @@
         <action
             android:id="@+id/action_tomorrowFragment_to_homePageFragment"
             app:destination="@id/homePageFragment" />
+        <argument
+            android:name="date"
+            app:argType="string"
+            android:defaultValue="tomorrow" />
     </fragment>
 </navigation>

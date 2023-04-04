@@ -53,9 +53,8 @@ class SearchViewModel : ViewModel() {
         loadList.add(place)
         if(loadList.size >6){
             loadList.removeFirst()
-            ApplicationMeteo.preferences?.saveRecentSearches(loadList)
-            return
         }
+
         ApplicationMeteo.preferences?.saveRecentSearches(loadList)
     }
 
